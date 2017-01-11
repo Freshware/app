@@ -1,0 +1,12 @@
+{
+  "name": "Krion",
+  "version": "1.0.0",
+  "description": "> An app for Krion@",
+  "license": "Apache-2.0.0",
+  "keywords": [
+    "ecosystem:phonegap",
+    "ecosystem:cordova",
+    "cordova:template",
+    "phonegap:template"
+  ]
+}

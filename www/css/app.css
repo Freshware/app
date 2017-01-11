@@ -1,0 +1,553 @@
+/**
+ * Description: Hoja de estilos para Krion
+ * Version: 1.0.0
+ * Last update: 
+ * Author: Francisco Pérez <info@freshware.es>
+ffff
+ */
+
+/* ==========================================================================
+   Fonts
+   ========================================================================== */
+@font-face {
+	font-family: 'Gotham Ultra';
+	src: url('fonts/Gotham-Ultra.eot');
+	src: url('fonts/Gotham-Ultra.eot?#iefix') format('embedded-opentype'),
+		url('fonts/Gotham-Ultra.woff') format('woff'),
+		url('fonts/Gotham-Ultra.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gotham';
+	src: url('Gotham-Black.eot');
+	src: url('fonts/Gotham-Black.eot?#iefix') format('embedded-opentype'),
+		url('fonts/Gotham-Black.woff') format('woff'),
+		url('fonts/Gotham-Black.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gotham';
+	src: url('Gotham-Thin.eot');
+	src: url('fonts/Gotham-Thin.eot?#iefix') format('embedded-opentype'),
+		url('fonts/Gotham-Thin.woff') format('woff'),
+		url('fonts/Gotham-Thin.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gotham';
+	src: url('Gotham-Bold.eot');
+	src: url('fonts/Gotham-Bold.eot?#iefix') format('embedded-opentype'),
+		url('fonts/Gotham-Bold.woff') format('woff'),
+		url('fonts/Gotham-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gotham';
+	src: url('Gotham-Light.eot');
+	src: url('fonts/Gotham-Light.eot?#iefix') format('embedded-opentype'),
+		url('fonts/Gotham-Light.woff') format('woff'),
+		url('fonts/Gotham-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gotham Book';
+	src: url('Gotham-Book.eot');
+	src: url('fonts/Gotham-Book.eot?#iefix') format('embedded-opentype'),
+		url('fonts/Gotham-Book.woff') format('woff'),
+		url('fonts/Gotham-Book.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Gotham';
+	src: url('Gotham-Medium.eot');
+	src: url('fonts/Gotham-Medium.eot?#iefix') format('embedded-opentype'),
+		url('fonts/Gotham-Medium.woff') format('woff'),
+		url('fonts/Gotham-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+/* ==========================================================================
+   Común
+   ========================================================================== */
+html,
+body
+{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+    font-family: 'Gotham';
+    font-weight: normal;
+}
+
+a
+{
+	color: #FFF;
+}
+
+.main-container
+{
+	padding: 40px 50px 40px 45px !important;
+    padding: 55px 65px 55px 60px !important;
+}
+
+
+.height100
+{
+	height: 100% !important;
+}
+
+.info-content
+{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    color: white;
+}
+.sections .info-content{
+    position: fixed;
+    width: 90%;
+}
+
+.info-content h1
+{
+	margin-top: 10px;
+    -webkit-filter: drop-shadow(2px 2px 0px rgba(0,0,0,.42));
+    -moz-filter: drop-shadow(2px 2px 0px rgba(0,0,0,.42));
+    -ms-filter: drop-shadow(2px 2px 0px rgba(0,0,0,.42));
+    -o-filter: drop-shadow(2px 2px 0px rgba(0,0,0,.42));
+    filter: drop-shadow(2px 2px 0px rgba(0,0,0,.42));
+    font-size: 48px;
+    margin: 40px 20%;
+}
+.info-content .logohome{
+    background-image: url('../img/common/logo-white.png');
+    height: 100px;
+    width: 200px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    left: 50%;
+    margin-left: -100px;
+    position: relative;
+    width: 200px;
+    
+}
+.info-content .separatorminihome{
+    background-image: url('../img/common/line-horizontal.png');
+    height: 2px;
+    width: 200px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: relative;
+    width: 100%;
+    margin: 22px 0 22px 0;
+}
+.info-content a{
+     font-family: "Gotham";
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 300;
+    padding: 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+.info-content a:first-child{
+    border: none;
+}
+.info-content a:hover{
+    color: white;
+    text-decoration: none;
+}
+
+.whiteSpace
+{
+	background: #FFF;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 6;
+}
+
+.logo-sup
+{
+	max-height: 50px;
+}
+
+
+
+
+/* ==========================================================================
+   Menú
+   ========================================================================== */
+.menu-link
+{
+	padding: 20px 0;
+    position: absolute;
+    right: 14px;
+    top: 0;
+    z-index: 20;
+}
+
+.menu-link > div > ul
+{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 100%;
+}
+
+.menu-link > div > ul > li
+{
+	font-size: 40px;
+}
+.menu-link > .info-content > ul > li
+{
+	font-size: 0px;
+}
+.info-content a.menu-link-anchor{
+    font-family: sans-serif;
+    /*font-size: 81px;
+    line-height: 47px;*/
+}
+ol{
+    position: relative;
+    right: 20px;
+    text-align: center;
+}
+ol li{
+    background: #b2b2b2 none repeat scroll 0 0;
+    border-radius: 50%;
+    bottom: -17px;
+    cursor: pointer;
+    display: inline-block;
+    height: 10px;
+    /*margin: 16px 0;*/
+    margin: 21px 0;
+    position: relative;
+    width: 10px;
+}
+.menu-link a{
+    padding: 7px;
+    position: relative;
+    right: 3px;
+    
+}
+.menu-link a:hover{
+
+}
+
+.menu-link > div > ul > li > a
+{
+	color: #000;
+}
+
+.menu-link > div > ul > li > a:hover
+{
+	text-decoration: none;
+}
+
+.c-hamburger
+{
+	display: block;
+	position: relative;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	/*width: 96px;*/
+	width: 40px;
+    height: 36px;
+	/*height: 96px;*/
+	font-size: 0;
+	text-indent: -9999px;
+	appearance: none;
+	box-shadow: none;
+	border-radius: none;
+	border: none;
+	cursor: pointer;
+	transition: background 0.3s;
+}
+
+.c-hamburger:focus
+{
+	outline: none;
+}
+
+.c-hamburger span
+{
+	display: block;
+	position: absolute;
+	top: 10px;
+	left: 8px;
+	right: 8px;
+	height: 3px;
+	background: #AAA;
+}
+
+.c-hamburger span::before,
+.c-hamburger span::after
+{
+	position: absolute;
+	display: block;
+	left: 0;
+	width: 100%;
+	height: 3px;
+	background-color: #AAA;
+	content: "";
+}
+
+.c-hamburger span::before
+{
+	top: -8px;
+}
+
+.c-hamburger span::after
+{
+	bottom: -8px;
+}
+
+.c-hamburger--htx
+{
+	/*background-color: #ff3264;*/
+    background-color: transparent;
+}
+
+.c-hamburger--htx span
+{
+	transition: background 0s 0.3s;
+}
+
+.c-hamburger--htx span::before,
+.c-hamburger--htx span::after
+{
+	transition-duration: 0.3s, 0.3s;
+	transition-delay: 0.3s, 0s;
+}
+
+.c-hamburger--htx span::before
+{
+	transition-property: top, transform;
+}
+
+.c-hamburger--htx span::after
+{
+	transition-property: bottom, transform;
+}
+
+/* active state, i.e. menu open */
+.c-hamburger--htx.is-active
+{
+	/*background-color: #cb0032;*/
+}
+
+.c-hamburger--htx.is-active span
+{
+	background: none;
+}
+
+.c-hamburger--htx.is-active span::before
+{
+	top: 0;
+	transform: rotate(45deg);
+}
+
+.c-hamburger--htx.is-active span::after
+{
+	bottom: 0;
+	transform: rotate(-45deg);
+}
+
+.c-hamburger--htx.is-active span::before,
+.c-hamburger--htx.is-active span::after
+{
+	transition-delay: 0s, 0.3s;
+}
+
+
+
+/* ==========================================================================
+   Home
+   ========================================================================== */
+.sections
+{
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+}
+
+.section
+{
+	width: 100%;
+	position: absolute;
+	top: 0;
+	z-index: 0;
+	background-attachment: fixed !important;
+	-webkit-overflow-scrolling: touch;
+}
+
+.section1
+{
+	background: url('../img/0-home/1.jpg') no-repeat center center;
+	background-size: cover;
+	z-index: 1;
+}
+
+.section2
+{
+	background: url('../img/0-home/2.jpg') no-repeat center center;
+	background-size: cover;
+}
+
+.section2 > div
+{
+	position: absolute;
+}
+
+.section3
+{
+	background: url('../img/0-home/3.jpg') no-repeat center center;
+	background-size: cover;
+}
+
+.section4
+{
+	background: url('../img/0-home/4.jpg') no-repeat center center;
+	background-size: cover;
+}
+
+.section5
+{
+	background: url('../img/0-home/5.jpg') no-repeat center center;
+	background-size: cover;
+}
+
+
+
+/* ==========================================================================
+   1-Krion
+   ========================================================================== */
+.krion
+{
+    overflow: hidden;
+}
+
+.krion img
+{
+	width: 100%;
+	height: auto;
+}
+
+.krion .info-side
+{
+	margin: 40px auto -40px;
+}
+
+.krion .contenedor-bullets
+{
+	position: absolute;
+	bottom: 40px;
+	width: 100%;
+}
+
+.krion .contenedor-bullets .contenedor-menu-bullets
+{
+	float: right;
+	position: relative;
+	left: -50%;
+	text-align: left;
+}
+
+.krion .contenedor-bullets .contenedor-menu-bullets ul
+{
+	width: 100%;
+	list-style: none;
+    position: relative;
+    left: 50%;
+}
+
+.krion .contenedor-bullets .contenedor-menu-bullets ul li
+{
+	float: left;
+	position: relative;
+	margin: auto 10px;
+}
+
+.krion .contenedor-bullets .contenedor-menu-bullets ul li a
+{
+	font-size: 25px;
+	color: #000;
+}
+
+.krion .contenedor-info
+{
+	overflow: hidden;
+	position: relative;
+	height: 100%;
+}
+
+.krion .contenedor-info-item
+{
+	width: 100%;
+	position: absolute;
+	left: 0;
+	z-index: 0;
+	background: #FFF;
+}
+
+.krion .contenedor-info-item-active
+{
+	z-index: 1;
+}
+
+
+
+.glyphicon-refresh-animate
+{
+    -animation: spin .7s infinite linear;
+    -webkit-animation: spin2 .7s infinite linear;
+}
+
+@-webkit-keyframes spin2
+{
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin
+{
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
