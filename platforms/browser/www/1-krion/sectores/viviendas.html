@@ -96,6 +96,14 @@
 		<script src="../../cordova.js"></script>
 		<script src="../../js/app.js"></script>
 		<script type="text/javascript">
+			$('.fresh-lightbox').on('click', function() {
+				var fresh_lightbox = '<div id="fresh-lightbox"></div>';
+
+				$('body').append(fresh_lightbox);
+
+				$('#fresh-lightbox').css('width', $(window).width());
+				$('#fresh-lightbox').css('height', $(window).height());
+			});
 		</script>
 	</body>
 </html>
