@@ -276,13 +276,13 @@ a
    ========================================================================== */
 #fresh-lightbox
 {
-	position: absolute;
-	top: -5%;
-	left: -5%;
-	width: 110%;
-	height: 110%;
-	background: red;
-	z-index: 100;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #FFF;
+	z-index: 1000;
 }
 
 
@@ -690,7 +690,8 @@ ol li{
     overflow: hidden;
 }
 
-.krion img
+.krion img,
+.item-sector img
 {
 	width: 100%;
 	height: auto;
@@ -730,21 +731,21 @@ ol li{
 	width: auto;
 }
 
-.krion.sector .item-sector
+.item-sector
 {
 	height: 435px;
     background: url(../img/common/sector-row-background.jpg) repeat-y;
     background-size: 100% auto;
     padding: 50px 0;
-    margin: 10px auto 20px;
+    margin: 0px auto 75px;
 }
 
-.krion.sector .item-sector h3
+.item-sector h3
 {
 	margin-top: 0;
 }
 
-.krion.sector .item-sector h3:after
+.item-sector h3:after
 {
 	border-bottom: 4px solid #4a4a4a;
     content: "";
@@ -753,7 +754,7 @@ ol li{
     width: 50px;
 }
 
-.krion.sector .item-sector p
+.item-sector p
 {
 	margin-bottom: 30px;
 }

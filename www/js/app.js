@@ -4,8 +4,8 @@ function init()
 {
 	navigator.splashscreen.hide();
 
-	this.CordovaView.DisableBouncyScrolling = true;
-    this.CordovaView.Loaded += CordovaView_Loaded;
+	// this.CordovaView.DisableBouncyScrolling = true;
+ //    this.CordovaView.Loaded += CordovaView_Loaded;
 	
 	$('#startMainDownload').on('click', function() {
 		$(this).empty();
