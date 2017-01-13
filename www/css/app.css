@@ -78,6 +78,9 @@ ffff
 	font-weight: 500;
 	font-style: normal;
 }
+
+
+
 /* ==========================================================================
    Común
    ========================================================================== */
@@ -186,6 +189,21 @@ a
 .logo-sup
 {
 	max-height: 50px;
+}
+
+.no-padding-right
+{
+	padding-right: 0 !important;
+}
+
+.no-padding-left
+{
+	padding-left: 0 !important;
+}
+
+.no-padding
+{
+	padding: 0 !important;
 }
 
 
@@ -644,6 +662,49 @@ ol li{
 	left: 0;
 	z-index: 0;
 	background: #FFF;
+}
+
+.krion.sector
+{
+	padding-top: 40px;
+}
+
+.krion.sector .sector-title
+{
+	margin-bottom: 30px;
+}
+
+.krion.sector .sector-title img.sector-logo
+{
+	width: auto;
+}
+
+.krion.sector .item-sector
+{
+	height: 435px;
+    background: url(../img/common/sector-row-background.jpg) repeat-y;
+    background-size: 100% auto;
+    padding: 50px 0;
+    margin: 10px auto 20px;
+}
+
+.krion.sector .item-sector h3
+{
+	margin-top: 0;
+}
+
+.krion.sector .item-sector h3:after
+{
+	border-bottom: 4px solid #4a4a4a;
+    content: "";
+    display: block;
+    margin: 10px 0 40px;
+    width: 50px;
+}
+
+.krion.sector .item-sector p
+{
+	margin-bottom: 30px;
 }
 
 
