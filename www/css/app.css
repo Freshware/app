@@ -217,7 +217,43 @@ a
 	height: 75%;
 }
 
-.fresh-remodal .remodal-content
+.fresh-remodal-img
+{
+	width: 100%;
+	height: 100%;
+}
+
+.fresh-remodal-logo-krion
+{
+	position: absolute;
+	bottom: 10px;
+	left: 20px;
+}
+
+.fresh-remodal-info
+{
+	padding-top: 75px;
+}
+
+.fresh-remodal-logo-krion img
+{
+	height: 40px;
+}
+
+.fresh-remodal-close
+{
+	position: absolute;
+	top: 5px;
+    right: 20px;
+}
+
+.fresh-remodal-close img
+{
+	width: 50px;
+	height: 50px;
+}
+
+/*.fresh-remodal .remodal-content
 {
 	background: #FFF;
     padding: 30px;
@@ -231,7 +267,7 @@ a
 .fresh-remodal .remodal-content h3
 {
 	margin-top: 0;
-}
+}*/
 
 
 
