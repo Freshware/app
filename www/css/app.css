@@ -834,13 +834,106 @@ ol li{
 	/**/
 }
 
+.productos > .logo,
+.productos > .menu
+{
+	position: absolute;
+	z-index: 1;
+	top: 15px;
+}
+
+.productos > .logo
+{
+	left: 15px;
+}
+
+.productos > .menu
+{
+	right: 15px;
+}
+
+.productos > .productos-header
+{
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/2-productos/2-1/slide/planchas.jpg');
+    background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/2-productos/2-1/slide/planchas.jpg');
+    background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/2-productos/2-1/slide/planchas.jpg');
+    background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/2-productos/2-1/slide/planchas.jpg');
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url('../img/2-productos/2-1/slide/planchas.jpg');
+    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/2-productos/2-1/slide/planchas.jpg');
+    height: 600px;
+}
+
 .productos > [class^="col-"] > img
 {
 	width: 100%;
 }
 
+.productos > .productos-header > img
+{
+	width: 50%;
+    top: 20%;
+    position: absolute;
+    left: 15%;
+    box-shadow: 5px 5px 10px #666;
+}
+
+.productos > .productos-header > .productos-subheader
+{
+	top: 40%;
+	left: 40%;
+}
+
+.productos > .productos-header > .productos-subheader
+{
+	padding: 20px 35px;
+	background: #FFF;
+	width: 50%;
+	left: 40%;
+	top: 55%;
+	position: absolute;
+}
+
+.productos > .productos-header > .productos-subheader > img
+{
+	width: auto;
+	height: 25px;
+}
+
+.productos > .productos-header > .productos-subheader > h1
+{
+	margin: 20px auto 0px;
+    color: #000;
+    padding: 0;
+}
+
+.productos > .productos-header > .productos-subheader > h1:before
+{
+    content: "";
+    border-top: 2px solid #000;
+    padding-right: 125px;
+    position: absolute;
+    right: 35px;
+    margin-top: -8px;
+}
+
+.productos > .productos-header > .productos-subheader > h4
+{
+	color: #787878;
+    margin-top: 5px;
+}
+
+.productos .c-hamburger span::before,
+.productos .c-hamburger span::after,
+.productos .c-hamburger span
+{
+	background: #FFF;
+}
 
 
+
+/* ==========================================================================
+   Pep extra
+   ========================================================================== */
 .glyphicon-refresh-animate
 {
     -animation: spin .7s infinite linear;
