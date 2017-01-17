@@ -863,7 +863,7 @@ ol li{
     height: 600px;
 }
 
-.productos > [class^="col-"] > img
+.productos > .row > [class^="col-"] > .productos-filter-content > .productos-filter-item > a > img
 {
 	width: 100%;
 }
@@ -874,13 +874,6 @@ ol li{
     top: 20%;
     position: absolute;
     left: 15%;
-    box-shadow: 5px 5px 10px #666;
-}
-
-.productos > .productos-header > .productos-subheader
-{
-	top: 40%;
-	left: 40%;
 }
 
 .productos > .productos-header > .productos-subheader
@@ -920,6 +913,32 @@ ol li{
 {
 	color: #787878;
     margin-top: 5px;
+}
+
+.productos .productos-filter a
+{
+	color: #333;
+}
+
+.productos > .productos-filter
+{
+	margin-top: 30px;
+}
+
+.productos > .productos-filter > .row:first-child
+{
+	padding-bottom: 30px;
+}
+
+.productos > .productos-filter > .row:first-child > [class^="col-"] > .row > [class^="col-"]
+{
+	margin-bottom: 10px;
+}
+
+.productos > .productos-filter > .row:last-child
+{
+	border-top: 1px solid #999;
+	padding-top: 30px;
 }
 
 .productos .c-hamburger span::before,
