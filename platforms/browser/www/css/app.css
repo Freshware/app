@@ -948,6 +948,28 @@ ol li{
 	background: #FFF;
 }
 
+a.is-checked
+{
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.productos-filter-opciones .productos-filter-opciones-advanced a.opciones-visualizacion-link img
+{
+	height: 30px;
+}
+
+.productos-filter-opciones-advanced a.is-checked
+{
+	border-bottom: 2px solid #333;
+}
+
+.productos-filter-opciones > .productos-filter-opciones-advanced > div > .row > div > .row > div,
+.productos-filter-opciones > .productos-filter-opciones-advanced > div > .row > div > .row > div > .row > div
+{
+	margin: 10px auto;
+}
+
 
 
 /* ==========================================================================
