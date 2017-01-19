@@ -297,6 +297,13 @@ a
 	background: #FFF;
 }
 
+#fresh-lightbox .fresh-lightbox-top.fresh-lightbox-top-productos
+{
+	background-image: url(../img/2-productos/2-1/slide/planchas.jpg);
+	background-repeat: no-repeat;
+	background-size: 50% auto;
+}
+
 #fresh-lightbox .fresh-lightbox-top .fresh-lightbox-close
 {
     position: relative;
@@ -338,6 +345,17 @@ a
 {
 	left: 0;
 	z-index: 1;
+}
+
+#fresh-lightbox .fresh-lightbox-content .fresh-lightbox-inner-content .fresh-lightbox-item .fresh-lightbox-item-img img
+{
+	width: 100%;
+	height: 100%;
+}
+
+#fresh-lightbox .fresh-lightbox-content .fresh-lightbox-inner-content .fresh-lightbox-item .fresh-lightbox-item-info
+{
+	background: #FFF;
 }
 
 
@@ -863,7 +881,12 @@ ol li{
     height: 600px;
 }
 
-.productos > .row > [class^="col-"] > .productos-filter-content > .productos-filter-item > a > img
+.productos > div > div > .productos-filter-content
+{
+	/*margin-left: -20px;*/
+}
+
+.productos > div > div > .productos-filter-content > .productos-filter-item > a > img
 {
 	width: 100%;
 }

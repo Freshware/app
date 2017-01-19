@@ -35,7 +35,7 @@
 
 			<div class="col-xs-12 productos-filter">
 				<div class="row">
-					<div class="col-xs-9 col-xs-offset-2">
+					<div class="col-xs-9 col-xs-offset-2 grupo-opciones">
 						<div class="row">
 							<div class="col-xs-3">
 								<a href="#" class="opciones-visualizacion-link" data-filter=".snow">SNOW Series</a>
@@ -59,7 +59,7 @@
 								<a href="#" class="opciones-visualizacion-link" data-filter=".royalplus">ROYAL + Series</a>
 							</div>
 							<div class="col-xs-3">
-								<a href="#" class="opciones-visualizacion-link" data-filter=".productos-filter-item">VER TODAS</a>
+								<a href="#" class="opciones-visualizacion-link" data-filter="">VER TODAS</a>
 							</div>
 							<div class="col-xs-3">
 								<a href="#" class="opciones-visualizacion-link" data-filter=".colorsplus">COLORS + Series</a>
@@ -200,12 +200,37 @@
 			</div>
 
 			<!-- Imágenes -->
-			<div class="row">
-				<div class="col-xs-12 no-padding">
+			<div class="col-xs-12 no-padding">
+				<div class="">
 					<div class="productos-filter-content">
 						<div class="col-xs-3 productos-filter-item no-padding nature marcado3 sol1 traslucidez reciclado banyo cocina">
-							<a href="#" class="producto-filter-item-link">
+							<a href="#" class="producto-filter-item-link" data-title="asdad" data-serie="Nature">
 								<img src="../img/2-productos/2-1/pics/0101.jpg" alt="Krion">
+								<div class="medidas hidden">
+									<div class="col-xs-4 product-atributo">6 mm - 1/4": </div>
+									<div class="col-xs-8 product-valor">
+										2500 mm - 98" / 760 mm - 30"<br>
+										2500 mm - 98" / 930 mm - 30"<br>
+										3680 mm - 145" / 760 mm - 30"<br>
+										3680 mm - 145" / 930 mm - 30"
+									</div>
+								</div>
+								<div class="medidas hidden">
+                                	<div class="col-xs-4 product-atributo">9 mm - 3/8": </div>
+									<div class="col-xs-8 product-valor">3680 mm - 145" / 760 mm - 30"</div>
+                                </div>
+                                <div class="medidas hidden">
+                                	<div class="col-xs-4 product-atributo">12 mm - 1/2": </div>
+									<div class="col-xs-8 product-valor">
+										3680 mm - 145" / 760 mm - 30"<br>
+										3680 mm - 145" / 930 mm - 30"<br>
+										3680 mm - 145" / 1350 mm - 30"<br>
+									</div>
+                                </div>
+                                <div class="medidas hidden">
+                                	<div class="col-xs-4 product-atributo">19 mm - 3/4": </div>
+									<div class="col-xs-8 product-valor">3680 mm - 145" / 760 mm - 30"<br></div>
+                                </div>
 							</a>
 						</div>
 						<div class="col-xs-3 productos-filter-item no-padding nature marcado3 sol3 reciclado banyo cocina">
@@ -661,6 +686,12 @@
 							});
 						});
 
+			$('.producto-filter-item-link').on('click', function(e) {
+				e.preventDefault();
+				
+				loadImageFresh($(this));
+			});
+
 			var filterValue = '';
 
 			$('.opciones-visualizacion-link').on( 'click', function(e) {
@@ -695,12 +726,6 @@
 				grid.isotope({ filter: filterValue });
 			});
 
-			$('a.producto-filter-item-link').on('click', function(e) {
-				e.preventDefault();
-
-				alert($(this).find('img').attr('src'));
-			});
-
 			function eliminarValor(element)
 			{
 				var clase_a_eliminar = element.data('filter');
@@ -719,6 +744,362 @@
 				}
 
 				return value;
+			}
+
+			function loadImageFresh(element)
+			{
+				// Generamos el contenedor básico del lightbox
+				var fresh_lightbox = '<div id="fresh-lightbox">' +
+										'<div class="fresh-lightbox-top fresh-lightbox-top-productos">' +
+											'<div class="fresh-lightbox-close">' +
+												'<a href="#" class="fresh-lightbox-close-link">' +
+													'<img src="../../img/common/close.png" alt="Krion">' +
+												'</a>' +
+											'</div>'+
+										'</div>'+
+										'<div class="fresh-lightbox-content">' +
+											'<div class="fresh-lightbox-inner-content">' +
+											'</div>'+
+										'</div>'+
+									 '</div>';
+
+				// Lo añadimos al final del body (el css indicamos que se vea por encima)
+				$('body').append(fresh_lightbox);
+
+				// Cuando sabemos que se ha creado le damos funciones a lo que nos interesa
+				var addFreshLighbox = setInterval(function() {
+					if ($('#fresh-lightbox').length > 0)
+					{
+						$('#fresh-lightbox').css('max-height', $(window).height());
+						$('#fresh-lightbox').fadeIn('fast')
+						clearInterval(addFreshLighbox);
+						loadFreshLightboxContent(element)
+					}
+				});
+			}
+
+			function loadFreshLightboxContent(element)
+			{
+				// Buscamos las imágenes que pertenecen
+				// al mismo grupo (identificado por el data-freshlightbox)
+				// var array_images = [];
+
+				// $('.fresh-lightbox[data-freshlightbox="' + dataValue + '"]').each(function(i, obj) {
+				// 	var img = $(this).find('img').attr('src');
+				// 	var clase = '';
+
+				// 	if (img == srcImage)
+				// 	{
+				// 		array_images['active'] = img;
+				// 		clase = ' fresh-lightbox-item-active';
+				// 	}
+				// 	else
+				// 	{
+				// 		array_images[i] = img;
+				// 	}
+
+				// 	$('.fresh-lightbox-inner-content').append('<div class="fresh-lightbox-item' + clase + '" data-target="' + i + '">'+
+				// 												'<img src="' + img + '" alt="Krion">' +
+				// 											  '</div>');
+				// });
+
+				// // Damos el tamaño adecuado al contenedor. Éste depende de la ventana 
+				// $('#fresh-lightbox .fresh-lightbox-content').css('height', (parseInt($(window).height()) - 80) + 'px');
+
+				// // A las imágenes de los elementos les damos el tamaño justo
+				// $('.fresh-lightbox-item img').css('width', $('.fresh-lightbox-content').width());
+				// $('.fresh-lightbox-item img').css('height', $('.fresh-lightbox-content').height());
+
+				// $('.fresh-lightbox-item').each(function() {
+				// 	if (! $(this).hasClass('fresh-lightbox-item-active'))
+				// 	{
+				// 		$(this).css('left', $(window).width());
+				// 	}
+				// });
+
+				var info = getBasicInfo(element);
+
+				$('.fresh-lightbox-inner-content').append('<div class="fresh-lightbox-item fresh-lightbox-item-active no-padding">' +
+															'<div class="row">' +
+																'<div class="col-xs-9 fresh-lightbox-item-img no-padding">' +
+																	'<img src="' + element.find('img').attr('src') + '" alt="Krion">' +
+																'</div>' +
+																'<div class="col-xs-3 fresh-lightbox-item-info no-padding">' +
+																	info + 
+																'</div>' +
+															'</div>' +
+															'<div class="col-xs-12">' +
+																'<div class="col-xs-12 fresh-lightbox-item-minilog no-padding">' +
+																	'<img src="../img/2-productos/2-1/icons/plus-k-bim.png">' +
+																'</div>' +
+															'</div>' +															
+														  '</div>');
+
+				// Damos el tamaño adecuado al contenedor. Éste depende de la ventana 
+				$('#fresh-lightbox .fresh-lightbox-content').css('height', (parseInt($(window).height())) + 'px');
+
+				// A las imágenes de los elementos les damos el tamaño justo
+				$('.fresh-lightbox-item').css('width', $('.fresh-lightbox-content').width());
+				$('.fresh-lightbox-item').css('height', $('.fresh-lightbox-content').height());
+				$('.fresh-lightbox-item-img img').css('height', $('.fresh-lightbox-content').height());
+				$('.fresh-lightbox-item-info').css('height', $('.fresh-lightbox-content').height());
+
+				// Ahora tenemos que dar funcionalidades a los contenidos
+				loadFreshLightboxFunctions()
+			}
+
+			function getBasicInfo(element)
+			{
+				var info = '<div class="col-xs-12">' +
+								'<div class="row">';
+
+				if (element.parent().hasClass('banyo'))
+				{
+					info = info + '<div class="col-xs-3 no-padding"><img src="../img/2-productos/2-1/icons/banyo.png" alt="Krion" class="col-xs-12"></div>';
+				}
+
+				if (element.parent().hasClass('cocina'))
+				{
+					info = info + '<div class="col-xs-3 no-padding"><img src="../img/2-productos/2-1/icons/cocina.png" alt="Krion" class="col-xs-12"></div>';
+				}
+
+				if (element.parent().hasClass('fachada'))
+				{
+					info = info + '<div class="col-xs-3"><img src="../img/2-productos/2-1/icons/fachada.png" alt="Krion" class="col-xs-12"></div>';
+				}
+
+				info = info + '</div>' +
+						'<div class="row">' +
+							'<div class="col-xs-12 fresh-lightbox-item-title">';
+
+				info = info + '<h3>' + element.data('title') + '</h3>' +
+							'</div>';
+
+				info = info + '<div class="col-xs-12 fresh-lightbox-item-title">';
+
+				info = info + '<h4>' + element.data('serie') + '</h4>';
+				
+				info = 		info + '</div>' +
+						'<div class="col-xs-12">' +
+							'<div class="col-xs-12 fresh-lightbox-item-regla">' +
+								'<img src="../img/2-productos/2-1/icons/regla.png">' +
+							'</div>' +
+						'</div>';
+
+				element.find('.medidas').each(function() {
+					var aux = $(this);
+
+					aux.removeClass('hidden');
+
+					info = info + aux.html();
+				});
+
+				return info;
+			}
+
+			function loadFreshLightboxFunctions()
+			{
+				// Funcionalidad de cerrar al aspa
+				$('.fresh-lightbox-close-link').on('click', function(e) {
+					e.preventDefault();
+					enableScroll();
+					$('#fresh-lightbox').fadeOut('fast', function() {
+						$('#fresh-lightbox').remove();
+					})
+				});
+
+				// Les añadirmos el evento Swipe a
+				// las imágenes
+				$('.fresh-lightbox-item').swipe({
+					// Manipulador genérico para todas las direcciones
+					swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+						// Solo necesitamos swipe para izquierda y derecha
+						if (direction == 'left' || direction == 'right')
+						{
+							// Ahora les añadimos la funcionalidad de mover los slides
+							moveSlides($(this), direction);
+						}
+					}
+				});
+
+				// Establecemos opciones más tarde
+				$('.fresh-lightbox-item').swipe({
+					fingers:1
+				});
+			}
+
+			// Función para mover los Slides
+			function moveSlides(element, direction)
+			{
+				var active = element;
+				var target_active = $('img[src$="' + element.find('img').attr('src') + '"]').parents('.productos-filter-item');
+				var target_next = obtenerNextTarget(element, direction, target_active);
+
+				// Si tenemos el target del siguiente elemento en aparecer
+				if (target_next != null && target_next != 'undefined')
+				{
+					// colocamos el siguiente elemento en la posición
+					// desde la que ha de salir
+					var next = colocarNextElement(target_next, direction, active);
+
+					var position = getFinalActivePosition(direction);
+
+					animarElementos(active, next, position);
+				}
+			}
+
+			function obtenerNextTarget(element, direction, target_active)
+			{
+				var target_next = null;
+
+				if (direction == 'left')
+				{
+					target_next = target_active.next();
+
+					if (! target_active.next().length)
+					{
+						return null;
+					}
+				}
+				else if (direction == 'right')
+				{
+					target_next = target_active.prev();
+
+					if (! target_active.prev().length)
+					{
+						return null;
+					}
+				}
+
+				return target_next;			
+			}
+
+			function colocarNextElement(next, direction, active)
+			{
+				var info = getBasicInfo(next);
+
+				$('.fresh-lightbox-inner-content').append('<div class="fresh-lightbox-item fresh-lightbox-next no-padding">' +
+															'<div class="row">' +
+																'<div class="col-xs-9 fresh-lightbox-item-img no-padding">' +
+																	'<img src="' + next.find('img').attr('src') + '" alt="Krion">' +
+																'</div>' +
+																'<div class="col-xs-3 fresh-lightbox-item-info no-padding">' +
+																	info + 
+																'</div>' +
+															'</div>' +
+															'<div class="col-xs-12">' +
+																'<div class="col-xs-12 fresh-lightbox-item-minilog no-padding">' +
+																	'<img src="../img/2-productos/2-1/icons/plus-k-bim.png">' +
+																'</div>' +
+															'</div>' +	
+														  '</div>');
+
+				next = $('.fresh-lightbox-next');
+				
+				next.css('width', active.width());
+				next.css('height', active.height());
+				next.css('left', $(window).width());
+				next.find('.fresh-lightbox-item-info').css('height', $(window).height());
+
+				if (direction == 'right')
+				{
+					next.css('left', next.width() * (-1));
+				}
+
+				return next;
+			}
+
+			function getFinalActivePosition(direction)
+			{
+				var position = $(window).width();
+
+				if (direction == 'left')
+				{
+					position = position * (-1);
+				}
+
+				return position;
+			}
+
+			function animarElementos(active, next, position)
+			{
+				active.animate({
+					left: position
+				},{
+					duration: 600,
+					queue: false,
+					easing: 'easeInOutCubic',
+					start: function() {
+						active.removeClass('fresh-lightbox-item-active');
+					}
+				})
+
+				next.animate({
+					left: 0
+				},{
+					duration: 600,
+					queue: false,
+					easing: 'easeInOutCubic',
+					start: function() {
+						next.removeClass('fresh-lightbox-next');
+						next.addClass('fresh-lightbox-item-active');
+					},
+					complete: function() {
+						active.remove();
+						loadFreshLightboxFunctions();
+					}
+				})
+			}
+			
+			// Sistema para desactivar el scroll de todo
+			// tipo (mouse, teclas y botones asociados)
+			var keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+			function preventDefault(e)
+			{
+				e = e || window.event;
+				
+				if (e.preventDefault)
+				{
+					e.preventDefault();
+				}
+
+				e.returnValue = false;  
+			}
+
+			function preventDefaultForScrollKeys(e)
+			{
+			    if (keys[e.keyCode])
+			    {
+			        preventDefault(e);
+			        return false;
+			    }
+			}
+
+			function disableScroll()
+			{
+				if (window.addEventListener) // older FF
+				{
+					window.addEventListener('DOMMouseScroll', preventDefault, false);
+				}
+
+				window.onwheel = preventDefault; // modern standard
+				window.onmousewheel = document.onmousewheel = preventDefault; // older browsers, IE
+				window.ontouchmove  = preventDefault; // mobile
+				document.onkeydown  = preventDefaultForScrollKeys;
+			}
+
+			function enableScroll()
+			{
+			    if (window.removeEventListener)
+			    {
+			        window.removeEventListener('DOMMouseScroll', preventDefault, false);
+			    }
+
+			    window.onmousewheel = document.onmousewheel = null; 
+			    window.onwheel = null; 
+			    window.ontouchmove = null;  
+			    document.onkeydown = null;  
 			}
 		</script>
 	</body>
