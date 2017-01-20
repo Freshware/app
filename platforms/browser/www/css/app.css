@@ -360,6 +360,7 @@ a
 
 
 
+
 /* ==========================================================================
    Menú
    ========================================================================== */
@@ -946,6 +947,7 @@ ol li{
 .productos > .productos-filter
 {
 	margin-top: 30px;
+	margin-bottom: 30px;
 }
 
 .productos > .productos-filter > .row:first-child
@@ -991,6 +993,66 @@ a.is-checked
 .productos-filter-opciones > .productos-filter-opciones-advanced > div > .row > div > .row > div > .row > div
 {
 	margin: 10px auto;
+}
+
+.fresh-lightbox-item-nombre
+{
+	width: 100%;
+	padding: 5px 10px;
+	background: #FFF;
+	color: #000;
+	position: absolute;
+	bottom: 0;
+}
+
+.producto-filter-item-link
+{
+	position: relative;
+}
+
+
+
+/* ==========================================================================
+   Modal
+   ========================================================================== */
+#infoOptionsModal
+{
+	/**/
+}
+
+#infoOptionsModal .modal-content,
+#infoModal .modal-content
+{
+	border-radius: 0;
+}
+
+#infoOptionsModal .modal-header,
+#infoModal .modal-heder
+{
+	border: 0;
+}
+
+#infoOptionsModal img,
+#infoModal img
+{
+	width: auto;
+	height: 30px;
+}
+
+.intro-colecciones
+{
+	margin-bottom: 20px;
+}
+
+.mas-info-nombre-propiedad,
+.mas-info-coleccion > [class^="col-"]
+{
+	margin-bottom: 20px;
+}
+
+.mas-info-propiedad-hija
+{
+	margin-bottom: 10px;
 }
 
 
