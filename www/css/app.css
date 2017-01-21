@@ -1005,6 +1005,30 @@ a.is-checked
 	bottom: 0;
 }
 
+.fresh-lightbox-show
+{
+	position: absolute;
+    font-size: 18px;
+    top: 27px;
+    left: 25px;
+}
+
+.fresh-lightbox-show-info
+{
+	color: #000;
+}
+
+.fresh-lightbox-item-info-proyectos
+{
+	display: none;
+	position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 1000;
+    width: 40%;
+    background: #FFF;
+}
+
 .producto-filter-item-link
 {
 	position: relative;
