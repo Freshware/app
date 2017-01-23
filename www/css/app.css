@@ -1037,6 +1037,90 @@ a.is-checked
 
 
 /* ==========================================================================
+   Multimedia
+   ========================================================================== */
+.multimedia
+{
+	background: #EEE;
+}
+
+.multimedia .whiteSpace
+{
+	padding: 30px;
+}
+
+.multimedia-pdf-content
+{
+	margin-top: 100px;
+}
+
+.multimedia-pdf-content > .row
+{
+	margin-bottom: 50px;
+}
+
+.content-pdf
+{
+	border: 2px solid #333;
+	margin-top: 50px;
+    min-height: 400px;
+}
+
+.icon-pdf
+{
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    padding-right: 100px;
+}
+
+.icon-pdf img
+{
+	width: 50%;
+}
+
+.pdf-list
+{
+	padding: 20px 0;
+}
+
+.pdf-list ul
+{
+	list-style: none;
+	padding: 0;
+}
+
+.pdf-list ul li
+{
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.pdf-list a
+{
+	color: #333;
+}
+
+.pdf-list h4
+{
+	margin-bottom: 20px;
+}
+
+.pdf-list h4::after
+{
+	position: absolute;
+	display: block;
+	left: 0;
+	width: 50px;
+	height: 3px;
+	background-color: #333;
+	content: "";
+    margin-top: 5px;
+}
+
+
+
+/* ==========================================================================
    Modal
    ========================================================================== */
 #infoOptionsModal
