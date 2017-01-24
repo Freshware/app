@@ -23,15 +23,21 @@
 				</button>
 			</div>
 
-			<div class="row krion height100">
+			<div class="row krion">
 				<div class="col-xs-6">
-					<img src="../img/1-krion/1-1/pics/que-es-krion.jpg" alt="Krion">
+					<img src="../img/5-empresa/pics/vista-porcelanosa.jpg" alt="Krion">
 				</div>
-				<div class="col-xs-6 info-side height100">
-					<div class="col-xs-10 col-xs-offset-1 height100">
+				<div class="col-xs-6 info-side">
+					<div class="col-xs-10 col-xs-offset-1">
 						<div class="contenedor-info">
+							<h2></h2>
 						</div>
 					</div>
+				</div>
+				<div class="col-xs-12">
+					<div class="txt text-center">
+					</div>
+					<img src="../img/5-empresa/pics/mapa.png" alt="Krion">
 				</div>
 			</div>
 
@@ -84,13 +90,13 @@
 					$.each(items.language, function(lang, language) {
 						if (lang == current_lang)
 						{
-							var seccion = language.krion;
+							var seccion = language.empresa;
 
 							console.log(seccion);
 
-							$('.contenedor-info').append(seccion.h2);
-							$('.contenedor-info').append(seccion.h3);
+							$('.contenedor-info h2').html(seccion.h2);
 							$('.contenedor-info').append(seccion.contenido);
+							$('.txt').html(seccion.txt);
 						}
 					})
 				}).fail(function( jqxhr, textStatus, error ) {

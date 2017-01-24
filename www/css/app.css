@@ -206,6 +206,30 @@ a
 	padding: 0 !important;
 }
 
+#sel_language
+{
+	background:white;
+	position:fixed;
+	top:0;
+	left:0;
+	z-index:99999;
+	width:100%;
+	height:100%;
+}
+
+#sel_language ul
+{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	margin-top: 250px;
+}
+
+#sel_language a
+{
+	color: #000;
+}
+
 
 
 /* ==========================================================================
@@ -251,6 +275,11 @@ a
 {
 	width: 50px;
 	height: 50px;
+}
+
+.fresh-remodal > div
+{
+	color: #000;
 }
 
 /*.fresh-remodal .remodal-content
@@ -1116,6 +1145,16 @@ a.is-checked
 	background-color: #333;
 	content: "";
     margin-top: 5px;
+}
+
+
+
+/* ==========================================================================
+   Empresa
+   ========================================================================== */
+.txt
+{
+	margin: 50px 0;
 }
 
 
