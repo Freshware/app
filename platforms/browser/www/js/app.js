@@ -80,7 +80,7 @@ var assetURL4 = "http://freshware.es/pruebas/app/new_expresion_otaku4.zip";
 //File name of our important data file we didn't ship with the app
 var fileName = "new_expresion_otaku3.zip";
 
-function startDownload() {
+function startDownload(file) {
 	$status = document.querySelector("#status");
 
 	$status.innerHTML = "Checking for data file.";

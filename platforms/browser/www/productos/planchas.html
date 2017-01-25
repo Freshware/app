@@ -881,7 +881,6 @@
 			function cargarValoresPorIdioma()
 			{
 				$.getJSON('../assets/content.json', function(data) {
-				console.log('hola mundo')
 					// Después de cargar el JSON creamos un
 					// objeto que lo contenga. Le llamamos "items"
 					var items = [];
@@ -892,14 +891,11 @@
 					// Cargamlos el contenido de la página que hay en el JSON
 					// dependiendo del idioma y la página.
 					var current_lang = localStorage.getItem("lang");
-							console.log(current_lang);
 
 					$.each(items.language, function(lang, language) {
 						if (lang == current_lang)
 						{
 							var seccion = language.productos;
-
-							console.log(seccion);
 
 							$('.productos-header h1').append(seccion.h1);
 							$('.productos-header h4').append(seccion.h4);

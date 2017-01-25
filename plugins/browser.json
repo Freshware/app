@@ -66,6 +66,9 @@
         },
         "cordova-plugin-screen-orientation": {
             "PACKAGE_NAME": "es.freshware.www"
+        },
+        "cordova-plugin-document-viewer": {
+            "PACKAGE_NAME": "es.freshware.www"
         }
     },
     "dependent_plugins": {

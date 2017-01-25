@@ -9,25 +9,6 @@
         <link rel="stylesheet" type="text/css" href="../js/jquery-ui-1.12.1/jquery-ui.min.css" />
         <link rel="stylesheet" type="text/css" href="../libraries/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="../css/app.css" />
-
-		<script src="../js/jquery-3.1.1.min.js"></script>
-		<script src="../js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
-		<script src="../libraries/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-		<script src="../libraries/TouchSwipe-Jquery-Plugin-master/jquery.touchSwipe.min.js"></script>
-		<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
-		<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
-		<script src="../cordova.js"></script>
-		<script src="../js/app.js"></script>
-		<script type="text/javascript">
-			$.getJSON('../assets/content.json', function(data) {
-				var items = [];
-				$.each( data, function(key, val) {
-					items[key] = val;
-				});
-
-				console.log(items)
-			});
-		</script>
 	</head>
 	<body id="body">
 		<button id="BURGER" class="c-hamburger c-hamburger--htx">
@@ -54,42 +35,42 @@
 									<h4>KRION® HOTELS & RESTAURANTS</h4>
 									<ul>
 										<li>
-											<a href="#" class="pdf-link" data-language="es">
+											<a href="#" class="pdf-link" data-file="hoteles_es">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Español
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="en">
+											<a href="#" class="pdf-link" data-file="hoteles_en">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> English
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="fr">
+											<a href="#" class="pdf-link" data-file="fr">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Français
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="it">
+											<a href="#" class="pdf-link" data-file="it">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Italiano
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="pt">
+											<a href="#" class="pdf-link" data-file="pt">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Português
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="de">
+											<a href="#" class="pdf-link" data-file="de">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Deustch
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="ru">
+											<a href="#" class="pdf-link" data-file="ru">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Pусский
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="zh">
+											<a href="#" class="pdf-link" data-file="zh">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> 汉语
 											</a>
 										</li>
@@ -108,42 +89,42 @@
 									<h4>KRION® HEALTHCARE</h4>
 									<ul>
 										<li>
-											<a href="#" class="pdf-link" data-language="es">
+											<a href="#" class="pdf-link" data-file="es">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Español
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="en">
+											<a href="#" class="pdf-link" data-file="en">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> English
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="fr">
+											<a href="#" class="pdf-link" data-file="fr">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Français
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="it">
+											<a href="#" class="pdf-link" data-file="it">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Italiano
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="pt">
+											<a href="#" class="pdf-link" data-file="pt">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Português
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="de">
+											<a href="#" class="pdf-link" data-file="de">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Deustch
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="ru">
+											<a href="#" class="pdf-link" data-file="ru">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Pусский
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="zh">
+											<a href="#" class="pdf-link" data-file="zh">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> 汉语
 											</a>
 										</li>
@@ -164,12 +145,12 @@
 									<h4>CERSAIE News</h4>
 									<ul>
 										<li>
-											<a href="#" class="pdf-link" data-language="es">
+											<a href="#" class="pdf-link" data-file="es">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Español
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="en">
+											<a href="#" class="pdf-link" data-file="en">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> English
 											</a>
 										</li>
@@ -188,42 +169,42 @@
 									<h4>KRION® General</h4>
 									<ul>
 										<li>
-											<a href="#" class="pdf-link" data-language="es">
+											<a href="#" class="pdf-link" data-file="es">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Español
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="en">
+											<a href="#" class="pdf-link" data-file="en">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> English
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="fr">
+											<a href="#" class="pdf-link" data-file="fr">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Français
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="it">
+											<a href="#" class="pdf-link" data-file="it">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Italiano
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="pt">
+											<a href="#" class="pdf-link" data-file="pt">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Português
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="de">
+											<a href="#" class="pdf-link" data-file="de">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Deustch
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="ru">
+											<a href="#" class="pdf-link" data-file="ru">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Pусский
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="zh">
+											<a href="#" class="pdf-link" data-file="zh">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> 汉语
 											</a>
 										</li>
@@ -244,12 +225,12 @@
 									<h4>KRION® News</h4>
 									<ul>
 										<li>
-											<a href="#" class="pdf-link" data-language="es">
+											<a href="#" class="pdf-link" data-file="es">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Español
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="en">
+											<a href="#" class="pdf-link" data-file="en">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> English
 											</a>
 										</li>
@@ -268,42 +249,42 @@
 									<h4>KRION® Colors</h4>
 									<ul>
 										<li>
-											<a href="#" class="pdf-link" data-language="es">
+											<a href="#" class="pdf-link" data-file="es">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Español
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="en">
+											<a href="#" class="pdf-link" data-file="en">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> English
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="fr">
+											<a href="#" class="pdf-link" data-file="fr">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Français
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="it">
+											<a href="#" class="pdf-link" data-file="it">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Italiano
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="pt">
+											<a href="#" class="pdf-link" data-file="pt">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Português
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="de">
+											<a href="#" class="pdf-link" data-file="de">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Deustch
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="ru">
+											<a href="#" class="pdf-link" data-file="ru">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Pусский
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="zh">
+											<a href="#" class="pdf-link" data-file="zh">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> 汉语
 											</a>
 										</li>
@@ -324,42 +305,42 @@
 									<h4>KRION® ARQ</h4>
 									<ul>
 										<li>
-											<a href="#" class="pdf-link" data-language="es">
+											<a href="#" class="pdf-link" data-file="es">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Español
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="en">
+											<a href="#" class="pdf-link" data-file="en">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> English
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="fr">
+											<a href="#" class="pdf-link" data-file="fr">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Français
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="it">
+											<a href="#" class="pdf-link" data-file="it">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Italiano
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="pt">
+											<a href="#" class="pdf-link" data-file="pt">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Português
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="de">
+											<a href="#" class="pdf-link" data-file="de">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Deustch
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="ru">
+											<a href="#" class="pdf-link" data-file="ru">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Pусский
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="zh">
+											<a href="#" class="pdf-link" data-file="zh">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> 汉语
 											</a>
 										</li>
@@ -378,7 +359,7 @@
 									<h4>The Book of KRION®</h4>
 									<ul>
 										<li>
-											<a href="#" class="pdf-link" data-language="en">
+											<a href="#" class="pdf-link" data-file="en">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> English
 											</a>
 										</li>
@@ -399,17 +380,17 @@
 									<h4>KRION® FV</h4>
 									<ul>
 										<li>
-											<a href="#" class="pdf-link" data-language="es">
+											<a href="#" class="pdf-link" data-file="es">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Español
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="en">
+											<a href="#" class="pdf-link" data-file="en">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> English
 											</a>
 										</li>
 										<li>
-											<a href="#" class="pdf-link" data-language="fr">
+											<a href="#" class="pdf-link" data-file="fr">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> Français
 											</a>
 										</li>
@@ -440,7 +421,177 @@
 		<!-- Fin Modals -->
 
 		<!-- Scripts -->
+		<script src="../js/jquery-3.1.1.min.js"></script>
+		<script src="../js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+		<script src="../libraries/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+		<script src="../libraries/TouchSwipe-Jquery-Plugin-master/jquery.touchSwipe.min.js"></script>
+		<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+		<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+		<script src="../cordova.js"></script>
+		<script src="../js/app.js"></script>
 		<script type="text/javascript">
+			$.getJSON('../assets/content.json', function(data) {
+				// Después de cargar el JSON creamos un
+				// objeto que lo contenga. Le llamamos "items"
+				var items = [];
+				$.each( data, function(key, val) {
+					items[key] = val;
+				});
+
+				// Cargamlos el contenido de la página que hay en el JSON
+				// dependiendo del idioma y la página.
+				var current_lang = localStorage.getItem("lang");
+
+				window.ruta_server = items.pdfs.ruta;
+				window.pdfs = items.pdfs.archivos;
+			})
+			.fail(function( jqxhr, textStatus, error ) {
+			    var err = textStatus + ", " + error;
+			    console.log( "Request Failed: " + err );
+			});
+			
+			window.store_path = cordova.file.documentsDirectory;
+
+			comprobarArchivosEnLocal();
+
+			$('.pdf-link').on('click', function(e) {
+				e.preventDefault();
+
+				window.link_file = $(this).data('file');
+				
+				iniciarDescarga(link_file);
+			})
+
+			function iniciarDescarga(file)
+			{
+				// Obtenemos la ruta cuando cargamos el JSON
+				// También obtenemos los nombres de los archivos
+				// 
+				// La variable que recoge la ruta en el dispositivo
+				// la cargamos al principio (window.store_path)
+				// desde la función comprobarArchivosEnLocal()
+				
+				window.fileName = '';
+
+				$.each(pdfs, function(index, val) {
+					if (index == file)
+					{
+						fileName = val;
+					}
+				})
+
+				console.log(fileName)
+
+				$('body').append('<div id="spinner_div" style="position:absolute;width:100%;height:100%;background:rgba(255, 255, 255, 0.65);background-repeat:no-repeat;background-position:center center;"><img src="../img/common/spinner.gif"></div>');
+
+				//Check for the file. 
+				// La funcón se define así: window.resolveLocalFileSystemURL(url, successCallback, errorCallback);
+				// Así qu eusaremos el success para cuando tengamos un archivo y el error para descargarlo
+				// window.resolveLocalFileSystemURL(store_path + fileName, appStart, downloadAsset);
+				window.resolveLocalFileSystemURL(store_path + fileName, existeArchivo, descargarArchivo);
+			}
+
+			function existeArchivo()
+			{
+				console.log('Existe el archivo: ' + store_path + fileName);
+
+				var options = {
+							    documentView: {
+							        closeLabel: "Finished"
+							    },
+							    navigationView: {
+							        closeLabel: "Back"
+							    },
+							    email: {
+							        enabled: false
+							    },
+							    print: {
+							        enabled: true
+							    },
+							    openWith: {
+							        enabled: false
+							    },
+							    bookmarks: {
+							        enabled: false
+							    },
+							    search: {
+							        enabled: false
+							    }
+							};
+
+				cordova.plugins.SitewaertsDocumentViewer.viewDocument(store_path + fileName, 'application/pdf', options, null, null, null, onError);
+			}
+
+			function onError()
+			{
+				window.console.log(error);
+				alert("Sorry! Cannot view document.");
+			}
+
+			function descargarArchivo()
+			{
+				$('#spinner_div').remove();
+
+				var fileTransfer = new FileTransfer();
+
+				var storeComplete = store_path + fileName;
+
+				fileTransfer.download(ruta_server + fileName, storeComplete, 
+					function(entry) {
+						$('.pdf-link[data-file="' + link_file + '"]').find('span').removeClass('glyphicon-cloud-download');
+						$('.pdf-link[data-file="' + link_file + '"]').find('span').addClass('glyphicon-file');
+						$('.pdf-link[data-file="' + link_file + '"]').find('span').addClass('text-success');
+						$('.pdf-link[data-file="' + link_file + '"]').find('span').addClass('descargado');
+					}, 
+					function(err) {
+						alert("Error - Linea 173");
+						console.dir(err);
+					}
+				);
+			}
+
+			function comprobarArchivosEnLocal()
+			{
+				console.log(store_path)
+
+				// window.resolveLocalFileSystemURL(store_path, addFileEntry, addError);
+
+				// /**
+				//  * Recursive function for file entry.
+				//  */
+				// var addFileEntry = function (entry) {
+				//   var dirReader = entry.createReader();
+				//   dirReader.readEntries(
+				//     function (entries) {
+				//       var fileStr = "";
+				//       var i;
+				//       for (i = 0; i < entries.length; i++) {
+				//         if (entries[i].isDirectory === true) {
+				//           // Recursive -- call back into this subdirectory
+				//           addFileEntry(entries[i]);
+				//         } else {
+				//           alert('full path: ' + entries[i].fullPath);
+				//           console.log('full path: ' + entries[i].fullPath);
+				//           index++;
+
+				//           entries[i].remove();
+				//         }
+				//       }
+				//     },
+				//     function (error) {
+				//       alert("readEntries error: " + error.code);
+				//       console.log("readEntries error: " + error.code);
+				//     }
+				//   );
+				// };
+
+				// /**
+				//  * Directory error.
+				//  */
+				// var addError = function (error) {
+				//   alert("getDirectory error: " + error.code);
+				// };
+			}
 		</script>
 	</body>
 </html>

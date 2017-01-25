@@ -1,4 +1,11 @@
 {
+	"pdfs": {
+		"ruta": "http://freshware.es/pruebas/app/",
+		"archivos": {
+			"hoteles_es": "WIREFRAME-KRION-TIPOLOGIAS.pdf",
+			"hoteles_en": "WIREFRAME-KRION-TIPOS.pdf"
+		}
+	},
 	"language": {
 		"es": {
 			"index": {
