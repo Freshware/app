@@ -34,6 +34,7 @@
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
     <platform name="android">
         <preference name="Orientation" value="landscape" />
+        <preference name="AndroidPersistentFileLocation" value="Compatibility" />
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="www/res/icon/android/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="www/res/icon/android/drawable-hdpi-icon.png" />

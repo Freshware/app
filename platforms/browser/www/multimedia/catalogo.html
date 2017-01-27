@@ -444,15 +444,14 @@
 
 				window.ruta_server = items.pdfs.ruta;
 				window.pdfs = items.pdfs.archivos;
+
+				console.log('Primera búsqueda... ')
+				listDir(cordova.file.documentsDirectory);
 			})
 			.fail(function( jqxhr, textStatus, error ) {
 			    var err = textStatus + ", " + error;
 			    console.log( "Request Failed: " + err );
 			});
-			
-			window.store_path = cordova.file.documentsDirectory;
-
-			comprobarArchivosEnLocal();
 
 			$('.pdf-link').on('click', function(e) {
 				e.preventDefault();
@@ -467,9 +466,8 @@
 				// Obtenemos la ruta cuando cargamos el JSON
 				// También obtenemos los nombres de los archivos
 				// 
-				// La variable que recoge la ruta en el dispositivo
-				// la cargamos al principio (window.store_path)
-				// desde la función comprobarArchivosEnLocal()
+				// Ruta en el dispositivo
+				window.store_path = cordova.file.documentsDirectory;
 				
 				window.fileName = '';
 
@@ -550,47 +548,44 @@
 				);
 			}
 
-			function comprobarArchivosEnLocal()
+			function listDir(path)
 			{
-				console.log(store_path)
+				window.resolveLocalFileSystemURL(path,
+    											function (fileSystem)
+    											{
+													var reader = fileSystem.createReader();
 
-				// window.resolveLocalFileSystemURL(store_path, addFileEntry, addError);
+													reader.readEntries(function (entries) {
+																			var i;
+																			
+																		    for (i = 0; i < entries.length; i++)
+																		    {
+																				if (entries[i].isFile)
+																				{
+																					$('.pdf-link').each(function() {
+																						var elem = $(this);
+																						var file = $(this).data('file');
 
-				// /**
-				//  * Recursive function for file entry.
-				//  */
-				// var addFileEntry = function (entry) {
-				//   var dirReader = entry.createReader();
-				//   dirReader.readEntries(
-				//     function (entries) {
-				//       var fileStr = "";
-				//       var i;
-				//       for (i = 0; i < entries.length; i++) {
-				//         if (entries[i].isDirectory === true) {
-				//           // Recursive -- call back into this subdirectory
-				//           addFileEntry(entries[i]);
-				//         } else {
-				//           alert('full path: ' + entries[i].fullPath);
-				//           console.log('full path: ' + entries[i].fullPath);
-				//           index++;
-
-				//           entries[i].remove();
-				//         }
-				//       }
-				//     },
-				//     function (error) {
-				//       alert("readEntries error: " + error.code);
-				//       console.log("readEntries error: " + error.code);
-				//     }
-				//   );
-				// };
-
-				// /**
-				//  * Directory error.
-				//  */
-				// var addError = function (error) {
-				//   alert("getDirectory error: " + error.code);
-				// };
+																						$.each(pdfs, function(index, val) {
+																							if (index == file)
+																							{
+																								elem.find('span').removeClass('glyphicon-cloud-download');
+																								elem.find('span').addClass('glyphicon-file');
+																								elem.find('span').addClass('text-success');
+																							}
+																						})
+																					})
+																				}
+																		    }
+																		},
+																		function (err) {
+																			console.log(err);
+																		});
+    											},
+    											function (err)
+    											{
+													console.log(err);
+												});
 			}
 		</script>
 	</body>

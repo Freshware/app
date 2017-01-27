@@ -447,6 +447,10 @@ a
 	width: 100%;
 }
 
+
+/**
+ * Pep
+ */
 .menu-link > div > ul > li
 {
 	font-size: 40px;
@@ -487,6 +491,9 @@ ol li{
 .menu-link a:hover{
 
 }
+/**
+ * Fin Pep
+ */
 
 .menu-link > div > ul > li > a
 {
@@ -614,6 +621,9 @@ ol li{
 	transition-delay: 0s, 0.3s;
 }
 
+/**
+ * Pep
+ */
 #BURGER{
     position: fixed;
     z-index: 999;
@@ -634,10 +644,11 @@ ol li{
     z-index: 99;
     width: 100%;
     height: 100%;
-    right: 100%
+    right: 100%;
 }
 .positionin{
-    right: 0
+    right: 0;
+    top: 0;
 }
 .ocultar{
    opacity: 0;
@@ -760,6 +771,14 @@ ol li{
     position: absolute;
     bottom: 0;
     right: 0;
+}
+/**
+ * Fin Pep
+ */
+
+.language_menu
+{
+	color: #000;
 }
 
 

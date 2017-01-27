@@ -34,7 +34,7 @@
 								<div class="pdf-list col-xs-offset-5 col-xs-7">
 									<ul>
 										<li>
-											<a href="#" class="pdf-link" data-language="es">
+											<a href="#" class="pdf-link" data-language="garantia_interiores">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> 98.2 KB
 											</a>
 										</li>
@@ -52,7 +52,7 @@
 								<div class="pdf-list col-xs-offset-5 col-xs-7">
 									<ul>
 										<li>
-											<a href="#" class="pdf-link" data-language="es">
+											<a href="#" class="pdf-link" data-language="garantia_exteriores">
 												<span class="glyphicon glyphicon-cloud-download" aria-hidden="true"></span> 109.3 KB
 											</a>
 										</li>
@@ -122,10 +122,152 @@
 							$('.g_exterior .pdf-list').prepend(seccion.g_exterior);
 						}
 					})
-				}).fail(function( jqxhr, textStatus, error ) {
+
+					window.ruta_server = items.pdfs.ruta;
+					window.pdfs = items.pdfs.archivos;
+
+					console.log('Primera búsqueda... ')
+					listDir(cordova.file.documentsDirectory);
+				})
+				.fail(function( jqxhr, textStatus, error ) {
 				    var err = textStatus + ", " + error;
 				    console.log( "Request Failed: " + err );
 				});
+			}
+
+			$('.pdf-link').on('click', function(e) {
+				e.preventDefault();
+
+				window.link_file = $(this).data('file');
+				
+				iniciarDescarga(link_file);
+			})
+
+			function iniciarDescarga(file)
+			{
+				// Obtenemos la ruta cuando cargamos el JSON
+				// También obtenemos los nombres de los archivos
+				// 
+				// Ruta en el dispositivo
+				window.store_path = cordova.file.documentsDirectory;
+				
+				window.fileName = '';
+
+				$.each(pdfs, function(index, val) {
+					if (index == file)
+					{
+						fileName = val;
+					}
+				})
+
+				console.log(fileName)
+
+				$('body').append('<div id="spinner_div" style="position:absolute;width:100%;height:100%;background:rgba(255, 255, 255, 0.65);background-repeat:no-repeat;background-position:center center;"><img src="../img/common/spinner.gif"></div>');
+
+				//Check for the file. 
+				// La funcón se define así: window.resolveLocalFileSystemURL(url, successCallback, errorCallback);
+				// Así qu eusaremos el success para cuando tengamos un archivo y el error para descargarlo
+				// window.resolveLocalFileSystemURL(store_path + fileName, appStart, downloadAsset);
+				window.resolveLocalFileSystemURL(store_path + fileName, existeArchivo, descargarArchivo);
+			}
+
+			function existeArchivo()
+			{
+				console.log('Existe el archivo: ' + store_path + fileName);
+
+				var options = {
+							    documentView: {
+							        closeLabel: "Finished"
+							    },
+							    navigationView: {
+							        closeLabel: "Back"
+							    },
+							    email: {
+							        enabled: false
+							    },
+							    print: {
+							        enabled: true
+							    },
+							    openWith: {
+							        enabled: false
+							    },
+							    bookmarks: {
+							        enabled: false
+							    },
+							    search: {
+							        enabled: false
+							    }
+							};
+
+				cordova.plugins.SitewaertsDocumentViewer.viewDocument(store_path + fileName, 'application/pdf', options, null, null, null, onError);
+			}
+
+			function onError()
+			{
+				window.console.log(error);
+				alert("Sorry! Cannot view document.");
+			}
+
+			function descargarArchivo()
+			{
+				$('#spinner_div').remove();
+
+				var fileTransfer = new FileTransfer();
+
+				var storeComplete = store_path + fileName;
+
+				fileTransfer.download(ruta_server + fileName, storeComplete, 
+					function(entry) {
+						$('.pdf-link[data-file="' + link_file + '"]').find('span').removeClass('glyphicon-cloud-download');
+						$('.pdf-link[data-file="' + link_file + '"]').find('span').addClass('glyphicon-file');
+						$('.pdf-link[data-file="' + link_file + '"]').find('span').addClass('text-success');
+						$('.pdf-link[data-file="' + link_file + '"]').find('span').addClass('descargado');
+					}, 
+					function(err) {
+						alert("Error - Linea 173");
+						console.dir(err);
+					}
+				);
+			}
+
+			function listDir(path)
+			{
+				window.resolveLocalFileSystemURL(path,
+    											function (fileSystem)
+    											{
+													var reader = fileSystem.createReader();
+
+													reader.readEntries(function (entries) {
+																			var i;
+																			
+																		    for (i = 0; i < entries.length; i++)
+																		    {
+																				if (entries[i].isFile)
+																				{
+																					$('.pdf-link').each(function() {
+																						var elem = $(this);
+																						var file = $(this).data('file');
+
+																						$.each(pdfs, function(index, val) {
+																							if (index == file)
+																							{
+																								elem.find('span').removeClass('glyphicon-cloud-download');
+																								elem.find('span').addClass('glyphicon-file');
+																								elem.find('span').addClass('text-success');
+																							}
+																						})
+																					})
+																				}
+																		    }
+																		},
+																		function (err) {
+																			console.log(err);
+																		});
+    											},
+    											function (err)
+    											{
+													console.log(err);
+												});
 			}
 		</script>
 	</body>
