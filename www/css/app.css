@@ -252,6 +252,19 @@ a
 	z-index:99999;
 	width:100%;
 	height:100%;
+	display: none;
+}
+
+#sel_language .close_btn
+{
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+
+#sel_language .close_btn img
+{
+	width: 50px;
 }
 
 #sel_language ul
@@ -630,148 +643,6 @@ ol li{
     right: 15px;
     top: 20px;
 }
-#fullmenu{
-    background: white;
-    display: block;
-    text-align: center;
-    padding: 40px 0px 40px 0px;
-    display: table;
-    height: 100%;
-    width: 100%;
-}
-.positionout{
-    position: fixed;
-    z-index: 99;
-    width: 100%;
-    height: 100%;
-    right: 100%;
-}
-.positionin{
-    right: 0;
-    top: 0;
-}
-.ocultar{
-   opacity: 0;
-    -webkit-transition-duration: .25s;
-    -moz-transition-duration: .25s;
-    -o-transition-duration: .25s;
-    transition-duration: .25s;
-}
-
-.mostrar{
-    opacity: 1;
-}
-
-.fullmenuwrap {
-    display: table-cell;
-    vertical-align: middle;
-    vertical-align: top;
-}
-
-.fullwrapper {
-    margin-left: auto;
-    margin-right: auto; 
-    width: /*whatever width you want*/;
-}
-.fullitem{
-    font-size: 40px;
-    font-weight: normal;
-    
-}
-.fullline a,
-.fullline a:focus,
-.fullline a:hover{
-    color: #333;
-    text-decoration: none;
-    padding: 0px 20px;
-}
-.OPCIONstart{
-    opacity:.5;
-    display: inline-block;
-    overflow: hidden;
-    height: 1px;
-    -webkit-transition-duration: .25s;
-    -moz-transition-duration: .25s;
-    -o-transition-duration: .25s;
-    transition-duration: .25s;
-    font-size: 20px;
-}
-
-.OPCIONin{
-    line-height: 16px;
-    margin: 0px 0 0px;
-    opacity: 1;
-    padding: 20px 0;   
-}
-.OPCIONlineas{
-    -webkit-transition-duration: .15s;
-    -moz-transition-duration: .15s;
-    -o-transition-duration: .15s;
-    transition-duration: .15s;
-    background-position: center top;
-    background-size: 90px 100%;
-    background-repeat: no-repeat;
-    margin-bottom: 10px;
-    cursor: pointer;
-}
-
-.OPCIONlineasin{
-    background-image: url(../img/common/lineas.gif);
-    background-position: center top;
-    background-size: 90px 100%;
-    background-repeat: no-repeat;
-    padding: 20px;
-}
-
-.OPCIONlineasin2{
-    background-image: url(../img/common/lineas-first.gif);
-    background-position: center top;
-    background-size: 90px 100%;
-    background-repeat: no-repeat;
-    padding: 0 0 20px 0; 
-}
-.OPCIONlineasin3{
-    background-image: url(../img/common/lineas-last.gif);
-    background-position: center top;
-    background-size: 90px 100%;
-    background-repeat: no-repeat;
-    padding: 20px 0 0 0; 
-}
-
-.fullfooter{
-    float: left;
-    position: absolute;
-    bottom: 20px;
-    width: 100%
-}
-.fullfooterleft{
-    float: left;
-    width: 28%;
-    margin-left: 2%;
-    display: block;
-    text-align: left;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-.fullfootercenter{
-    bottom: 0;
-    display: block;
-    float: left;
-    position: absolute;
-    width: 60%;
-    left: 20%;
-}
-.fullfooterright{
-    float: right;
-    width: 28%;
-    margin-right: 2%;
-    display: block;
-    text-align: right;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
 /**
  * Fin Pep
  */
@@ -779,6 +650,69 @@ ol li{
 .language_menu
 {
 	color: #000;
+}
+
+#menu
+{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #FFF;
+	z-index: 10;
+	display: none;
+}
+
+#menu a
+{
+	color: #000;
+}
+
+#menu ul
+{
+	display: none;
+}
+
+#menu ul li
+{
+	list-style: none;
+	display: inline;
+	margin: auto 15px;
+}
+
+#menu .slideToggle
+{
+    padding: 0;
+}
+
+#menu .slideToggle:after,
+#menu .slideToggle:before
+{
+    border-bottom: 4px solid #787878;
+    content: "";
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100px;
+}
+
+#menu .slideToggle:before
+{
+    margin-bottom: 25px;
+}
+
+#menu .slideToggle:after
+{
+    margin-top: 25px;
+}
+
+#menu .menu_footer
+{
+	width: 100%;
+	position: absolute;
+	bottom: 10px;
+	padding: 10px 15px;
 }
 
 

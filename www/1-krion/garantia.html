@@ -82,6 +82,73 @@
 		</div>
 		<!-- Fin Modals -->
 
+
+		<!-- Menú -->
+
+ 		<!-- /\/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ -->
+        <!-- / \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ -->
+        <!-- / \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ -->
+        <!-- <div id="fullpopmenu" class="positionout">
+            <div id="fullmenu" class="ocultar">
+                <div class="fullmenuwrap">
+                    <div class="fullwrapper">
+                        <div id="fullbox1" class="OPCIONlineas">
+                            <div class="fullitem" id="fullopcion1">Krion®</div>
+                            <div id="full-11" class="fullline OPCIONstart">
+                                <a href="">planchas</a>
+                                <a href="">planchas</a>
+                                <a href="">planchas</a>
+                                <a href="">planchas</a>
+                            </div>
+                        </div>
+                        <div id="fullbox2" class="OPCIONlineas">
+                            <div class="fullitem" id="fullopcion2">Producto</div>
+                            <div id="full-12" class="fullline OPCIONstart">
+                                <a href="">planchas</a>
+                                <a href="">planchas</a>
+                                <a href="">planchas</a>
+                                <a href="">planchas</a>
+                            </div>
+                        </div>
+                        <div id="fullbox3" class="OPCIONlineas">
+                            <div class="fullitem" id="fullopcion3">Proyectos</div>
+                            <div id="full-13" class="fullline OPCIONstart">
+                                <a href="">planchas</a>
+                                <a href="">planchas</a>
+                                <a href="">planchas</a>
+                                <a href="">planchas</a>
+                            </div>
+                        </div>
+                        <div id="fullbox4" class="OPCIONlineas">
+                            <div class="fullitem" id="fullopcion4">Multimedia</div>
+                            <div id="full-14" class="fullline OPCIONstart">
+                                <a href="">planchas</a>
+                                <a href="">planchas</a>
+                                <a href="">planchas</a>
+                                <a href="">planchas</a>
+                            </div>
+                        </div>
+                        <div id="fullbox5" class="OPCIONlineas">
+                            <div class="fullitem" id="fullopcion5">Empresa</div>
+                            <div id="full-15" class="fullline OPCIONstart">
+                                <a href="">información</a>
+                                <a href="">contacto</a>
+                            </div>
+                        </div>
+                        <div class="fullfooter">
+                        <div class="fullfooterleft">HOME</div>
+                        <div class="fullfootercenter"><img src="../img/common/logo_gales.png"/></div>
+                        <div class="fullfooterright"><a href="#" class="language_menu">ESPAÑOL</a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- / \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ -->
+        <!-- / \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ -->
+        <!-- / \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ -->
+		<!-- Fin Menú -->
+
 		<!-- Scripts -->
 		<script src="../js/jquery-3.1.1.min.js"></script>
 		<script src="../js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
@@ -92,7 +159,16 @@
 		<script src="../cordova.js"></script>
 		<script src="../js/app.js"></script>
 		<script type="text/javascript">
-			cargarValoresPorIdioma();
+			$(function() {
+				if (localStorage.getItem("lang") == null)
+				{
+					cargarSeleccionDeIdioma();
+				}
+				else
+				{
+					cargarValoresPorIdioma();
+				}
+			});
 
 			/**
 			 * Cargador de variables desde el JSON

@@ -109,73 +109,6 @@
 		</div>
 		<!-- Fin Modals -->
 
-
-		<!-- Menú -->
-
- 		<!-- /\/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ -->
-        <!-- / \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ -->
-        <!-- / \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ -->
-        <div id="fullpopmenu" class="positionout">
-            <div id="fullmenu" class="ocultar">
-                <div class="fullmenuwrap">
-                    <div class="fullwrapper">
-                        <div id="fullbox1" class="OPCIONlineas">
-                            <div class="fullitem" id="fullopcion1">Krion®</div>
-                            <div id="full-11" class="fullline OPCIONstart">
-                                <a href="">planchas</a>
-                                <a href="">planchas</a>
-                                <a href="">planchas</a>
-                                <a href="">planchas</a>
-                            </div>
-                        </div>
-                        <div id="fullbox2" class="OPCIONlineas">
-                            <div class="fullitem" id="fullopcion2">Producto</div>
-                            <div id="full-12" class="fullline OPCIONstart">
-                                <a href="">planchas</a>
-                                <a href="">planchas</a>
-                                <a href="">planchas</a>
-                                <a href="">planchas</a>
-                            </div>
-                        </div>
-                        <div id="fullbox3" class="OPCIONlineas">
-                            <div class="fullitem" id="fullopcion3">Proyectos</div>
-                            <div id="full-13" class="fullline OPCIONstart">
-                                <a href="">planchas</a>
-                                <a href="">planchas</a>
-                                <a href="">planchas</a>
-                                <a href="">planchas</a>
-                            </div>
-                        </div>
-                        <div id="fullbox4" class="OPCIONlineas">
-                            <div class="fullitem" id="fullopcion4">Multimedia</div>
-                            <div id="full-14" class="fullline OPCIONstart">
-                                <a href="">planchas</a>
-                                <a href="">planchas</a>
-                                <a href="">planchas</a>
-                                <a href="">planchas</a>
-                            </div>
-                        </div>
-                        <div id="fullbox5" class="OPCIONlineas">
-                            <div class="fullitem" id="fullopcion5">Empresa</div>
-                            <div id="full-15" class="fullline OPCIONstart">
-                                <a href="">información</a>
-                                <a href="">contacto</a>
-                            </div>
-                        </div>
-                        <div class="fullfooter">
-                        <div class="fullfooterleft">HOME</div>
-                        <div class="fullfootercenter"><img src="img/common/logo_gales.png"/></div>
-                        <div class="fullfooterright"><a href="#" class="language_menu">ESPAÑOL</a> </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- / \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ -->
-        <!-- / \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ -->
-        <!-- / \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \/ \ -->
-		<!-- Fin Menú -->
-
 		<script src="js/jquery-3.1.1.min.js"></script>
 		<script src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 		<script src="libraries/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
@@ -207,12 +140,6 @@
 				$('.section').swipe({
 					fingers:1
 				});
-
-				// El link de seleccionar el idioma en el menú
-				$('.language_menu').on('click', function(e) {
-					e.preventDefault();
-					cargarSeleccionDeIdioma();
-				})
 			});
 
 			// Cuando la ventana está cargada
@@ -366,163 +293,6 @@
 			}
 
 			/**
-			 *
-			 *	Código para el menú hecho por Pep
-			 * 
-			 */
-            var op1 = document.getElementById("full-11");
-            var op2 = document.getElementById("full-12");
-            var op3 = document.getElementById("full-13");
-            var op4 = document.getElementById("full-14");
-            var op5 = document.getElementById("full-15");
-            var box1 = document.getElementById("fullbox1");
-            var box2 = document.getElementById("fullbox2");
-            var box3 = document.getElementById("fullbox3");
-            var box4 = document.getElementById("fullbox4");
-            var box5 = document.getElementById("fullbox5");
-            var WRAPERMENU = document.getElementById("fullpopmenu");
-            var WRAPMENU = document.getElementById("fullmenu");
-            
-            var CURRENTMENU = 0;
-            var SUBMENUSVISIBLES1 = 0;
-            var SUBMENUSVISIBLES2 = 0;
-            var SUBMENUSVISIBLES3 = 0;
-            var SUBMENUSVISIBLES4 = 0;
-            var SUBMENUSVISIBLES5 = 0;
-            
-            function removelines()
-			{
-                op1.classList.remove("OPCIONin");
-                op2.classList.remove("OPCIONin");
-                op3.classList.remove("OPCIONin");
-                op4.classList.remove("OPCIONin");
-                op5.classList.remove("OPCIONin");
-                box1.classList.remove("OPCIONlineasin2");
-                box2.classList.remove("OPCIONlineasin");
-                box3.classList.remove("OPCIONlineasin");
-                box4.classList.remove("OPCIONlineasin");
-                box5.classList.remove("OPCIONlineasin3");
-            }
-            /* mostramos el menu al pulsar el burger */
-            $('#BURGER').on('click', function() {
-                    removelines();
-				    // WRAPERMENU.classList.toggle("positionin");
-        			// WRAPMENU.classList.toggle("mostrar");
-        			
-        			if ($('#fullmenu').css('opacity') == 0)
-        			{
-	        			$('#fullpopmenu').css({
-	        				right: 0,
-	        				top: 0
-	        			});
-
-	        			$('#fullmenu').css({
-	        				opacity: 1
-	        			});
-	        		}
-	        		else
-	        		{
-	        			$('#fullmenu').animate({
-	        				opacity: 0
-	        			},
-	        			{
-	        				duration: 250,
-	        				complete: function() {
-			        			$('#fullpopmenu').css({
-			        				right: 'inherit',
-			        				top: '-10000px'
-			        			});
-	        				}
-	        			});
-	        		}
-			});
-            
-            function mostrarPOPMENUitems()
-			{
-                switch(CURRENTMENU){
-                        case 0:
-                            removelines();
-                            CURRENTMENU = 0;
-                            SUBMENUSVISIBLES1 = 0;
-                            SUBMENUSVISIBLES2 = 0;
-                            SUBMENUSVISIBLES3 = 0;
-                            SUBMENUSVISIBLES4 = 0;
-                            SUBMENUSVISIBLES5 = 0;
-                            break;
-                        case 1:
-                            removelines();
-                            op1.classList.add("OPCIONin");
-                            box1.classList.add("OPCIONlineasin2");
-                            SUBMENUSVISIBLES1 = 1;
-                            break; 
-                        case 2:
-                            removelines();
-                            op2.classList.add("OPCIONin");
-                            box2.classList.add("OPCIONlineasin");
-                            SUBMENUSVISIBLES2 = 1;
-                            break;  
-                        case 3:
-                            removelines();
-                            op3.classList.add("OPCIONin");
-                            box3.classList.add("OPCIONlineasin");
-                            SUBMENUSVISIBLES3 = 1;
-                            break; 
-                        case 4:
-                            removelines();
-                            op4.classList.add("OPCIONin");
-                            box4.classList.add("OPCIONlineasin");
-                            SUBMENUSVISIBLES4 = 1;
-                            break;  
-                        case 5:
-                            removelines();
-                            op5.classList.add("OPCIONin");
-                            box5.classList.add("OPCIONlineasin3");
-                            SUBMENUSVISIBLES5 = 1;
-                            break;  
-                    }
-            }
-            
-            /* mostramos y ocultamos subsecciones del menu */
-            $('#fullopcion1').on('click', function() { 
-                    if (SUBMENUSVISIBLES1==1){
-                        CURRENTMENU = 0; mostrarPOPMENUitems();
-                    }else{
-                        CURRENTMENU = 1; mostrarPOPMENUitems();
-                    }
-			});
-            $('#fullopcion2').on('click', function() { 
-                    if (SUBMENUSVISIBLES2==1){
-                        CURRENTMENU = 0; mostrarPOPMENUitems();
-                    }else{
-                        CURRENTMENU = 2; mostrarPOPMENUitems();
-                    }
-                
-			});
-             $('#fullopcion3').on('click', function() {
-				     if (SUBMENUSVISIBLES3==1){
-                        CURRENTMENU = 0; mostrarPOPMENUitems();
-                    }else{
-                        CURRENTMENU = 3; mostrarPOPMENUitems();
-                    }
-			});
-            $('#fullopcion4').on('click', function() {                   
-                    if (SUBMENUSVISIBLES4==1){
-                        CURRENTMENU = 0; mostrarPOPMENUitems();
-                    }else{
-                        CURRENTMENU = 4; mostrarPOPMENUitems();
-                    }
-			});
-            $('#fullopcion5').on('click', function() {                   
-                    if (SUBMENUSVISIBLES5==1){
-                        CURRENTMENU = 0; mostrarPOPMENUitems();
-                    }else{
-                        CURRENTMENU = 5; mostrarPOPMENUitems();
-                    }
-			});
-
-
-
-			/**
 			 * Cargador de variables desde el JSON
 			 * @param  archivo JSON
 			 * @return 
@@ -570,77 +340,77 @@
 			 * [cargarSeleccionDeIdioma para mostrar el menú de idiomas]
 			 * @return {null} 
 			 */
-			function cargarSeleccionDeIdioma()
-			{
-				$('body').append('<div id="sel_language">' +
-									'<div class="container">' +
-										'<div class="row">' +
-											'<div class="col-xs-12">' +
-												'<ul class="row text-center">' +
-													'<li class="col-xs-12">' +
-														'<h2>' +
-															'<a href="#" class="sel_language_link" data-lang="es">Español</a>' +
-														'</h2>' +
-													'</li>' +
-													'<li class="col-xs-12">' +
-														'<h2>' +
-															'<a href="#" class="sel_language_link" data-lang="en">English</a>' +
-														'</h2>' +
-													'</li>' +
-													'<li class="col-xs-12">' +
-														'<h2>' +
-															'<a href="#" class="sel_language_link" data-lang="fr">Français</a>' +
-														'</h2>' +
-													'</li>' +
-													'<li class="col-xs-12">' +
-														'<h2>' +
-															'<a href="#" class="sel_language_link" data-lang="it">Italiano</a>' +
-														'</h2>' +
-													'</li>' +
-													'<li class="col-xs-12">' +
-														'<h2>' +
-															'<a href="#" class="sel_language_link" data-lang="pt">Português</a>' +
-														'</h2>' +
-													'</li>' +
-													'<li class="col-xs-12">' +
-														'<h2>' +
-															'<a href="#" class="sel_language_link" data-lang="de">Deutsch</a>' +
-														'</h2>' +
-													'</li>' +
-													'<li class="col-xs-12">' +
-														'<h2>' +
-															'<a href="#" class="sel_language_link" data-lang="ru">Pусский</a>' +
-														'</h2>' +
-													'</li>' +
-													'<li class="col-xs-12">' +
-														'<h2>' +
-															'<a href="#" class="sel_language_link" data-lang="zh">汉语</a>' +
-														'</h2>' +
-													'</li>' +
-												'</ul>' +
-											'</div>' +
-										'</div>' +
-									'</div>' +
-								'</div>');
+			// function cargarSeleccionDeIdioma()
+			// {
+			// 	$('body').append('<div id="sel_language">' +
+			// 						'<div class="container">' +
+			// 							'<div class="row">' +
+			// 								'<div class="col-xs-12">' +
+			// 									'<ul class="row text-center">' +
+			// 										'<li class="col-xs-12">' +
+			// 											'<h2>' +
+			// 												'<a href="#" class="sel_language_link" data-lang="es">Español</a>' +
+			// 											'</h2>' +
+			// 										'</li>' +
+			// 										'<li class="col-xs-12">' +
+			// 											'<h2>' +
+			// 												'<a href="#" class="sel_language_link" data-lang="en">English</a>' +
+			// 											'</h2>' +
+			// 										'</li>' +
+			// 										'<li class="col-xs-12">' +
+			// 											'<h2>' +
+			// 												'<a href="#" class="sel_language_link" data-lang="fr">Français</a>' +
+			// 											'</h2>' +
+			// 										'</li>' +
+			// 										'<li class="col-xs-12">' +
+			// 											'<h2>' +
+			// 												'<a href="#" class="sel_language_link" data-lang="it">Italiano</a>' +
+			// 											'</h2>' +
+			// 										'</li>' +
+			// 										'<li class="col-xs-12">' +
+			// 											'<h2>' +
+			// 												'<a href="#" class="sel_language_link" data-lang="pt">Português</a>' +
+			// 											'</h2>' +
+			// 										'</li>' +
+			// 										'<li class="col-xs-12">' +
+			// 											'<h2>' +
+			// 												'<a href="#" class="sel_language_link" data-lang="de">Deutsch</a>' +
+			// 											'</h2>' +
+			// 										'</li>' +
+			// 										'<li class="col-xs-12">' +
+			// 											'<h2>' +
+			// 												'<a href="#" class="sel_language_link" data-lang="ru">Pусский</a>' +
+			// 											'</h2>' +
+			// 										'</li>' +
+			// 										'<li class="col-xs-12">' +
+			// 											'<h2>' +
+			// 												'<a href="#" class="sel_language_link" data-lang="zh">汉语</a>' +
+			// 											'</h2>' +
+			// 										'</li>' +
+			// 									'</ul>' +
+			// 								'</div>' +
+			// 							'</div>' +
+			// 						'</div>' +
+			// 					'</div>');
 
-				var lang_page = setInterval(function() {
-					if ($('#sel_language').length)
-					{
-						$('.sel_language_link').on('click', function(e) {
-							e.preventDefault();
+			// 	var lang_page = setInterval(function() {
+			// 		if ($('#sel_language').length)
+			// 		{
+			// 			$('.sel_language_link').on('click', function(e) {
+			// 				e.preventDefault();
 
-							if (localStorage.getItem("lang") != $(this).data('lang'))
-							{
-								console.log(localStorage.getItem("lang") + ' - ' + $(this).data('lang'))
-								localStorage.setItem("lang", $(this).data('lang'));
-							}
+			// 				if (localStorage.getItem("lang") != $(this).data('lang'))
+			// 				{
+			// 					console.log(localStorage.getItem("lang") + ' - ' + $(this).data('lang'))
+			// 					localStorage.setItem("lang", $(this).data('lang'));
+			// 				}
 
-							// $('#sel_language').remove();
-							location.reload();
-						})
-					}
-				})
-			}
+			// 				// $('#sel_language').remove();
+			// 				location.reload();
+			// 			})
+			// 		}
+			// 	})
+			// }
 		</script>
 	</body>
 </html>
