@@ -36,6 +36,8 @@ function init()
 
 
 $(window).on('load', function() {
+	$('body').fadeIn('fast');
+	
 	console.log('HOLA MUNDO!!')
 	$('.c-hamburger').on('click', function(){
 		if ($('#menu').length)

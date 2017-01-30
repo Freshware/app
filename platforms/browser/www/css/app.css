@@ -131,6 +131,11 @@ body
     font-weight: normal;
 }
 
+body
+{
+	display: none;
+}
+
 a
 {
 	color: #FFF;
