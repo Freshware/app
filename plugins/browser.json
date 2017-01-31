@@ -69,6 +69,9 @@
         },
         "cordova-plugin-document-viewer": {
             "PACKAGE_NAME": "es.freshware.www"
+        },
+        "jaeger.Html5Video": {
+            "PACKAGE_NAME": "es.freshware.www"
         }
     },
     "dependent_plugins": {

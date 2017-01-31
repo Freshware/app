@@ -629,12 +629,11 @@ module.exports = [
         ]
     },
     {
-        "file": "plugins/cordova-plugin-document-viewer/www/sitewaertsdocumentviewer.js",
-        "id": "cordova-plugin-document-viewer.SitewaertsDocumentViewer",
-        "pluginId": "cordova-plugin-document-viewer",
+        "file": "plugins/jaeger.Html5Video/www/Html5Video.js",
+        "id": "jaeger.Html5Video.Html5Video",
+        "pluginId": "jaeger.Html5Video",
         "clobbers": [
-            "cordova.plugins.SitewaertsDocumentViewer",
-            "SitewaertsDocumentViewer"
+            "plugins.html5Video"
         ]
     }
 ];
@@ -664,7 +663,8 @@ module.exports.metadata =
     "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-screen-orientation": "1.4.2",
     "cordova-plugin-document-viewer": "0.8.0",
-    "cordova-plugin-pdf-viewer": "0.0.1"
+    "cordova-plugin-pdf-viewer": "0.0.1",
+    "jaeger.Html5Video": "1.2.2"
 }
 // BOTTOM OF METADATA
 });

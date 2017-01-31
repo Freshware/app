@@ -93,6 +93,9 @@
         },
         "cordova-plugin-pdf-viewer": {
             "PACKAGE_NAME": "es.freshware.www"
+        },
+        "jaeger.Html5Video": {
+            "PACKAGE_NAME": "es.freshware.www"
         }
     },
     "dependent_plugins": {},
@@ -724,6 +727,14 @@
             "clobbers": [
                 "PDFViewer"
             ]
+        },
+        {
+            "file": "plugins/jaeger.Html5Video/www/Html5Video.js",
+            "id": "jaeger.Html5Video.Html5Video",
+            "pluginId": "jaeger.Html5Video",
+            "clobbers": [
+                "plugins.html5Video"
+            ]
         }
     ],
     "plugin_metadata": {
@@ -750,6 +761,7 @@
         "cordova-plugin-whitelist": "1.2.2",
         "cordova-plugin-screen-orientation": "1.4.2",
         "cordova-plugin-document-viewer": "0.8.0",
-        "cordova-plugin-pdf-viewer": "0.0.1"
+        "cordova-plugin-pdf-viewer": "0.0.1",
+        "jaeger.Html5Video": "1.2.2"
     }
 }
