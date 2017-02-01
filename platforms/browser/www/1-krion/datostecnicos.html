@@ -63,8 +63,9 @@
 		<script src="../cordova.js"></script>
 		<script src="../js/app.js"></script>
 		<script type="text/javascript">
-			cargarSeleccionDeIdioma();
-
+			$(window).on('load', function() {
+				animacionOnExit();
+			});
 
 			function cargarMenu()
 			{
@@ -106,7 +107,7 @@
 											if (index == 'menu')
 											{
 												$.each(val.links, function(key, value) {
-													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="/' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
+													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="../' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
 												})
 											}
 											else

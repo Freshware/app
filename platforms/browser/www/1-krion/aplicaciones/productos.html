@@ -240,6 +240,10 @@
 		<script type="text/javascript">
 			cargarValoresPorIdioma();
 
+			$(window).on('load', function() {
+				animacionOnExit();
+			});
+
 			/**
 			 * Cargador de variables desde el JSON
 			 * @param  archivo JSON
@@ -604,7 +608,7 @@
 											if (index == 'menu')
 											{
 												$.each(val.links, function(key, value) {
-													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="/' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
+													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="../../' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
 												})
 											}
 											else
@@ -622,7 +626,7 @@
 														'<a href="' + window.location.protocol + '//' + window.location.host + '/' + '">HOME</a>' +
 													'</div>' +
 													'<div class="col-xs-4 text-center">' +
-														'<img src="../img/common/logo_gales.png">' +
+														'<img src="/../img/common/logo_gales.png">' +
 													'</div>' +
 													'<div class="col-xs-4 text-right">' +
 														'<a class="language_menu" href="#">IDIOMA: ESPAÑOL</a>' +

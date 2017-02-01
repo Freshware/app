@@ -150,7 +150,9 @@
 					{
 						$(this).find('.info-content').fadeOut('fast');
 					}
-				})
+				});
+
+				animacionOnExit();
 			})
 
 			// A los bullets de la izquierda les indicamos
@@ -452,7 +454,7 @@
 											if (index == 'menu')
 											{
 												$.each(val.links, function(key, value) {
-													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="/' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
+													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
 												})
 											}
 											else
@@ -516,7 +518,7 @@
 						$('#menu').fadeIn('fast');
 					}
 				});
-			}
+			}				
 		</script>
 	</body>
 </html>

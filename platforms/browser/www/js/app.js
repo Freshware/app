@@ -34,6 +34,43 @@ function init()
 	}
 }
 
+/**
+ * [animacionOnLoad Para la animación en la que aparece desde abajo al cargar cada sección]
+ * @return {[type]} [description]
+ */
+function animacionOnLoad()
+{
+	$('body').css('margin-top', '30px');
+	// $('body').css('opacity', 0);
+	$('body').animate({
+		marginTop: 0,
+		opacity: 1
+	}, 1500);
+}
+animacionOnLoad();
+
+function animacionOnExit()
+{
+	$('a').click(function(event){
+	    event.preventDefault();
+
+	    var href = $(this).attr('href');
+	    //do whatever
+	    if (href != '#' && href != '')
+	    {
+	    	$('body').animate({
+	    		opacity: 0
+	    	}, {
+	    		duration: 800,
+	    		easing: 'easeInCirc',
+	    		complete: function() {
+	    			window.location.href = href;
+	    		}
+	    	})
+	    }
+	}); 
+}
+
 $(window).on('load', function() {
 	$('.c-hamburger').on('click', function(){
 		if ($('#menu').length)

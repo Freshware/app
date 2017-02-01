@@ -437,7 +437,11 @@
 		<script src="../cordova.js"></script>
 		<script src="../js/app.js"></script>
 		<script type="text/javascript">
-		cargarValoresPorIdioma();
+			cargarValoresPorIdioma();
+
+			$(window).on('load', function() {
+				animacionOnExit();
+			});
 
 			/**
 			 * Cargador de variables desde el JSON
@@ -999,7 +1003,7 @@ function loadImageFresh(element)
 											if (index == 'menu')
 											{
 												$.each(val.links, function(key, value) {
-													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="/' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
+													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="../' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
 												})
 											}
 											else

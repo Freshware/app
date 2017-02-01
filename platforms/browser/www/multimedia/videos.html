@@ -780,6 +780,10 @@
 			{
 				cargarSeleccionDeIdioma();
 			}
+
+			$(window).on('load', function() {
+				animacionOnExit();
+			});
 			
 			$.getJSON('../assets/content.json', function(data) {
 				// Después de cargar el JSON creamos un
@@ -922,12 +926,12 @@
 				fileTransfer.download(ruta_server + fileName, storeComplete, 
 					function(entry) {
 						$('.pdf-link[data-file="' + link_file + '"]').find('span').removeClass('glyphicon-cloud-download');
-						$('.pdf-link[data-file="' + link_file + '"]').find('span').addClass('glyphicon-file');
+						$('.pdf-link[data-file="' + link_file + '"]').find('span').addClass('glyphicon-facetime-video');
 						$('.pdf-link[data-file="' + link_file + '"]').find('span').addClass('text-success');
 						$('.pdf-link[data-file="' + link_file + '"]').find('span').addClass('descargado');
 					}, 
 					function(err) {
-						alert("Error - Linea 173");
+						alert("Error - Not possible Download - Imposible descargar");
 						console.dir(err);
 					}
 				);
@@ -1014,7 +1018,7 @@
 											if (index == 'menu')
 											{
 												$.each(val.links, function(key, value) {
-													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="/' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
+													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="../' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
 												})
 											}
 											else

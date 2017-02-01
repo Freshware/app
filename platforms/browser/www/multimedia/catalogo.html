@@ -434,6 +434,10 @@
 			{
 				cargarSeleccionDeIdioma();
 			}
+
+			$(window).on('load', function() {
+				animacionOnExit();
+			});
 			
 			$.getJSON('../assets/content.json', function(data) {
 				// Después de cargar el JSON creamos un
@@ -451,7 +455,7 @@
 				window.pdfs = items.pdfs.archivos;
 
 				console.log('Primera búsqueda... ')
-				listDir(cordova.file.documentsDirectory);
+				listDir();
 			})
 			.fail(function( jqxhr, textStatus, error ) {
 			    var err = textStatus + ", " + error;
@@ -522,7 +526,13 @@
 							    }
 							};
 
-				cordova.plugins.SitewaertsDocumentViewer.viewDocument(store_path + fileName, 'application/pdf', options, null, null, null, onError);
+				cordova.plugins.SitewaertsDocumentViewer.viewDocument(store_path + fileName, 'application/pdf', options, null, onClose, null, onError);
+			}
+
+			function onClose()
+			{
+				$('#spinner_div').remove();
+				window.console.log('document closed');
 			}
 
 			function onError()
@@ -547,33 +557,46 @@
 						$('.pdf-link[data-file="' + link_file + '"]').find('span').addClass('descargado');
 					}, 
 					function(err) {
-						alert("Error - Linea 173");
+						alert("Error - Not possible Download - Imposible descargar");
 						console.dir(err);
 					}
 				);
 			}
 
-			function listDir(path)
+			function listDir()
 			{
-				window.resolveLocalFileSystemURL(path,
+				window.store_path = cordova.file.documentsDirectory;
+				alert('linea 568')
+				console.log('linea 569')
+				window.resolveLocalFileSystemURL(store_path,
     											function (fileSystem)
     											{
+				alert('linea 574')
+				console.log('linea 575')
 													var reader = fileSystem.createReader();
 
 													reader.readEntries(function (entries) {
+				alert('linea 578')
+				console.log('linea 579')
 																			var i;
-																			
+																			alert('hola reader')
 																		    for (i = 0; i < entries.length; i++)
 																		    {
 																				if (entries[i].isFile)
 																				{
+				alert('linea 587')
+				console.log('linea 588')
 																					$('.pdf-link').each(function() {
 																						var elem = $(this);
 																						var file = $(this).data('file');
 
 																						$.each(pdfs, function(index, val) {
+				alert('linea 594')
+				console.log('linea 595')
 																							if (index == file)
 																							{
+				alert('Éxito')
+				console.log('Éxito')
 																								elem.find('span').removeClass('glyphicon-cloud-download');
 																								elem.find('span').addClass('glyphicon-file');
 																								elem.find('span').addClass('text-success');
@@ -589,6 +612,9 @@
     											},
     											function (err)
     											{
+    												alert('error:')
+    												alert(err)
+													console.log('Éxito')
 													console.log(err);
 												});
 			}
@@ -634,7 +660,7 @@
 											if (index == 'menu')
 											{
 												$.each(val.links, function(key, value) {
-													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="/' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
+													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="../' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
 												})
 											}
 											else

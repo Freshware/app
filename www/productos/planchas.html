@@ -1618,6 +1618,10 @@
 		<script type="text/javascript">
 			cargarValoresPorIdioma();
 
+			$(window).on('load', function() {
+				animacionOnExit();
+			});
+
 			/**
 			 * Cargador de variables desde el JSON
 			 * @param  archivo JSON
@@ -1644,6 +1648,25 @@
 
 							$('.productos-header h1').append(seccion.h1);
 							$('.productos-header h4').append(seccion.h4);
+
+							$('.toggle_filtros').find('span').html(seccion.ocultar);
+
+							$('.toggle_filtros').on('click', function(e) {
+								e.preventDefault();
+								$('.series-fiter').slideToggle('slow');
+
+								if ($(this).hasClass('ocultos'))
+								{
+									$(this).removeClass('ocultos');
+									$('.toggle_filtros').find('span').html(seccion.ocultar);
+								}
+								else
+								{
+									$(this).addClass('ocultos');
+									$('.toggle_filtros').find('span').html(seccion.mostrar);
+								}
+							});
+							
 							$('.productos-filter-opciones > .row > .col-xs-offset-1').html(seccion.opciones_visualizacion);
 							$('.productos-filter-opciones > .row > .col-xs-offset-1').append(seccion.productos_filter_opciones_texto1);
 							$('.productos-filter-opciones > .row > .col-xs-offset-1').html(seccion.productos_filter_opciones_texto1);
@@ -1784,7 +1807,7 @@
 										'<div class="fresh-lightbox-top fresh-lightbox-top-productos">' +
 											'<div class="fresh-lightbox-close">' +
 												'<a href="#" class="fresh-lightbox-close-link">' +
-													'<img src="../../img/common/close.png" alt="Krion">' +
+													'<img src="../img/common/close.png" alt="Krion">' +
 												'</a>' +
 											'</div>'+
 										'</div>'+
@@ -2155,7 +2178,7 @@
 											if (index == 'menu')
 											{
 												$.each(val.links, function(key, value) {
-													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="/' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
+													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="../' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
 												})
 											}
 											else
