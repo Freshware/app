@@ -21,16 +21,6 @@ ffff
 
 @font-face {
 	font-family: 'Gotham';
-	src: url('Gotham-Black.eot');
-	src: url('fonts/Gotham-Black.eot?#iefix') format('embedded-opentype'),
-		url('fonts/Gotham-Black.woff') format('woff'),
-		url('fonts/Gotham-Black.ttf') format('truetype');
-	font-weight: 900;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Gotham';
 	src: url('Gotham-Thin.eot');
 	src: url('fonts/Gotham-Thin.eot?#iefix') format('embedded-opentype'),
 		url('fonts/Gotham-Thin.woff') format('woff'),
@@ -38,17 +28,6 @@ ffff
 	font-weight: 100;
 	font-style: normal;
 }
-
-@font-face {
-	font-family: 'Gotham';
-	src: url('Gotham-Bold.eot');
-	src: url('fonts/Gotham-Bold.eot?#iefix') format('embedded-opentype'),
-		url('fonts/Gotham-Bold.woff') format('woff'),
-		url('fonts/Gotham-Bold.ttf') format('truetype');
-	font-weight: bold;
-	font-style: normal;
-}
-
 @font-face {
 	font-family: 'Gotham';
 	src: url('Gotham-Light.eot');
@@ -68,7 +47,6 @@ ffff
 	font-weight: normal;
 	font-style: normal;
 }
-
 @font-face {
 	font-family: 'Gotham';
 	src: url('Gotham-Medium.eot');
@@ -78,6 +56,32 @@ ffff
 	font-weight: 500;
 	font-style: normal;
 }
+@font-face {
+	font-family: 'Gotham';
+	src: url('Gotham-Black.eot');
+	src: url('fonts/Gotham-Black.eot?#iefix') format('embedded-opentype'),
+		url('fonts/Gotham-Black.woff') format('woff'),
+		url('fonts/Gotham-Black.ttf') format('truetype');
+	font-weight: 900;
+	font-style: normal;
+}
+
+
+
+@font-face {
+	font-family: 'Gotham';
+	src: url('Gotham-Bold.eot');
+	src: url('fonts/Gotham-Bold.eot?#iefix') format('embedded-opentype'),
+		url('fonts/Gotham-Bold.woff') format('woff'),
+		url('fonts/Gotham-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+
+
+
+
+
 
 .spin {
   -webkit-animation: spin 1s infinite linear;
@@ -203,7 +207,7 @@ a
 }
 .info-content a{
      font-family: "Gotham";
-    font-size: 13px;
+    font-size: 14px;
     font-style: normal;
     font-weight: 300;
     padding: 10px;
@@ -228,9 +232,12 @@ a
     z-index: 6;
 }
 
-.logo-sup
-{
-	max-height: 50px;
+.logo-sup {
+    max-height: 50px;
+    width: 130px;
+    position: relative;
+    left: 10px;
+    top: 10px;
 }
 
 .no-padding-right
@@ -246,7 +253,7 @@ a
 .no-padding
 {
 	padding: 0 !important;
-}
+} 
 
 #sel_language
 {
@@ -258,8 +265,12 @@ a
 	width:100%;
 	height:100%;
 	display: none;
+    display: table;
 }
-
+#sel_language .container{
+    display: table-cell;
+    vertical-align: middle;
+}
 #sel_language .close_btn
 {
 	position: absolute;
@@ -277,37 +288,16 @@ a
 	padding: 0;
 	margin: 0;
 	list-style: none;
-	margin-top: 250px;
+
 }
 
-#sel_language a
+#sel_language a,
+#sel_language a:hover,
+#sel_language a:focus,
+#sel_language a:visited
 {
 	color: #000;
-}
-
-.full_white
-{
-	width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: absolute;
-    padding: 10px;
-    z-index: 99999;
-    background: white;
-}
-
-.back_to_app
-{
-    position: absolute;
-    top: 0;
-    left: 15px;
-    z-index: 10;
-}
-
-.back_to_app a
-{
-	color: #AAA;
+    text-decoration: none;
 }
 
 
@@ -318,7 +308,15 @@ a
 .fresh-remodal
 {
 	max-width: 75%;
-	height: 75%;
+	height: 65%;
+    
+}
+.remodal-content{
+    overflow: hidden;
+    -webkit-box-shadow: 1px 0px 29px -1px rgba(0,0,0,0.29);
+    -moz-box-shadow: 1px 0px 29px -1px rgba(0,0,0,0.29);
+    box-shadow: 1px 0px 29px -1px rgba(0,0,0,0.29);
+    
 }
 
 .fresh-remodal-img
@@ -339,9 +337,100 @@ a
 	padding-top: 75px;
 }
 
-.fresh-remodal-logo-krion img
-{
-	height: 40px;
+.fresh-remodal-logo-krion img {
+    margin: 10px 30px 30px;
+    height: 32px;
+}
+.fresh-remodal .remodal-title{
+    margin: 16px 0 24px 0;
+    text-transform: uppercase;
+    font-weight: 300px;
+    display: inline-block;
+    line-height: 100%;
+    font-size: 12px;
+}
+.fuego .remodal-title,
+.antibacterias .remodal-title,
+.ultrablanco .remodal-title,
+.reciclable .remodal-title,
+.extremos .remodal-title,
+.mineral .remodal-title,
+.limpieza .remodal-title,
+.peso .remodal-title,
+.juntas .remodal-title,
+.conductividad .remodal-title,
+.resistente .remodal-title,
+.poroso .remodal-title,
+.impacto .remodal-title,
+.solar .remodal-title,
+.aislamiento .remodal-title,
+.alimentario .remodal-title,
+.compresion .remodal-title,
+.antiestatico .remodal-title,
+.termocurvado .remodal-title,
+.retroiluminacion .remodal-title{
+    background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_resistente_compresion.png);
+    background-size: 36px;
+    padding: 15px 0px 10px 48px;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+}
+.fuego .remodal-title{
+    background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_elevada_resistencia_fuego.png);
+}
+.antibacterias .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_antibacterias.png);
+}
+.reciclable .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_reciclable.png);
+}
+.extremos .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_resistente_ambientes_extremos.png);
+}
+.mineral .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_alta_composicion_mineral.png);
+}
+.limpieza .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_facil_limpieza.png);
+}
+.peso .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_bajo_peso.png);
+}
+.juntas .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_juntas_imperceptibles.png);
+}
+.conductividad .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_baja_conductividad_termica.png);
+}
+.resistente .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_resistente_flexion.png);
+}
+.poroso .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_no_poroso.png);
+}
+.impacto .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_resistente_impacto.png);
+}
+.solar .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_resistente_radiacion_solar.png);
+}
+.aislamiento .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_aislamiento_acustico.png);
+}
+.alimentario .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_apto_uso_alimentario.png);
+}
+.compresion .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_resistente_compresion.png);
+}
+.antiestatico .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_antiestatico.png);
+}
+.termocurvado .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/icono_propiedades_termocurvado.png);
+}
+.retroiluminacion .remodal-title{
+     background-image: url(../img/1-krion/1-2/iconos/traslu.png);
 }
 
 .fresh-remodal-close
@@ -349,6 +438,10 @@ a
 	position: absolute;
 	top: 5px;
     right: 20px;
+    width: 50px;
+    height: 50px;
+    display: block;
+    background: red;
 }
 
 .fresh-remodal-close img
@@ -362,21 +455,84 @@ a
 	color: #000;
 }
 
-/*.fresh-remodal .remodal-content
+.fresh-remodal-info
 {
-	background: #FFF;
-    padding: 30px;
-    width: 70%;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    height: 45%;
+	padding-top: 75px;
+    text-align: left
+}
+.remodal-content h3{
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    padding: 0 30px 0 30px;
+    text-align: left;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 120%;
+
 }
 
-.fresh-remodal .remodal-content h3
-{
-	margin-top: 0;
-}*/
+.fresh-remodal-info p{
+     padding: 0 30px 0 30px;
+}
+.remodal-content .col-xs-offset-1 {
+    PADDING: 0;
+}
+
+
+
+#aplicaciones .fresh-remodal img{
+    padding: 10px 0;
+}
+.productos p,
+.exterior p,
+.interior p,
+.mobiliario p,
+.comercial p,
+.encimeras p,
+.equipamiento p,
+.senaletica p{
+   background-image: url(../img/1-krion/1-4/iconos/productos.png);
+    background-size: 36px;
+    padding: 15px 0px 10px 48px;
+    background-repeat: no-repeat;
+    background-position: 0px 8px;
+    text-align: left;
+    
+    margin: 16px 0 24px 0;
+    text-transform: uppercase;
+    font-weight: 300px;
+    display: inline-block;
+    line-height: 100%;
+    font-size: 12px;
+    
+    
+}
+.exterior p{
+   background-image: url(../img/1-krion/1-4/iconos/Revestimiento%20esterior.png);
+}
+.interior p{
+   background-image: url(../img/1-krion/1-4/iconos/Revestimiento%20interior.png);
+}
+.mobiliario p{
+   background-image: url(../img/1-krion/1-4/iconos/mobiliario.png);
+}
+.comercial p{
+   background-image: url(../img/1-krion/1-4/iconos/mobiliario%20comercial.png);
+}
+.encimeras p{
+   background-image: url(../img/1-krion/1-4/iconos/encimeras.png);
+}
+.equipamiento p{
+   background-image: url(../img/1-krion/1-4/iconos/Equipamiento%20de%20ba%C3%B1o.png);
+}
+.senaletica p{
+   background-image: url(../img/1-krion/1-4/iconos/se%C3%B1aletica.png);
+}
+
+
+
+
 
 
 
@@ -408,7 +564,7 @@ a
 
 #fresh-lightbox .fresh-lightbox-top.fresh-lightbox-top-productos
 {
-	background-image: url(../img/2-productos/2-1/slide/planchas.jpg);
+	background-image: url(../img/2-productos/2-1/slide/background.jpg);
 	background-repeat: no-repeat;
 	background-size: 50% auto;
 }
@@ -467,9 +623,162 @@ a
 	background: #FFF;
 }
 
+/* ==========================================================================
+   SERIES
+   ========================================================================== */
 
 
+.series-fiter{
+    background-color: #ececec;
+    padding: 50px 0px;
+    border: none !important;
+    
+}
 
+.series-fiter a.opciones-visualizacion-link {
+    color: #333;
+    display: inline-block;
+    padding: 10px 0px;
+    font-weight: 400;
+    font-size: 12px;
+}
+.productos-filter-opciones-advanced .opciones-visualizacion-nombre{
+    padding: 10px;
+    display: block;
+    border: 2px solid #dadada;
+    margin-top: 20px;
+}
+.productos-filter-opciones-advanced .col-xs-8{
+    border-right: 1px solid #dadada;
+}
+
+.productos-filter h5 {
+    font-size: 14px;
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.productos-filter-opciones .col-xs-10 p{
+        text-transform: none;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 130%;
+    
+}
+#mas-info-colecciones{
+    padding-bottom: 10px;
+}
+#mas-info-colecciones .txt,
+#mas-info-colecciones .text-center{
+    margin: 10px 0;
+}
+#mas-info-colecciones .col-md-12 {
+    width: 100%;
+    padding: 10px 40px;
+    font-weight: 300;
+}
+
+#body #fresh-lightbox .fresh-lightbox-item .col-md-4 {
+    display: block;
+    width: 100% !important;
+    margin-top: 20px;
+}
+#body #fresh-lightbox .fresh-lightbox-item .col-xs-12 .row,
+#body #fresh-lightbox .fresh-lightbox-item .col-xs-12 .fresh-lightbox-item-minilog{
+    width: 100%;
+    padding: 20px 30px !important;
+}
+#body #fresh-lightbox .fresh-lightbox-item .col-xs-12 .fresh-lightbox-item-regla{
+    padding-left: 0 !important;
+}
+#body #fresh-lightbox .fresh-lightbox-item .col-xs-3.no-padding .col-xs-12 .col-xs-3{
+    padding: 0 !important;
+}
+
+/* ==========================================================================
+   Galerias
+   ========================================================================== */
+
+#galerias .productos-filter{
+    
+    padding: 20px 0;
+}
+
+#galerias .productos .productos-filter a {
+    color: #333;
+    display: block;
+    padding: 13px 10px 14px 47px; 
+    text-decoration: none;
+}
+
+#galerias .productos .productos-filter a:hover,
+#galerias .productos .productos-filter a:focus,
+#galerias .productos .productos-filter a:active,
+#galerias .productos .productos-filter a:visited{
+    text-decoration: none;
+}
+
+#galerias .productos .productos-filter .col-xs-9 {
+    padding: 0px 5%;
+}
+
+.tipo-viviendas,
+.tipo-diseno,
+.tipo-transporte,
+.tipo-hoteles,
+.tipo-sanidad,
+.tipo-locales,
+.tipo-restauracion,
+.tipo-espacios,
+.tipo-todos{
+    background-image: url(../img/1-krion/1-3/iconos/Viviendas.png);
+    background-size: 34px;
+    background-repeat: no-repeat;
+    background-position: 0px 2px;
+    margin: 4px 0 4px 0;
+    text-transform: uppercase;
+    font-weight: 300px;
+    display: inline-block;
+    line-height: 100%;
+    font-size: 12px;  
+}
+.tipo-diseno{
+    background-image: url(../img/1-krion/1-3/iconos/dise%C3%B1o.png);
+}
+.tipo-transporte{
+    background-image: url(../img/1-krion/1-3/iconos/transporte.png);
+}
+.tipo-hoteles{
+    background-image: url(../img/1-krion/1-3/iconos/hoteles.png);
+}
+.tipo-sanidad{
+    background-image: url(../img/1-krion/1-3/iconos/sanidad.png);
+}
+.tipo-locales{
+    background-image: url(../img/1-krion/1-3/iconos/localescomer.png);
+}
+.tipo-restauracion{
+    background-image: url(../img/1-krion/1-3/iconos/restauracion.png);
+}
+.tipo-espacios{
+    background-image: url(../img/1-krion/1-3/iconos/Gubernamen.png);
+}
+#galerias .productos .productos-filter a.tipo-todos{
+    background-image: none;
+    padding: 13px 50px 7px 0px;
+    border-bottom: 3px solid #333;
+    margin-left: 7px;
+    display: inline-block;
+}
+
+#galeria .fresh-lightbox-show-info,
+galeria .fresh-lightbox-show-info:hover,
+galeria .fresh-lightbox-show-info:visited,
+galeria .fresh-lightbox-show-info:active,
+galeria .fresh-lightbox-show-info:focus{
+    color: black;
+    text-decoration: none;
+}
 /* ==========================================================================
    Menú
    ========================================================================== */
@@ -694,9 +1003,18 @@ ol li{
 	display: none;
 }
 
-#menu a
+#menu a,
+#menu a:hover,
+#menu a:focus,
+#menu a:visited
 {
 	color: #000;
+    text-decoration: none;
+    font-size: 18px;
+}
+#menu h2 a
+{
+    font-size: 40px !important;
 }
 
 #menu ul
@@ -719,7 +1037,7 @@ ol li{
 #menu .slideToggle:after,
 #menu .slideToggle:before
 {
-    border-bottom: 4px solid #787878;
+    border-bottom: 2px solid #d6d6d6;
     content: "";
     display: block;
     margin-left: auto;
@@ -743,6 +1061,11 @@ ol li{
 	position: absolute;
 	bottom: 10px;
 	padding: 10px 15px;
+}
+
+#menu .container{
+    position: relative;
+    top:12vh;
 }
 
 
@@ -822,7 +1145,32 @@ ol li{
 
 .krion .info-side
 {
-	margin: 40px auto -40px;
+	margin: 40px auto 10px;
+}
+.krion .info-side h2
+{
+	border-bottom:  1px solid silver;
+    font-size: 14px;
+    font-weight: 400;
+	font-style: normal;
+    text-transform: uppercase;
+    display block;
+    margin: 0 auto;
+    width: 300px;
+    padding-bottom: 10px;
+    margin-top: 20px;
+}
+#krion .krion .info-side h2{
+    
+    border-bottom: none;
+    font-size: 27px;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    margin: 0;
+    width: 90%;
+    padding-bottom: 0px; 
+    margin-top: 20px;
 }
 
 .krion.items-circle
@@ -838,10 +1186,24 @@ ol li{
 	z-index: 0;
 	background: #FFF;
 }
+.krion p{
+    margin: 0 0 10px;
+    line-height: 160%;
+    text-align: justify;
+    color: #4b4b4b;
+}
+.krion h3{
+    margin: 29px 0px;
+    line-height: 121%;
+    color: gray;
+    font-weight: 300;
+    font-weight: normal;
+    font-size: 21px;
+}
 
 .krion.sector
 {
-	padding-top: 40px;
+	padding-top: 0px;
 }
 
 .krion.sector .sector-title
@@ -851,16 +1213,29 @@ ol li{
 
 .krion.sector .sector-title img.sector-logo
 {
-	width: auto;
+	width: 34px;
+}
+.krion.sector .sector-title h2 span
+{
+    padding-top: 10px;
+    display: block;
+    text-transform: uppercase
+}
+#aplicacion.main-container {
+    padding: 25px 65px 25px 60px !important;
 }
 
 .item-sector
 {
 	height: 435px;
-    background: url(../img/common/sector-row-background.jpg) repeat-y;
+   /* background: url(../img/common/sector-row-background.jpg) repeat-y;*/
     background-size: 100% auto;
     padding: 50px 0;
     margin: 0px auto 75px;
+    border-bottom: 4px solid;
+}
+#body .item-sector .img-circle{
+    border-radius: none !important;
 }
 
 .item-sector h3
@@ -870,11 +1245,11 @@ ol li{
 
 .item-sector h3:after
 {
-	border-bottom: 4px solid #4a4a4a;
+	 border-bottom: 4px solid #333;
     content: "";
     display: block;
-    margin: 10px 0 40px;
-    width: 50px;
+    margin: 16px 0 20px;
+    width: 100px;
 }
 
 .item-sector p
@@ -922,13 +1297,80 @@ ol li{
 
 .productos > .productos-header
 {
-	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/2-productos/2-1/slide/planchas.jpg');
-    background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/2-productos/2-1/slide/planchas.jpg');
-    background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/2-productos/2-1/slide/planchas.jpg');
-    background-image: -ms-linear-gradient(top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/2-productos/2-1/slide/planchas.jpg');
-    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3))), url('../img/2-productos/2-1/slide/planchas.jpg');
-    background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('../img/2-productos/2-1/slide/planchas.jpg');
-    height: 600px;
+    height: 460px;
+    overflow: hidden;
+     background-color: black;
+}
+.productos .fondogausian{
+    
+    display: block;
+   
+    position: absolute;
+    background: url('../img/2-productos/2-1/slide/slide.jpg');
+    width: 110%;
+    height: 660px;
+    margin-left: -5%;
+    margin-top: -30px;
+    -webkit-filter: blur(10px);
+    filter: url('../img/2-productos/2-1/slide/slide.jpg');
+    filter: blur(10px);
+    opacity: 0.7;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#galerias .fondogausian{
+    background: url('../img/3-proyectos/slide/slide.jpg');
+    filter: url('../img/3-proyectos/slide/slide.jpg');
+    filter: blur(10px);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#banera .fondogausian{
+    background: url('../img/2-productos/2-4/slide/slide.jpg');
+    filter: url('../img/2-productos/2-4/slide/slide.jpg');
+    filter: blur(10px);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#ducha .fondogausian{
+    background: url('../img/2-productos/2-5/slide/slide.jpg');
+    filter: url('../img/2-productos/2-5/slide/slide.jpg');
+    filter: blur(10px);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#lavabos .fondogausian{
+    background: url('../img/2-productos/2-2/slide/slide.jpg');
+    filter: url('../img/2-productos/2-2/slide/slide.jpg');
+    filter: blur(10px);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#fregaderos .fondogausian{
+    background: url('../img/2-productos/2-3/slide/slide.jpg');
+    filter: url('../img/2-productos/2-3/slide/slide.jpg');
+    filter: blur(10px);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#accesorios .fondogausian{
+    background: url('../img/2-productos/2-5/slide/slide.jpg');
+    filter: url('../img/2-productos/2-5/slide/slide.jpg');
+    filter: blur(10px);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.productos .blackbox{
+   display: block;
+    position: absolute;
+    height: 350px;
+    width: 48%;
+    background: black;
+    z-index: 1;
 }
 
 .productos > div > div > .productos-filter-content
@@ -941,28 +1383,42 @@ ol li{
 	width: 100%;
 }
 
+.productos .logo{
+    position: absolute;
+    z-index: 2;
+    display: block;
+}
 .productos > .productos-header > img
 {
-	width: 50%;
+	width: 40%;
     top: 20%;
     position: absolute;
-    left: 15%;
+    left: 17%;
+    -webkit-box-shadow: 1px 8px 29px -5px rgba(0,0,0,0.29);
+    -moz-box-shadow: 1px 8px 29px -5px rgba(0,0,0,0.29);
+    box-shadow: 1px 8px 29px -5px rgba(0,0,0,0.29);
+    z-index: 3;
 }
 
 .productos > .productos-header > .productos-subheader
 {
-	padding: 20px 35px;
-	background: #FFF;
-	width: 50%;
-	left: 40%;
-	top: 55%;
-	position: absolute;
+	padding: 40px 50px 32px 0px;
+    background: #FFF;
+    width: 50%;
+    left: 40%;
+    top: 45%;
+    position: absolute;
+    width: 50%;
+    z-index: 2;
 }
 
 .productos > .productos-header > .productos-subheader > img
 {
-	width: auto;
-	height: 25px;
+	width: 180px;
+    padding-left: 90px;
+    padding-bottom: 10px;
+    border-bottom: 4px solid #444;
+    margin-bottom: -2px;
 }
 
 .productos > .productos-header > .productos-subheader > h1
@@ -974,18 +1430,15 @@ ol li{
 
 .productos > .productos-header > .productos-subheader > h1:before
 {
-    content: "";
-    border-top: 2px solid #000;
-    padding-right: 125px;
-    position: absolute;
-    right: 35px;
-    margin-top: -8px;
+
 }
 
 .productos > .productos-header > .productos-subheader > h4
 {
 	color: #787878;
     margin-top: 5px;
+    font-weight: 300;
+    font-size: 16px;
 }
 
 .productos .productos-filter a
@@ -995,13 +1448,52 @@ ol li{
 
 .productos > .productos-filter
 {
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#banera .productos > .productos-filter > .row:first-child,
+#ducha .productos > .productos-filter > .row:first-child,
+#fregaderos .productos > .productos-filter > .row:first-child,
+#lavabos .productos > .productos-filter > .row:first-child,
+#accesorios .productos > .productos-filter > .row:first-child{
+    padding-bottom: 10px;
+    padding: 0;
+    display: none;
+    margin-top: -10px;
+}
+#banera .series-fiter,
+#ducha .series-fiter,
+#fregaderos .series-fiter,
+#lavabos .series-fiter,
+#accesorios .series-fiter{
+    margin-top: -10px;
+}
+#banera .productos .productos-filter .colum-colecciones .col-xs-12 .colecciones_title,
+#ducha .productos .productos-filter .colum-colecciones .col-xs-12 .colecciones_title,
+#fregaderos .productos .productos-filter .colum-colecciones .col-xs-12 .colecciones_title,
+#lavabos .productos .productos-filter .colum-colecciones .col-xs-12 .colecciones_title,
+#accesorios .productos .productos-filter .colum-colecciones .col-xs-12 .colecciones_title{
+    display: none;
+}
+#banera .productos-filter-opciones-advanced .opciones-visualizacion-nombre,
+#ducha .productos-filter-opciones-advanced .opciones-visualizacion-nombre,
+#fregaderos .productos-filter-opciones-advanced .opciones-visualizacion-nombre,
+#lavabos .productos-filter-opciones-advanced .opciones-visualizacion-nombre,
+#accesorios .productos-filter-opciones-advanced .opciones-visualizacion-nombre{
+    border: none;
+    margin-top: 0px;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+#productos_imagenes{
+    border-top: 1px solid #eeeeee;
 }
 
 .productos > .productos-filter > .row:first-child
 {
-	padding-bottom: 15px;
+	padding-bottom: 10px;
 }
 
 .productos > .productos-filter > .row:first-child > [class^="col-"] > .row > [class^="col-"]
@@ -1011,15 +1503,9 @@ ol li{
 
 .productos > .productos-filter > .row:last-child
 {
-	border-top: 1px solid #999;
-	padding-top: 30px;
+	/*border-top: 1px solid #999;*/
+	padding-top: 10px;
 }
-
-.productos .series-fiter
-{
-	padding-bottom: 30px;
-}
-
 
 .productos .c-hamburger span::before,
 .productos .c-hamburger span::after,
@@ -1049,6 +1535,7 @@ a.is-checked
 {
 	margin: 10px auto;
 }
+
 .fresh-lightbox-item-nombre
 {
 	width: 100%;
@@ -1067,20 +1554,29 @@ a.is-checked
     left: 25px;
 }
 
-.fresh-lightbox-show-info
+.fresh-lightbox-show-info,
+.fresh-lightbox-show-info:hover,
+.fresh-lightbox-show-info:focus,
+.fresh-lightbox-show-info:visited,
+.fresh-lightbox-show-info:active
 {
 	color: #000;
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
 }
 
 .fresh-lightbox-item-info-proyectos
 {
 	display: none;
-	position: absolute;
+    position: absolute;
     left: 0;
     bottom: 0;
     z-index: 1000;
     width: 40%;
     background: #FFF;
+    border-top: 1px solid #dadada;
+    padding: 20px 50px !important;
 }
 
 .producto-filter-item-link
@@ -1088,6 +1584,34 @@ a.is-checked
 	position: relative;
 }
 
+.productos_filter h4{
+    font-size: 14px;
+}
+
+.fresh-lightbox-item-info-proyectos p{
+    text-align: justify;
+        font-size: 14px;
+}
+.fresh-lightbox-item-info-proyectos h3 {
+    font-size: 24px;
+        font-weight: 600;
+}
+
+
+.multimedia-video-content img
+{
+width:100%;
+}
+
+.multimedia-video-content a
+{
+color:#000;
+}
+
+.multimedia-video-content li
+{
+list-style:none;
+}
 
 
 /* ==========================================================================
@@ -1103,8 +1627,7 @@ a.is-checked
 	padding: 30px;
 }
 
-.multimedia-pdf-content,
-.multimedia-videos-content
+.multimedia-pdf-content
 {
 	margin-top: 100px;
 }
@@ -1114,20 +1637,9 @@ a.is-checked
 	margin-bottom: 50px;
 }
 
-.multimedia-videos
-{
-	background-color: #FFF !important;
-}
-
-.multimedia-videos-content img
-{
-	width: 100%;
-	margin-bottom: 30px;
-}
-
 .content-pdf
 {
-	border: 2px solid #333;
+	border: 5px solid #4f4f4f;
 	margin-top: 50px;
     min-height: 400px;
 }
@@ -1170,6 +1682,7 @@ a.is-checked
 .pdf-list h4
 {
 	margin-bottom: 20px;
+    color: #4f4f4f;
 }
 
 .pdf-list h4::after
@@ -1228,16 +1741,43 @@ a.is-checked
 	margin-bottom: 20px;
 }
 
-.mas-info-nombre-propiedad,
-.mas-info-coleccion > [class^="col-"]
+#infoOptionsModal .mas-info-nombre-propiedad,
+#infoOptionsModal.mas-info-coleccion > [class^="col-"]
 {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border-bottom: 1px solid #dadada;
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
 }
 
 .mas-info-propiedad-hija
 {
 	margin-bottom: 10px;
+    padding: 0 0 0 20px;
+    font-size: 12px;
 }
+
+
+
+@media (min-width: 1200px){
+        #sel_language .container  {
+            width: 100%;
+        }
+    }
+@media (min-width: 992px){
+        #sel_language .container  {
+            width: 100%;
+        }
+    }
+@media (min-width: 768px){
+        #sel_language .container  {
+            width: 100%;
+        }
+    }
+
 
 
 
@@ -1261,7 +1801,6 @@ a.is-checked
     from { transform: scale(1) rotate(0deg);}
     to { transform: scale(1) rotate(360deg);}
 }
-
 
 
 
