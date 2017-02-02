@@ -34,13 +34,6 @@
 			</div>
 
 			<div id="productos_filter" class="col-xs-12 productos-filter">
-				<div class="row">
-					<div class="col-xs-12 text-center">
-						<h4>
-							<a href="#" class="toggle_filtros"><i class='glyphicon glyphicon-chevron-down' aria-hidden='true'></i> <span></span> filtros</a>
-						</h4>
-					</div>
-				</div>
 				<div class="row series-fiter">
 					<div class="col-xs-9 col-xs-offset-2 grupo-opciones">
 						<div class="row">
@@ -66,7 +59,7 @@
 								<a href="#" class="opciones-visualizacion-link" data-filter=".royalplus">ROYAL + Series</a>
 							</div>
 							<div class="col-xs-3">
-								<a href="#" class="opciones-visualizacion-link" data-filter="">VER TODAS</a>
+								<a href="#" class="opciones-visualizacion-link" data-filter=""></a>
 							</div>
 							<div class="col-xs-3">
 								<a href="#" class="opciones-visualizacion-link" data-filter=".colorsplus">COLORS + Series</a>
@@ -78,6 +71,13 @@
 								<a href="#" class="opciones-visualizacion-link" data-filter=".luxury">LUXURY Series</a>
 							</div>
 						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 text-center">
+						<h4>
+							<a href="#" class="toggle_filtros"><i class='glyphicon glyphicon-chevron-down' aria-hidden='true'></i> <span></span> filtros</a>
+						</h4>
 					</div>
 				</div>
 				<div class="row">
@@ -1649,11 +1649,13 @@
 							$('.productos-header h1').append(seccion.h1);
 							$('.productos-header h4').append(seccion.h4);
 
+							$('.opciones-visualizacion-link[data-filter=""]').text(seccion.mostrar + ' ' + seccion.todos);
+
 							$('.toggle_filtros').find('span').html(seccion.ocultar);
 
 							$('.toggle_filtros').on('click', function(e) {
 								e.preventDefault();
-								$('.series-fiter').slideToggle('slow');
+								$('.productos-filter-opciones').slideToggle('slow');
 
 								if ($(this).hasClass('ocultos'))
 								{

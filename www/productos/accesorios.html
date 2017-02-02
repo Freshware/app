@@ -53,8 +53,9 @@
 							<div class="col-xs-3">
 								<a href="#" class="opciones-visualizacion-link" data-filter=".krion"><span class="categoria-krion"></span></a>
 							</div>
-						
-							
+							<div class="col-xs-3">
+								<a href="#" class="opciones-visualizacion-link" data-filter=""></a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -574,6 +575,8 @@
 
 							$('.productos-header h1').append(seccion.h1);
 							$('.productos-header h4').append(seccion.h4);
+
+							$('.opciones-visualizacion-link[data-filter=""]').text(seccion.mostrar + ' ' + seccion.todas);
 
 							$('.toggle_filtros').find('span').html(seccion.ocultar);
 
