@@ -19,6 +19,7 @@
 				"seccion": [
 					{
 						"h1": "UN MATERIAL MÁS ALLÁ DE LOS LÍMITES",
+						"titulo_menu": "KRION®",
 						"menu": {
 							"folder": "1-krion",
 							"links": {
@@ -32,6 +33,7 @@
 					},
 					{
 						"h1": "UN PRODUCTO VERSÁTIL Y COMPLETO",
+						"titulo_menu": "PRODUCTOS",
 						"menu": {
 							"folder": "productos",
 							"links": {
@@ -46,6 +48,7 @@
 					},
 					{
 						"h1": "PROYECTOS CARGADOS DE PERSONALIDAD",
+						"titulo_menu": "PROYECTOS",
 						"menu": {
 							"folder": "proyectos",
 							"links": {
@@ -55,6 +58,7 @@
 					},
 					{
 						"h1": "DOCUMENTACIÓN & MULTIMEDIA",
+						"titulo_menu": "MULTIMEDIA",
 						"menu": {
 							"folder": "multimedia",
 							"links": {
@@ -66,6 +70,7 @@
 					},
 					{
 						"h1": "EXPERIENCIA & RESPONSABILIDAD",
+						"titulo_menu": "EMPRESA",
 						"menu": {
 							"folder": "empresa",
 							"links": {
