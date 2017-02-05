@@ -40,12 +40,12 @@ function init()
  */
 function animacionOnLoad()
 {
-	$('body').css('margin-top', '30px');
-	// $('body').css('opacity', 0);
-	$('body').animate({
-		marginTop: 0,
-		opacity: 1
-	}, 1500);
+	// $('body').css('margin-top', '30px');
+	// // $('body').css('opacity', 0);
+	// $('body').animate({
+	// 	marginTop: 0,
+	// 	opacity: 1
+	// }, 1500);
 }
 animacionOnLoad();
 
@@ -98,9 +98,6 @@ function quitarMenu()
 function cargarSeleccionDeIdioma()
 {
 	$('body').append('<div id="sel_language">' +
-						'<div class="close_btn">' +
-							'<img src="../img/common/close.png" alt="Krion">' +
-						'</div>' +
 						'<div class="container">' +
 							'<div class="row">' +
 								'<div class="col-xs-12">' +

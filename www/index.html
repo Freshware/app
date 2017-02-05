@@ -110,12 +110,17 @@
 
 		<script src="js/jquery-3.1.1.min.js"></script>
 		<script src="js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+		<script src="libraries/fastclick-master/lib/fastclick.js"></script>
 		<script src="libraries/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="libraries/TouchSwipe-Jquery-Plugin-master/jquery.touchSwipe.min.js"></script>
 		<script src="cordova.js"></script>
 		<script src="js/app.js"></script>
 		<script type="text/javascript">
 			$(function() {
+				$('.info-content').hide();
+
+			    FastClick.attach(document.body);
+
 				if (localStorage.getItem("lang") == null)
 				{
 					cargarSeleccionDeIdioma();
@@ -145,6 +150,21 @@
 			// colocamos todas las secciones arriba
 			// excepto la principal
 			$(window).on('load', function() {
+				$('.sections .info-content').each(function() {
+					var top = ($(this).parent().height() / 2) - ($(this).height() / 2);
+
+					$(this).css('margin-top', top);
+				});
+
+				$('.info-content').fadeIn('fast');
+				
+				var ol = $('ol');
+
+				ol.css('margin-top', (($('.sections').height() / 2) - ($(this).height() / 2) / 2));
+				console.log(($('.sections').height() / 2) - (ol.height() / 2))
+				console.log(ol.height())
+				console.log($('.sections').height())
+
 				$('.section').each(function() {
 					if (! $(this).hasClass('section-active'))
 					{
@@ -520,75 +540,57 @@
 				});
 			}
 
-			function success(entries) {
-			    var i;
-			    for (i=0; i<entries.length; i++) {
-			        console.log('En - ', entries[i]);
-			    }
-			}
-			function fail(error) {
-			    console.log("Failed to list directory contents: ", error);
-			}
-
-			window.resolveLocalFileSystemURL(cordova.file.dataDirectory, function(dirEntry) {
-			    var directoryReader = dirEntry.createReader();
-			    console.log(dirEntry);
-
-			    // Get a list of all the entries in the directory
-			    directoryReader.readEntries(success,fail);
-			});
-
-			var localURLs    = [
-    cordova.file.dataDirectory,
-    cordova.file.documentsDirectory,
-    cordova.file.externalApplicationStorageDirectory,
-    cordova.file.externalCacheDirectory,
-    cordova.file.externalRootDirectory,
-    cordova.file.externalDataDirectory,
-    cordova.file.sharedDirectory,
-    cordova.file.syncedDataDirectory
-];
-var index = 0;
-var i;
-var statusStr = "";
-var addFileEntry = function (entry) {
-    var dirReader = entry.createReader();
-    dirReader.readEntries(
-        function (entries) {
-            var fileStr = "";
-            var i;
-            for (i = 0; i < entries.length; i++) {
-                if (entries[i].isDirectory === true) {
-                    // Recursive -- call back into this subdirectory
-                    addFileEntry(entries[i]);
-                } else {
-                   fileStr += (entries[i].fullPath + "<br>"); // << replace with something useful
-                   index++;
-                }
-            }
-            // add this directory's contents to the status
-            statusStr += fileStr;
-            // display the file list in #results
-            if (statusStr.length > 0) {
-                $("#results").html(statusStr);
-            } 
-        },
-        function (error) {
-            console.log("readEntries error: " + error.code);
-            statusStr += "<p>readEntries error: " + error.code + "</p>";
-        }
-    );
-};
-var addError = function (error) {
-    console.log("getDirectory error: " + error.code);
-    statusStr += "<p>getDirectory error: " + error.code + ", " + error.message + "</p>";
-};
-for (i = 0; i < localURLs.length; i++) {
-    if (localURLs[i] === null || localURLs[i].length === 0) {
-        continue; // skip blank / non-existent paths for this platform
-    }
-    window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
-}
+// 			var localURLs    = [
+//     cordova.file.dataDirectory,
+//     cordova.file.documentsDirectory,
+//     cordova.file.externalApplicationStorageDirectory,
+//     cordova.file.externalCacheDirectory,
+//     cordova.file.externalRootDirectory,
+//     cordova.file.externalDataDirectory,
+//     cordova.file.sharedDirectory,
+//     cordova.file.syncedDataDirectory
+// ];
+// var index = 0;
+// var i;
+// var statusStr = "";
+// var addFileEntry = function (entry) {
+//     var dirReader = entry.createReader();
+//     dirReader.readEntries(
+//         function (entries) {
+//             var fileStr = "";
+//             var i;
+//             for (i = 0; i < entries.length; i++) {
+//                 if (entries[i].isDirectory === true) {
+//                     // Recursive -- call back into this subdirectory
+//                     addFileEntry(entries[i]);
+//                 } else {
+//                    fileStr += (entries[i].fullPath + "<br>"); // << replace with something useful
+//                    index++;
+//                 }
+//             }
+//             // add this directory's contents to the status
+//             statusStr += fileStr;
+//             // display the file list in #results
+//             if (statusStr.length > 0) {
+//                 $("#results").html(statusStr);
+//             } 
+//         },
+//         function (error) {
+//             console.log("readEntries error: " + error.code);
+//             statusStr += "<p>readEntries error: " + error.code + "</p>";
+//         }
+//     );
+// };
+// var addError = function (error) {
+//     console.log("getDirectory error: " + error.code);
+//     statusStr += "<p>getDirectory error: " + error.code + ", " + error.message + "</p>";
+// };
+// for (i = 0; i < localURLs.length; i++) {
+//     if (localURLs[i] === null || localURLs[i].length === 0) {
+//         continue; // skip blank / non-existent paths for this platform
+//     }
+//     window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
+// }
 		</script>
 	</body>
 </html>
