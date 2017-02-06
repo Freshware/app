@@ -37,7 +37,7 @@
 						"menu": {
 							"folder": "productos",
 							"links": {
-								"planchas": "planchas",
+								"planchas": "planchas/colores",
 								"banera": "bases de bañeras",
 								"ducha": "bases de ducha",
 								"fregaderos": "fregaderos",
@@ -424,7 +424,7 @@
 				"g_exterior": "<h4>Garantía Exterior KRION®</h4>"
 			},
 			"productos": {
-				"h1": "COLORES",
+				"h1": "PLANCHAS/COLORES",
 				"h4": "PORCELANOSA SOLID SURFACE",
 				"mostrar": "Mostrar",
 				"ocultar": "Ocultar",

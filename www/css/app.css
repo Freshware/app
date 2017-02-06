@@ -9,6 +9,7 @@ ffff
 /* ==========================================================================
    Fonts
    ========================================================================== */
+
 @font-face {
 	font-family: 'Gotham Ultra';
 	src: url('fonts/Gotham-Ultra.eot');
@@ -26,15 +27,6 @@ ffff
 		url('fonts/Gotham-Thin.woff') format('woff'),
 		url('fonts/Gotham-Thin.ttf') format('truetype');
 	font-weight: 100;
-	font-style: normal;
-}
-@font-face {
-	font-family: 'Gotham';
-	src: url('Gotham-Light.eot');
-	src: url('fonts/Gotham-Light.eot?#iefix') format('embedded-opentype'),
-		url('fonts/Gotham-Light.woff') format('woff'),
-		url('fonts/Gotham-Light.ttf') format('truetype');
-	font-weight: 300;
 	font-style: normal;
 }
 
@@ -211,7 +203,7 @@ a
      font-family: "Gotham";
     font-size: 14px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 400;
     padding: 10px;
     border-left: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -359,7 +351,7 @@ a
 .fresh-remodal .remodal-title{
     margin: 16px 0 24px 0;
     text-transform: uppercase;
-    font-weight: 300px;
+    font-weight: 400;
     display: inline-block;
     line-height: 100%;
     font-size: 12px;
@@ -517,7 +509,7 @@ a
     
     margin: 16px 0 24px 0;
     text-transform: uppercase;
-    font-weight: 300px;
+    font-weight: 400;
     display: inline-block;
     line-height: 100%;
     font-size: 12px;
@@ -574,7 +566,8 @@ a
 	left: 0;
 	width: 100%;
 	padding: 10px 15px;
-	height: 75px;
+	/*height: 75px;*/
+    height: 100%;
 	background: #FFF;
 }
 
@@ -587,11 +580,29 @@ a
 
 #fresh-lightbox .fresh-lightbox-top .fresh-lightbox-close
 {
-    position: relative;
+    position: absolute;
     float: right;
-    width: 50px;
-    height: 50px;
-    right: 12px;
+    width: 80px;
+    height: 80px;
+    right: 0px;
+    top: 0px;
+    padding: 10px;
+
+}
+
+#fresh-lightbox .fresh-lightbox-top .fresh-lightbox-show{
+    
+    position: absolute;
+    float: left;
+    width: 80px;
+    height: 80px;
+    left: 0px;
+    top: 0px;
+    padding: 10px;
+}
+#fresh-lightbox .fresh-lightbox-top .fresh-lightbox-show img
+{
+	width: 100%;
 }
 
 #fresh-lightbox .fresh-lightbox-top .fresh-lightbox-close a img
@@ -650,6 +661,18 @@ a
     border: none !important;
     
 }
+#planchas .series-fiter{
+    margin-bottom: 20px;
+}
+#planchas .col-md-4 {
+    width: 100%;
+}
+#planchas .col-md-8 {
+    width: 100%;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid silver;
+}
 
 .series-fiter a.opciones-visualizacion-link {
     color: #333;
@@ -676,7 +699,7 @@ a
 }
 .productos-filter-opciones .col-xs-10 p{
         text-transform: none;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 14px;
     line-height: 130%;
     
@@ -691,7 +714,7 @@ a
 #mas-info-colecciones .col-md-12 {
     width: 100%;
     padding: 10px 40px;
-    font-weight: 300;
+    font-weight: 400;
 }
 
 #body #fresh-lightbox .fresh-lightbox-item .col-md-4 {
@@ -705,11 +728,24 @@ a
     padding: 20px 30px !important;
 }
 #body #fresh-lightbox .fresh-lightbox-item .col-xs-12 .fresh-lightbox-item-regla{
+   
+}
+
+#planchas .fresh-lightbox-item-regla{
     padding-left: 0 !important;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid silver;
+    width: 110%;
+    margin-left: -15px; 
+}
+#planchas .fresh-lightbox-item-regla img{
+    margin-left: 15px;
 }
 #body #fresh-lightbox .fresh-lightbox-item .col-xs-3.no-padding .col-xs-12 .col-xs-3{
     padding: 0 !important;
 }
+
 
 /* ==========================================================================
    Galerias
@@ -718,6 +754,12 @@ a
 #galerias .productos-filter{
     
     padding: 20px 0;
+}
+
+#galerias .productos-filter .row{
+    
+    padding:  0;
+    margin: 0;
 }
 
 #galerias .productos .productos-filter a {
@@ -753,7 +795,7 @@ a
     background-position: 0px 2px;
     margin: 4px 0 4px 0;
     text-transform: uppercase;
-    font-weight: 300px;
+    font-weight: 400px;
     display: inline-block;
     line-height: 100%;
     font-size: 12px;  
@@ -795,6 +837,34 @@ galeria .fresh-lightbox-show-info:focus{
     color: black;
     text-decoration: none;
 }
+
+
+#fresh-lightbox .fresh-lightbox-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 15px;
+    height: 100%;
+    background: transparent;
+    height: 100px;
+    z-index: 2;
+}
+
+#fresh-lightbox .fresh-lightbox-content .fresh-lightbox-inner-content{
+    height: 100%;
+    background: white;
+    position: fixed;
+    z-index: 1;
+    top: 0px;
+    width: 100%;
+}
+
+
+.fresh-lightbox-item-info-proyectos .col-xs-12{
+    padding-top: 120px;   
+}
+
 /* ==========================================================================
    Menú
    ========================================================================== */
@@ -1152,12 +1222,16 @@ ol li{
     overflow: hidden;
 }
 
-.krion img,
-.item-sector img
-{
+.item-sector img{
 	width: 100%;
 	height: auto;
 	max-height: 400px;
+}
+
+.krion img{
+    width: 100%;
+    height: 100%;
+    max-height: 70vw;
 }
 
 .krion .info-side
@@ -1206,14 +1280,14 @@ ol li{
 .krion p{
     margin: 0 0 10px;
     line-height: 160%;
-    text-align: justify;
+    /*text-align: justify;*/
     color: #4b4b4b;
 }
 .krion h3{
     margin: 29px 0px;
     line-height: 121%;
     color: gray;
-    font-weight: 300;
+    font-weight: 400;
     font-weight: normal;
     font-size: 21px;
 }
@@ -1455,7 +1529,7 @@ ol li{
 {
 	color: #787878;
     margin-top: 5px;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 16px;
 }
 
@@ -1469,6 +1543,13 @@ ol li{
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+#planchas .productos > .productos-filter
+{
+	margin-top: 0px;
+	margin-bottom: 20px;
+}
+
 
 #banera .productos > .productos-filter > .row:first-child,
 #ducha .productos > .productos-filter > .row:first-child,
@@ -1517,6 +1598,10 @@ ol li{
 .productos > .productos-filter > .row:first-child > [class^="col-"] > .row > [class^="col-"]
 {
 	margin-bottom: 10px;
+}
+
+#planchas .productos > .productos-filter > .row:first-child {
+    padding-bottom: 50px;
 }
 
 .productos > .productos-filter > .row:last-child
@@ -1725,8 +1810,40 @@ list-style:none;
 	margin: 50px 0;
 }
 
+#empresa .krion .info-side h2{
+    
+    border-bottom: none;
+    font-size: 27px;
+    font-weight: 600;
+    font-style: normal;
+    text-transform: uppercase;
+    margin: 0;
+    width: 90%;
+    padding-bottom: 0px; 
+    margin-top: 20px;
+}
+#empresa .krion .info-side p:first-of-type {
+    margin: 29px 0px;
+    line-height: 121%;
+    color: gray;
+    font-weight: 400;
+    font-weight: normal;
+    font-size: 21px;
+}
+
+#empresa .main-container {
+    padding: 0 !important;
+}
 
 
+
+#empresa .krion .col-xs-12{
+    background-color: #efefef;
+    margin-top: 30px;
+}
+#empresa .krion{
+    margin-top: 100px;
+}
 /* ==========================================================================
    Modal
    ========================================================================== */
