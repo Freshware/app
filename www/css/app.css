@@ -140,9 +140,9 @@ body
 	/*opacity: 0;*/
 }
 
-a
+a, a:focus, a:hover, a:visited
 {
-	color: #FFF;
+	color: #000;
 }
 
 .main-container
