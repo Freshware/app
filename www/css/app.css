@@ -919,6 +919,7 @@ ol li{
     margin: 21px 0;
     position: relative;
     width: 10px;
+    list-style: none;
 }
 .menu-link a{
     padding: 7px;
@@ -1118,6 +1119,7 @@ ol li{
 #menu .slideToggle
 {
     padding: 0;
+    z-index: 1000;
 }
 
 #menu .slideToggle:after,
@@ -1210,6 +1212,11 @@ ol li{
 {
 	background: url('../img/0-home/5.jpg') no-repeat center center;
 	background-size: cover;
+}
+
+.sections .links a
+{
+	color: #FFF;
 }
 
 
@@ -1550,7 +1557,6 @@ ol li{
 	margin-bottom: 20px;
 }
 
-
 #banera .productos > .productos-filter > .row:first-child,
 #ducha .productos > .productos-filter > .row:first-child,
 #fregaderos .productos > .productos-filter > .row:first-child,
@@ -1575,6 +1581,7 @@ ol li{
 #accesorios .productos .productos-filter .colum-colecciones .col-xs-12 .colecciones_title{
     display: none;
 }
+#planchas .opciones-visualizacion-nombre,
 #banera .productos-filter-opciones-advanced .opciones-visualizacion-nombre,
 #ducha .productos-filter-opciones-advanced .opciones-visualizacion-nombre,
 #fregaderos .productos-filter-opciones-advanced .opciones-visualizacion-nombre,
@@ -1713,7 +1720,9 @@ color:#000;
 
 .multimedia-video-content li
 {
-list-style:none;
+	list-style:none;
+	margin-bottom: 20px;
+    font-size: 17px;
 }
 
 
