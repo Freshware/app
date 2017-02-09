@@ -117,7 +117,7 @@ ffff
 /* ==========================================================================
    Común
    ========================================================================== */
-/* * // Para acelerar todo
+/*#planchas img // Para acelerar las imágenes
 {
 	-webkit-transform: translate3d(0, 0, 0);
 	-moz-transform: translate3d(0, 0, 0);

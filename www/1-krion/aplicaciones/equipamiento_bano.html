@@ -1017,25 +1017,44 @@
 							$.each(items.language, function(lang, language) {
 								if (lang == current_lang)
 								{
-									var seccion = language.menu.seccion;
+									var seccion = language.index.seccion;
 
 									$.each(seccion, function(indice, valor) {
-										$.each(valor, function(index, val) {
+										
 											$('#menu .container').append('<div class="row menu_seccion' + (indice + 1) + '">' +
 																			'<div class="col-xs-12">' +
 																				'<ul></ul>' +
 																			'</div>' +
 																		 '</div>');
-
+										$.each(valor, function(index, val) {
 											if (index == 'menu')
 											{
+											
+												var count=0;
+												var ultima_clave;
+
 												$.each(val.links, function(key, value) {
-													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="../../' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
-												})
+													count++;
+													ultima_clave=key;
+												});
+
+
+												if(count>1){
+													$.each(val.links, function(key, value) {
+														$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="../../' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
+													});
+												}else{
+
+													$('.menu_seccion'+(indice+1)+" a.menu_link_toggle").attr('href','../../' + val.folder + '/' + ultima_clave + '.html');
+													$('.menu_seccion'+(indice+1)+" a.menu_link_toggle").removeClass('menu_link_toggle');
+												}
+												
 											}
-											else
+											else if (index == 'titulo_menu')
 											{
-												$('.menu_seccion' + (indice + 1)).find('.col-xs-12').prepend('<h2><a href="#" class="menu_link_toggle">' + valor.titulo_menu + '</a></h2>');
+												
+													$('.menu_seccion' + (indice + 1)).find('.col-xs-12').prepend('<h2><a href="#" class="menu_link_toggle">' + valor.titulo_menu + '</a></h2>');
+										
 											}
 										});
 									});
@@ -1045,7 +1064,7 @@
 							$('#menu').append('<div class="menu_footer">' +
 												'<div class="row">' +
 													'<div class="col-xs-4 text-left">' +
-														'<a href="' + window.location.protocol + '//' + window.location.host + '/' + '">HOME</a>' +
+														'<a href="../../index.html">HOME</a>' +
 													'</div>' +
 													'<div class="col-xs-4 text-center">' +
 														'<img src="../../img/common/logo_gales.png">' +

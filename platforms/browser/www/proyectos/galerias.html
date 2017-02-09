@@ -997,7 +997,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-xs-3 productos-filter-item no-padding 057 locales">
+						<!-- <div class="col-xs-3 productos-filter-item no-padding 057 locales">
 							<a href="#" class="producto-filter-item-link">
 								<img src="../img/3-proyectos/optimizadas-1300-40/057-0.jpg" alt="Krion">
 								<div class="imgs hidden">
@@ -1012,7 +1012,7 @@
 									<div class="content"></div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class="col-xs-3 productos-filter-item no-padding 056 viviendas">
 							<a href="#" class="producto-filter-item-link">
 								<img src="../img/3-proyectos/optimizadas-1300-40/056-0.jpg" alt="Krion">
@@ -1254,7 +1254,6 @@
 								</div>
 							</div>
 						</div>
-						
 						<div class="col-xs-3 productos-filter-item no-padding 042 viviendas">
 							<a href="#" class="producto-filter-item-link">
 								<img src="../img/3-proyectos/optimizadas-1300-40/042-0.jpg" alt="Krion">
@@ -1271,8 +1270,7 @@
 								</div>
 							</div>
 						</div>
-
-						<div class="col-xs-3 productos-filter-item no-padding 041 restauracion">
+						<!-- <div class="col-xs-3 productos-filter-item no-padding 041 restauracion">
 							<a href="#" class="producto-filter-item-link">
 								<img src="../img/3-proyectos/optimizadas-1300-40/041-0.jpg" alt="Krion">
 								<div class="imgs hidden">
@@ -1287,7 +1285,7 @@
 									<div class="content"></div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class="col-xs-3 productos-filter-item no-padding 040 viviendas">
 							<a href="#" class="producto-filter-item-link">
 								<img src="../img/3-proyectos/optimizadas-1300-40/040-0.jpg" alt="Krion">
@@ -1698,7 +1696,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-xs-3 productos-filter-item no-padding 015 restauracion">
+						<!-- <div class="col-xs-3 productos-filter-item no-padding 015 restauracion">
 							<a href="#" class="producto-filter-item-link">
 								<img src="../img/3-proyectos/optimizadas-1300-40/015-0.jpg" alt="Krion">
 								<div class="imgs hidden">
@@ -1713,7 +1711,7 @@
 									<div class="content"></div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class="col-xs-3 productos-filter-item no-padding 014 locales">
 							<a href="#" class="producto-filter-item-link">
 								<img src="../img/3-proyectos/optimizadas-1300-40/014-0.jpg" alt="Krion">
@@ -1840,7 +1838,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-xs-3 productos-filter-item no-padding 006 espacios">
+						<!-- <div class="col-xs-3 productos-filter-item no-padding 006 espacios">
 							<a href="#" class="producto-filter-item-link">
 								<img src="../img/3-proyectos/optimizadas-1300-40/006-0.jpg" alt="Krion">
 								<div class="imgs hidden">
@@ -1854,7 +1852,7 @@
 									<div class="content"></div>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class="col-xs-3 productos-filter-item no-padding 005 restauracion">
 							<a href="#" class="producto-filter-item-link">
 								<img src="../img/3-proyectos/optimizadas-1300-40/005-0.jpg" alt="Krion">
@@ -2780,13 +2778,32 @@
 										$.each(valor, function(index, val) {
 											if (index == 'menu')
 											{
+											
+												var count=0;
+												var ultima_clave;
+
 												$.each(val.links, function(key, value) {
-													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="../' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
-												})
+													count++;
+													ultima_clave=key;
+												});
+
+
+												if(count>1){
+													$.each(val.links, function(key, value) {
+														$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="../' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
+													});
+												}else{
+
+													$('.menu_seccion'+(indice+1)+" a.menu_link_toggle").attr('href','../' + val.folder + '/' + ultima_clave + '.html');
+													$('.menu_seccion'+(indice+1)+" a.menu_link_toggle").removeClass('menu_link_toggle');
+												}
+												
 											}
 											else if (index == 'titulo_menu')
 											{
-												$('.menu_seccion' + (indice + 1)).find('.col-xs-12').prepend('<h2><a href="#" class="menu_link_toggle">' + valor.titulo_menu + '</a></h2>');
+												
+													$('.menu_seccion' + (indice + 1)).find('.col-xs-12').prepend('<h2><a href="#" class="menu_link_toggle">' + valor.titulo_menu + '</a></h2>');
+										
 											}
 										});
 									});
