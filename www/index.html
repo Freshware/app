@@ -152,7 +152,7 @@
 			$(window).on('load', function() {
 				$('.sections .info-content').each(function() {
 					var top = ($(this).parent().height() / 2) - ($(this).height() / 2);
-
+		// alert(top)
 					$(this).css('margin-top', top);
 				});
 
@@ -161,9 +161,9 @@
 				var ol = $('ol');
 
 				ol.css('margin-top', (($('.sections').height() / 2) - ($(this).height() / 2) / 2));
-				console.log(($('.sections').height() / 2) - (ol.height() / 2))
-				console.log(ol.height())
-				console.log($('.sections').height())
+				// alert(($('.sections').height() / 2) - (ol.height() / 2))
+				// alert(ol.height())
+				// alert($('.sections').height())
 
 				$('.section').each(function() {
 					if (! $(this).hasClass('section-active'))
@@ -489,10 +489,10 @@
 							$('#menu').append('<div class="menu_footer">' +
 												'<div class="row">' +
 													'<div class="col-xs-4 text-left">' +
-														'<a href="multimedia/videos.html">HOME</a>' +
+														'<a href="multimedia/catalogo.html">HOME</a>' +
 													'</div>' +
 													'<div class="col-xs-4 text-center">' +
-														'<img src="../img/common/logo_gales.png">' +
+														'<img src="img/common/logo_gales.png">' +
 													'</div>' +
 													'<div class="col-xs-4 text-right">' +
 														'<a class="language_menu" href="#">IDIOMA: ESPAÑOL</a>' +
@@ -539,58 +539,6 @@
 					}
 				});
 			}
-
-// 			var localURLs    = [
-//     cordova.file.dataDirectory,
-//     cordova.file.documentsDirectory,
-//     cordova.file.externalApplicationStorageDirectory,
-//     cordova.file.externalCacheDirectory,
-//     cordova.file.externalRootDirectory,
-//     cordova.file.externalDataDirectory,
-//     cordova.file.sharedDirectory,
-//     cordova.file.syncedDataDirectory
-// ];
-// var index = 0;
-// var i;
-// var statusStr = "";
-// var addFileEntry = function (entry) {
-//     var dirReader = entry.createReader();
-//     dirReader.readEntries(
-//         function (entries) {
-//             var fileStr = "";
-//             var i;
-//             for (i = 0; i < entries.length; i++) {
-//                 if (entries[i].isDirectory === true) {
-//                     // Recursive -- call back into this subdirectory
-//                     addFileEntry(entries[i]);
-//                 } else {
-//                    fileStr += (entries[i].fullPath + "<br>"); // << replace with something useful
-//                    index++;
-//                 }
-//             }
-//             // add this directory's contents to the status
-//             statusStr += fileStr;
-//             // display the file list in #results
-//             if (statusStr.length > 0) {
-//                 $("#results").html(statusStr);
-//             } 
-//         },
-//         function (error) {
-//             console.log("readEntries error: " + error.code);
-//             statusStr += "<p>readEntries error: " + error.code + "</p>";
-//         }
-//     );
-// };
-// var addError = function (error) {
-//     console.log("getDirectory error: " + error.code);
-//     statusStr += "<p>getDirectory error: " + error.code + ", " + error.message + "</p>";
-// };
-// for (i = 0; i < localURLs.length; i++) {
-//     if (localURLs[i] === null || localURLs[i].length === 0) {
-//         continue; // skip blank / non-existent paths for this platform
-//     }
-//     window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
-// }
 		</script>
 	</body>
 </html>

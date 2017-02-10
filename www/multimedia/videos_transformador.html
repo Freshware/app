@@ -503,7 +503,7 @@
 				// También obtenemos los nombres de los archivos
 				// 
 				// Ruta en el dispositivo
-				window.store_path = cordova.file.documentsDirectory;
+				window.store_path = cordova.file.dataDirectory;
 				
 				window.fileName = '';
 
@@ -518,42 +518,25 @@
 
 				$('body').append('<div id="spinner_div" style="position: fixed;width:100%;height:100%;background:url(../img/common/spinner.gif) rgba(255, 255, 255, 0.65);background-repeat:no-repeat;background-position:center center;top: 0;left: 0;"></div>');
 
-				//Check for the file. 
-				// La funcón se define así: window.resolveLocalFileSystemURL(url, successCallback, errorCallback);
-				// Así qu eusaremos el success para cuando tengamos un archivo y el error para descargarlo
-				// window.resolveLocalFileSystemURL(store_path + fileName, appStart, downloadAsset);
-				window.resolveLocalFileSystemURL(store_path + fileName, existeArchivo, descargarArchivo);
+				var wait_spinner = setInterval(function() {
+					if ($('#spinner_div').length)
+					{
+						clearInterval(wait_spinner);
+						//Check for the file. 
+						// La funcón se define así: window.resolveLocalFileSystemURL(url, successCallback, errorCallback);
+						// Así qu eusaremos el success para cuando tengamos un archivo y el error para descargarlo
+						// window.resolveLocalFileSystemURL(store_path + fileName, appStart, downloadAsset);
+						window.resolveLocalFileSystemURL(store_path + fileName, existeArchivo, descargarArchivo);
+					}
+				});
 			}
 
 			function existeArchivo()
 			{
-				$('#spinner_div').remove();
-
+				alert('Existe el archivo: ');
+				alert('y es');
 				console.log('Existe el archivo: ' + store_path + fileName);
-
-				var options = {
-							    documentView: {
-							        closeLabel: "Finished"
-							    },
-							    navigationView: {
-							        closeLabel: "Back"
-							    },
-							    email: {
-							        enabled: false
-							    },
-							    print: {
-							        enabled: true
-							    },
-							    openWith: {
-							        enabled: false
-							    },
-							    bookmarks: {
-							        enabled: false
-							    },
-							    search: {
-							        enabled: false
-							    }
-							};
+				alert(store_path + fileName);
 
 				if (! $('body #myvideo').length)
 				{
@@ -568,6 +551,8 @@
 										  '<source src="' + store_path + fileName + '"></source>' +
 									  '</video>');
 				}
+
+				$('#spinner_div').remove();
 
 				var elem = document.getElementById("myvideo");
 
@@ -613,49 +598,105 @@
 					}, 
 					function(err) {
 						alert("Error - Not possible Download - Imposible descargar");
-						console.dir(err);
+						alert(ruta_server + fileName)
+						alert(storeComplete)
+						alert(err.source)
+						alert(err.target)
+						alert(err.code)
 					}
 				);
 			}
 
-			function listDir(path)
+			function listDir()
 			{
-				window.resolveLocalFileSystemURL(path,
-    											function (fileSystem)
-    											{
-													var reader = fileSystem.createReader();
+				/**
+				 * Starter vars.
+				 */
+				var index = 0;
+				var i;
 
-													reader.readEntries(function (entries) {
-																			var i;
-																			
-																		    for (i = 0; i < entries.length; i++)
-																		    {
-																				if (entries[i].isFile)
-																				{
-																					$('.pdf-link').each(function() {
-																						var elem = $(this);
-																						var file = $(this).data('file');
+				/**
+				 * Need cordova.file plugin.
+				 * $ cordova plugin add org.apache.cordova.file
+				 * 
+				 * To get all urls see https://github.com/apache/cordova-plugin-file/blob/master/README.md#where-to-store-files
+				 * 
+				 */
+				var localURLs    = [
+				  // cordova.file.cacheDirectory,
+				  // cordova.file.applicationDirectory,
+				  // cordova.file.applicationStorageDirectory,
+				  cordova.file.dataDirectory,
+				  // cordova.file.documentsDirectory,
+				  // cordova.file.externalApplicationStorageDirectory,
+				  // cordova.file.externalCacheDirectory,
+				  // cordova.file.externalRootDirectory,
+				  // cordova.file.externalDataDirectory,
+				  // cordova.file.sharedDirectory,
+				  // cordova.file.syncedDataDirectory
+				];
 
-																						$.each(pdfs, function(index, val) {
-																							if (index == file)
-																							{
-																								elem.find('span').removeClass('glyphicon-cloud-download');
-																								elem.find('span').addClass('glyphicon-facetime-video');
-																								elem.find('span').addClass('text-success');
-																							}
-																						})
-																					})
-																				}
-																		    }
-																		},
-																		function (err) {
-																			console.log(err);
-																		});
-    											},
-    											function (err)
-    											{
-													console.log(err);
-												});
+				/**
+				 * Recursive function for file entry.
+				 */
+				var addFileEntry = function (entry) {
+					var dirReader = entry.createReader();
+					dirReader.readEntries(
+				    	function (entries) {
+				    		var fileStr = "";
+				    		var i;
+				    
+				    		for (i = 0; i < entries.length; i++) {
+				    		    if (entries[i].isDirectory === true)
+				    		    {
+				        			// Recursive -- call back into this subdirectory
+				        			addFileEntry(entries[i]);
+				        		}
+				        		else
+				        		{
+							        // alert('full path: ' + entries[i].fullPath);
+
+							        $('.pdf-link').each(function() {
+							        	$.each(videos, function(index, val) {
+							        		if (val == entries[i].name)
+							        		{
+												$('.pdf-link[data-file="' + index + '"]').find('span').removeClass('glyphicon-cloud-download');
+												$('.pdf-link[data-file="' + index + '"]').find('span').addClass('glyphicon-facetime-video');
+												$('.pdf-link[data-file="' + index + '"]').find('span').addClass('text-success');
+												$('.pdf-link[data-file="' + index + '"]').find('span').addClass('descargado');
+											}
+							        	})
+							        });
+
+							        index++;
+				        		}
+				      		}
+				    	},
+				    	function (error) {
+				      		alert("readEntries error: " + error.code);
+				    	}
+					);
+				};
+
+				/**
+				 * Directory error.
+				 */
+				var addError = function (error) {
+					alert("getDirectory error: " + error.code);
+				};
+
+				/**
+				 * Loop through the array.
+				 */
+				for (i = 0; i < localURLs.length; i++)
+				{
+					if (localURLs[i] === null || localURLs[i].length === 0)
+					{
+				    	continue; // skip blank / non-existent paths for this platform
+				  	}
+					
+					window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
+				}
 			}
 
 

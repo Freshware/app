@@ -490,15 +490,31 @@
 
 				$('body').append('<div id="spinner_div" style="position: fixed;width:100%;height:100%;background:url(../img/common/spinner.gif) rgba(255, 255, 255, 0.65);background-repeat:no-repeat;background-position:center center;top: 0;left: 0;"></div>');
 
-				//Check for the file. 
-				// La funcón se define así: window.resolveLocalFileSystemURL(url, successCallback, errorCallback);
-				// Así qu eusaremos el success para cuando tengamos un archivo y el error para descargarlo
-				// window.resolveLocalFileSystemURL(store_path + fileName, appStart, downloadAsset);
-				window.resolveLocalFileSystemURL(cordova.file.dataDirectory + fileName, existeArchivo, descargarArchivo);
+				var wait_spinner = setInterval(function() {
+					if ($('#spinner_div').length)
+					{
+						clearInterval(wait_spinner);
+
+						if (fileName != '')
+						{
+							//Check for the file. 
+							// La función se define así: window.resolveLocalFileSystemURL(url, successCallback, errorCallback);
+							// Así qu eusaremos el success para cuando tengamos un archivo y el error para descargarlo
+							// window.resolveLocalFileSystemURL(store_path + fileName, appStart, downloadAsset);
+							window.resolveLocalFileSystemURL(cordova.file.dataDirectory + fileName, existeArchivo, descargarArchivo);
+						}
+						else
+						{
+							descargarArchivo();
+						}
+					}
+				});
 			}
 
 			function existeArchivo()
 			{
+				alert('existe archivo')
+
 				var options = {
 							    documentView: {
 							        closeLabel: "Finished"
@@ -534,6 +550,7 @@
 
 			function onError()
 			{
+				$('#spinner_div').remove();
 				window.console.log(error);
 				alert("Sorry! Cannot view document.");
 			}
@@ -562,55 +579,21 @@
 
 			function listDir()
 			{
-				window.resolveLocalFileSystemURL(cordova.file.dataDirectory,
-    											function (fileSystem)
-    											{
-				alert('linea 574')
-				console.log('linea 575')
-													var reader = fileSystem.createReader();
-
-													reader.readEntries(function (entries) {
-				alert('linea 578')
-				console.log('linea 579')
-																			var i;
-																			alert('hola reader')
-																		    for (i = 0; i < entries.length; i++)
-																		    {
-																				if (entries[i].isFile)
-																				{
-				alert('linea 587')
-				console.log('linea 588')
-																					$('.pdf-link').each(function() {
-																						var elem = $(this);
-																						var file = $(this).data('file');
-
-																						$.each(pdfs, function(index, val) {
-				alert('linea 594')
-				console.log('linea 595')
-																							if (index == file)
-																							{
-				alert('Éxito')
-				console.log('Éxito')
-																								elem.find('span').removeClass('glyphicon-cloud-download');
-																								elem.find('span').addClass('glyphicon-file');
-																								elem.find('span').addClass('text-success');
-																							}
-																						})
-																					})
-																				}
-																		    }
-																		},
-																		function (err) {
-																			console.log(err);
-																		});
-    											},
-    											function (err)
-    											{
-    												alert('error:')
-    												alert(err)
-													console.log('Éxito')
-													console.log(err);
-												});
+				alert('asdasda')
+				$('.pdf-link').each(function() {
+					alert('dentro 1')
+		        	$.each(pdfs, function(index, val) {
+						alert('dentro 2')
+		        		alert(index + ' => ' + val)
+		        		window.resolveLocalFileSystemURL(cordova.file.dataDirectory + val, function() {
+		        			alert('dentro 3')
+							$('.pdf-link[data-file="' + index + '"]').find('span').removeClass('glyphicon-cloud-download');
+							$('.pdf-link[data-file="' + index + '"]').find('span').addClass('glyphicon-file');
+							$('.pdf-link[data-file="' + index + '"]').find('span').addClass('text-success');
+							$('.pdf-link[data-file="' + index + '"]').find('span').addClass('descargado');
+		        		}, null);
+		        	})
+		        });
 			}
 
 

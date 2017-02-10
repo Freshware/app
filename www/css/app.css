@@ -573,9 +573,9 @@ a, a:focus, a:hover, a:visited
 
 #fresh-lightbox .fresh-lightbox-top.fresh-lightbox-top-productos
 {
-	background-image: url(../img/2-productos/2-1/slide/background.jpg);
+	/*background-image: url(../img/2-productos/2-1/slide/background.jpg);
 	background-repeat: no-repeat;
-	background-size: 50% auto;
+	background-size: 50% auto;*/
 }
 
 #fresh-lightbox .fresh-lightbox-top .fresh-lightbox-close
@@ -648,6 +648,11 @@ a, a:focus, a:hover, a:visited
 #fresh-lightbox .fresh-lightbox-content .fresh-lightbox-inner-content .fresh-lightbox-item .fresh-lightbox-item-info
 {
 	background: #FFF;
+}
+
+#fresh-lightbox .fresh-lightbox-content .fresh-lightbox-inner-content .fresh-lightbox-item .fresh-lightbox-item-info > div > .row
+{
+	min-height: 50px;
 }
 
 /* ==========================================================================
@@ -767,6 +772,7 @@ a, a:focus, a:hover, a:visited
     display: block;
     padding: 13px 10px 14px 47px; 
     text-decoration: none;
+	min-height: 30px;
 }
 
 #galerias .productos .productos-filter a:hover,
@@ -1595,6 +1601,7 @@ ol li{
 
 #productos_imagenes{
     border-top: 1px solid #eeeeee;
+    padding-bottom: 30px !important;
 }
 
 .productos > .productos-filter > .row:first-child
@@ -1605,6 +1612,7 @@ ol li{
 .productos > .productos-filter > .row:first-child > [class^="col-"] > .row > [class^="col-"]
 {
 	margin-bottom: 10px;
+	min-height: 47px;
 }
 
 #planchas .productos > .productos-filter > .row:first-child {
@@ -1687,6 +1695,7 @@ a.is-checked
     background: #FFF;
     border-top: 1px solid #dadada;
     padding: 20px 50px !important;
+	overflow-y: scroll;
 }
 
 .producto-filter-item-link
@@ -1807,6 +1816,18 @@ color:#000;
 	background-color: #333;
 	content: "";
     margin-top: 5px;
+}
+
+video
+{ 
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: 99999;
 }
 
 
