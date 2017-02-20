@@ -11,17 +11,16 @@
         <link rel="stylesheet" type="text/css" href="../css/app.css" />
 	</head>
 	<body id="galerias">
+		<button id="BURGER" class="c-hamburger c-hamburger--htx">
+			<span>toggle menu</span>
+		</button>
 		<div class="productos">
 			<div class="logo">
 				<a href="../index.html">
 					<img src="../img/common/logo-white.png" alt="Krion" class="logo-sup">
 				</a>
 			</div>
-			<div class="menu text-right">
-				<button class="c-hamburger c-hamburger--htx">
-					<span>toggle menu</span>
-				</button>
-			</div>
+			
 
 			<div id="productos_header" class="col-xs-12 no-padding productos-header">
 				<div class="fondogausian"></div>
@@ -1960,8 +1959,6 @@
 		<script src="../js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 		<script src="../libraries/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="../libraries/TouchSwipe-Jquery-Plugin-master/jquery.touchSwipe.min.js"></script>
-		<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
-		<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 		<script src="../cordova.js"></script>
 		<script src="../js/app.js"></script>
 		<script type="text/javascript">
@@ -2341,13 +2338,13 @@
 				});
 			}
 
-			var grid = $('.productos-filter-content').imagesLoaded( function() {
-							$('.productos-filter-content').isotope({
-								// options
-								itemSelector: '.productos-filter-item',
-								layoutMode: 'fitRows'
-							});
-						});
+			// var grid = $('.productos-filter-content').imagesLoaded( function() {
+			// 				$('.productos-filter-content').isotope({
+			// 					// options
+			// 					itemSelector: '.productos-filter-item',
+			// 					layoutMode: 'fitRows'
+			// 				});
+			// 			});
 
 			$('.modalInfoOptions').on('click', function(e) {
 				e.preventDefault();
@@ -2401,8 +2398,58 @@
 
 				// var filterValue = $(this).attr('data-filter');
 
-				grid.isotope({ filter: filterValue });
+				// grid.isotope({ filter: filterValue });
+				
+				filtrarItems($('.productos-filter-item'), filterValue);
 			});
+
+			function filtrarItems(items, filterValue)
+			{
+				$('body').append('<div id="spinner_div" style="position: fixed;width:100%;height:100%;background:url(../img/common/spinner.gif) rgba(255, 255, 255, 0.65);background-repeat:no-repeat;background-position:center center;top: 0;left: 0;"></div>');
+
+				var cont = items.length;
+
+				var wait_spinner = setInterval(function() {
+					if ($('#spinner_div').length)
+					{
+						clearInterval(wait_spinner);
+						
+						if (filterValue != '')
+						{
+							items.each(function() {
+								var item = $(this);
+
+								if (! item.is(filterValue))
+								{
+									item.fadeOut('fast');
+								}
+								else
+								{
+									item.fadeIn('fast');
+								}
+
+								cont = cont - 1;
+							});
+						}
+						else
+						{
+							items.each(function() {
+								$(this).fadeIn('fast');
+
+								cont = cont - 1;
+							});
+						}
+					}
+				})
+
+				var timer = setInterval(function() {
+					if (cont <= 0)
+					{
+						clearInterval(timer);
+						$('#spinner_div').remove();
+					}
+				});
+			}
 
 			function eliminarValor(element)
 			{
@@ -2677,14 +2724,13 @@
 					{
 						var obj = $(this).find('a.producto-filter-item-link');
 						obj.append('<div class="fresh-lightbox-item-nombre text-center">' + obj.data('title') + '</div>');
+						$('.fresh-lightbox-item-nombre').css('bottom', ($(this).height() / (-2)) + 5);
 					}
 					else
 					{
 						$(this).find('.fresh-lightbox-item-nombre').remove()
 					}
 				});
-
-				$('.fresh-lightbox-item-nombre').css('bottom', ($('.producto-filter-item-link img').height() / (-2)) + 5)
 			}
 			
 			// Sistema para desactivar el scroll de todo

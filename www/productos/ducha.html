@@ -433,8 +433,6 @@
 		<script src="../js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 		<script src="../libraries/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="../libraries/TouchSwipe-Jquery-Plugin-master/jquery.touchSwipe.min.js"></script>
-		<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
-		<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 		<script src="../cordova.js"></script>
 		<script src="../js/app.js"></script>
 		<script type="text/javascript">
@@ -539,97 +537,147 @@
 							$('.aviso-descarga-descargar').html(seccion.aviso_descarga_descargar);
 						}
 					})
-}).fail(function( jqxhr, textStatus, error ) {
-	var err = textStatus + ", " + error;
-	console.log( "Request Failed: " + err );
-});
-}
+			}).fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ", " + error;
+				console.log( "Request Failed: " + err );
+			});
+			}
 
-var grid = $('.productos-filter-content').imagesLoaded( function() {
-	$('.productos-filter-content').isotope({
-								// options
-								itemSelector: '.productos-filter-item',
-								layoutMode: 'fitRows'
-							});
-});
+			// var grid = $('.productos-filter-content').imagesLoaded( function() {
+			// 	$('.productos-filter-content').isotope({
+			// 								// options
+			// 								itemSelector: '.productos-filter-item',
+			// 								layoutMode: 'fitRows'
+			// 							});
+			// });
 
-$('.modalInfoOptions').on('click', function(e) {
-	e.preventDefault();
-	$('#infoOptionsModal').modal();
-});
+			$('.modalInfoOptions').on('click', function(e) {
+				e.preventDefault();
+				$('#infoOptionsModal').modal();
+			});
 
-$('.modalInfo').on('click', function(e) {
-	e.preventDefault();
-	$('#infoModal').modal();
-});
+			$('.modalInfo').on('click', function(e) {
+				e.preventDefault();
+				$('#infoModal').modal();
+			});
 
-$('.opciones-visualizacion-nombre').on('click', function(e) {
-	e.preventDefault();
-	showNames();
-})
+			$('.opciones-visualizacion-nombre').on('click', function(e) {
+				e.preventDefault();
+				showNames();
+			})
 
-$('.producto-filter-item-link').on('click', function(e) {
-	e.preventDefault();
+			$('.producto-filter-item-link').on('click', function(e) {
+				e.preventDefault();
 
-	loadImageFresh($(this));
-});
+				loadImageFresh($(this));
+			});
 
-var filterValue = '';
+			var filterValue = '';
 
-$('.opciones-visualizacion-link').on( 'click', function(e) {
-	e.preventDefault();
+			$('.opciones-visualizacion-link').on( 'click', function(e) {
+				e.preventDefault();
 
-	var clickado = $(this);
+				var clickado = $(this);
 
-	clickado.closest('.grupo-opciones').find('.is-checked').each(function() {
-		if ($(this).data('filter') != clickado.data('filter'))
-		{
-			$(this).removeClass('is-checked');
-		}
+				clickado.closest('.grupo-opciones').find('.is-checked').each(function() {
+					if ($(this).data('filter') != clickado.data('filter'))
+					{
+						$(this).removeClass('is-checked');
+					}
 
-		filterValue = eliminarValor($(this));
-	})
+					filterValue = eliminarValor($(this));
+				})
 
-	if (clickado.hasClass('is-checked'))
-	{
-		clickado.removeClass('is-checked');
+				if (clickado.hasClass('is-checked'))
+				{
+					clickado.removeClass('is-checked');
 
-		filterValue = eliminarValor(clickado);
-	}
-	else
-	{
-		clickado.addClass('is-checked');
+					filterValue = eliminarValor(clickado);
+				}
+				else
+				{
+					clickado.addClass('is-checked');
 
-		filterValue = filterValue + clickado.data('filter');
-	}
+					filterValue = filterValue + clickado.data('filter');
+				}
 
 				// var filterValue = $(this).attr('data-filter');
 
-				grid.isotope({ filter: filterValue });
+				// grid.isotope({ filter: filterValue });
+				
+				filtrarItems($('.productos-filter-item'), filterValue);
 			});
 
-function eliminarValor(element)
-{
-	var clase_a_eliminar = element.data('filter');
-	var aux = filterValue.split(clase_a_eliminar);
+			function filtrarItems(items, filterValue)
+			{
+				$('body').append('<div id="spinner_div" style="position: fixed;width:100%;height:100%;background:url(../img/common/spinner.gif) rgba(255, 255, 255, 0.65);background-repeat:no-repeat;background-position:center center;top: 0;left: 0;"></div>');
 
-	return concatValues(aux);
-}
+				var cont = items.length;
 
-function concatValues(obj)
-{
-	var value = '';
+				var wait_spinner = setInterval(function() {
+					if ($('#spinner_div').length)
+					{
+						clearInterval(wait_spinner);
+						
+						if (filterValue != '')
+						{
+							items.each(function() {
+								var item = $(this);
 
-	for (var prop in obj)
-	{
-		value += obj[ prop ];
-	}
+								if (! item.is(filterValue))
+								{
+									item.fadeOut('fast');
+								}
+								else
+								{
+									item.fadeIn('fast');
+								}
 
-	return value;
-}
+								cont = cont - 1;
+							});
+						}
+						else
+						{
+							items.each(function() {
+								$(this).fadeIn('fast');
 
-function loadImageFresh(element)
-{
+								cont = cont - 1;
+							});
+						}
+					}
+				})
+
+				var timer = setInterval(function() {
+					if (cont <= 0)
+					{
+						clearInterval(timer);
+						$('#spinner_div').remove();
+					}
+				});
+			}
+
+			function eliminarValor(element)
+			{
+				var clase_a_eliminar = element.data('filter');
+				var aux = filterValue.split(clase_a_eliminar);
+
+				return concatValues(aux);
+			}
+
+			function concatValues(obj)
+			{
+				var value = '';
+
+				for (var prop in obj)
+				{
+					value += obj[ prop ];
+				}
+
+				return value;
+			}
+
+			function loadImageFresh(element)
+			{
 				// Generamos el contenedor básico del lightbox
 				var fresh_lightbox = '<div id="fresh-lightbox">' +
 				'<div class="fresh-lightbox-top fresh-lightbox-top-productos">' +
@@ -904,14 +952,13 @@ function loadImageFresh(element)
 					{
 						var obj = $(this).find('a.producto-filter-item-link');
 						obj.append('<div class="fresh-lightbox-item-nombre text-center">' + obj.data('title') + '</div>');
+						$('.fresh-lightbox-item-nombre').css('bottom', ($(this).height() / (-2)) + 5);
 					}
 					else
 					{
 						$(this).find('.fresh-lightbox-item-nombre').remove()
 					}
 				});
-
-				$('.fresh-lightbox-item-nombre').css('bottom', ($('.producto-filter-item-link img').height() / (-2)) + 5)
 			}
 			
 			// Sistema para desactivar el scroll de todo
