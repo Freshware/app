@@ -635,6 +635,14 @@ module.exports = [
         "clobbers": [
             "plugins.html5Video"
         ]
+    },
+    {
+        "file": "plugins/com.telerik.plugins.nativepagetransitions/www/NativePageTransitions.js",
+        "id": "com.telerik.plugins.nativepagetransitions.NativePageTransitions",
+        "pluginId": "com.telerik.plugins.nativepagetransitions",
+        "clobbers": [
+            "window.plugins.nativepagetransitions"
+        ]
     }
 ];
 module.exports.metadata = 
@@ -660,11 +668,12 @@ module.exports.metadata =
     "cordova-plugin-splashscreen": "3.2.2",
     "cordova-plugin-statusbar": "2.1.3",
     "cordova-plugin-vibration": "2.1.2",
-    "cordova-plugin-whitelist": "1.2.2",
     "cordova-plugin-screen-orientation": "1.4.2",
     "cordova-plugin-document-viewer": "0.8.0",
     "cordova-plugin-pdf-viewer": "0.0.1",
-    "jaeger.Html5Video": "1.2.2"
+    "jaeger.Html5Video": "1.2.2",
+    "com.telerik.plugins.nativepagetransitions": "0.6.5",
+    "cordova-plugin-whitelist": "1.2.2"
 }
 // BOTTOM OF METADATA
 });

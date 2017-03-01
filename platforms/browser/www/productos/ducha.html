@@ -95,7 +95,7 @@
 				<div class="productos-filter-content">
 					<div class="col-xs-3 productos-filter-item no-padding unique">
 						<a href="#" class="producto-filter-item-link" data-title="Unique P801 90x80" data-serie="unique">
-							<img src="../img/2-productos/2-5/pics/unique-p801-90x80-1100.jpg" alt="Krion">
+							<img src="../img/2-productos/2-5/thumbs/unique-p801-90x80-1100.jpg" alt="Krion">
 
 
 							<div class="medidas hidden">
@@ -120,7 +120,7 @@
 
 					<div class="col-xs-3 productos-filter-item no-padding unique">
 						<a href="#" class="producto-filter-item-link" data-title="Unique P802 130x80" data-serie="unique">
-							<img src="../img/2-productos/2-5/pics/unique-p802-130x80-1100.jpg" alt="Krion">
+							<img src="../img/2-productos/2-5/thumbs/unique-p802-130x80-1100.jpg" alt="Krion">
 
 
 							<div class="medidas hidden">
@@ -145,7 +145,7 @@
 
 					<div class="col-xs-3 productos-filter-item no-padding unique">
 						<a href="#" class="producto-filter-item-link" data-title="Unique P803 180x80" data-serie="unique">
-							<img src="../img/2-productos/2-5/pics/unique-p803-180x80-1100.jpg" alt="Krion">
+							<img src="../img/2-productos/2-5/thumbs/unique-p803-180x80-1100.jpg" alt="Krion">
 
 
 							<div class="medidas hidden">
@@ -171,7 +171,7 @@
 
 					<div class="col-xs-3 productos-filter-item no-padding unique">
 						<a href="#" class="producto-filter-item-link" data-title="Unique P804 90x110 " data-serie="unique">
-							<img src="../img/2-productos/2-5/pics/unique-p804-90x110-1100.jpg" alt="Krion">
+							<img src="../img/2-productos/2-5/thumbs/unique-p804-90x110-1100.jpg" alt="Krion">
 
 
 							<div class="medidas hidden">
@@ -197,7 +197,7 @@
 
 					<div class="col-xs-3 productos-filter-item no-padding unique">
 						<a href="#" class="producto-filter-item-link" data-title="Unique P805 130x110" data-serie="unique">
-							<img src="../img/2-productos/2-5/pics/unique-p805-130x110-1100.jpg" alt="Krion">
+							<img src="../img/2-productos/2-5/thumbs/unique-p805-130x110-1100.jpg" alt="Krion">
 
 							
 							<div class="medidas hidden">
@@ -223,7 +223,7 @@
 
 					<div class="col-xs-3 productos-filter-item no-padding unique">
 						<a href="#" class="producto-filter-item-link" data-title="Unique P806 180x110 " data-serie="unique">
-							<img src="../img/2-productos/2-5/pics/unique-p806-180x110-1100.jpg" alt="Krion">
+							<img src="../img/2-productos/2-5/thumbs/unique-p806-180x110-1100.jpg" alt="Krion">
 
 
 							<div class="medidas hidden">
@@ -433,8 +433,6 @@
 		<script src="../js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 		<script src="../libraries/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="../libraries/TouchSwipe-Jquery-Plugin-master/jquery.touchSwipe.min.js"></script>
-		<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
-		<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 		<script src="../cordova.js"></script>
 		<script src="../js/app.js"></script>
 		<script type="text/javascript">
@@ -539,103 +537,153 @@
 							$('.aviso-descarga-descargar').html(seccion.aviso_descarga_descargar);
 						}
 					})
-}).fail(function( jqxhr, textStatus, error ) {
-	var err = textStatus + ", " + error;
-	console.log( "Request Failed: " + err );
-});
-}
+			}).fail(function( jqxhr, textStatus, error ) {
+				var err = textStatus + ", " + error;
+				console.log( "Request Failed: " + err );
+			});
+			}
 
-var grid = $('.productos-filter-content').imagesLoaded( function() {
-	$('.productos-filter-content').isotope({
-								// options
-								itemSelector: '.productos-filter-item',
-								layoutMode: 'fitRows'
-							});
-});
+			// var grid = $('.productos-filter-content').imagesLoaded( function() {
+			// 	$('.productos-filter-content').isotope({
+			// 								// options
+			// 								itemSelector: '.productos-filter-item',
+			// 								layoutMode: 'fitRows'
+			// 							});
+			// });
 
-$('.modalInfoOptions').on('click', function(e) {
-	e.preventDefault();
-	$('#infoOptionsModal').modal();
-});
+			$('.modalInfoOptions').on('click', function(e) {
+				e.preventDefault();
+				$('#infoOptionsModal').modal();
+			});
 
-$('.modalInfo').on('click', function(e) {
-	e.preventDefault();
-	$('#infoModal').modal();
-});
+			$('.modalInfo').on('click', function(e) {
+				e.preventDefault();
+				$('#infoModal').modal();
+			});
 
-$('.opciones-visualizacion-nombre').on('click', function(e) {
-	e.preventDefault();
-	showNames();
-})
+			$('.opciones-visualizacion-nombre').on('click', function(e) {
+				e.preventDefault();
+				showNames();
+			})
 
-$('.producto-filter-item-link').on('click', function(e) {
-	e.preventDefault();
+			$('.producto-filter-item-link').on('click', function(e) {
+				e.preventDefault();
 
-	loadImageFresh($(this));
-});
+				loadImageFresh($(this));
+			});
 
-var filterValue = '';
+			var filterValue = '';
 
-$('.opciones-visualizacion-link').on( 'click', function(e) {
-	e.preventDefault();
+			$('.opciones-visualizacion-link').on( 'click', function(e) {
+				e.preventDefault();
 
-	var clickado = $(this);
+				var clickado = $(this);
 
-	clickado.closest('.grupo-opciones').find('.is-checked').each(function() {
-		if ($(this).data('filter') != clickado.data('filter'))
-		{
-			$(this).removeClass('is-checked');
-		}
+				clickado.closest('.grupo-opciones').find('.is-checked').each(function() {
+					if ($(this).data('filter') != clickado.data('filter'))
+					{
+						$(this).removeClass('is-checked');
+					}
 
-		filterValue = eliminarValor($(this));
-	})
+					filterValue = eliminarValor($(this));
+				})
 
-	if (clickado.hasClass('is-checked'))
-	{
-		clickado.removeClass('is-checked');
+				if (clickado.hasClass('is-checked'))
+				{
+					clickado.removeClass('is-checked');
 
-		filterValue = eliminarValor(clickado);
-	}
-	else
-	{
-		clickado.addClass('is-checked');
+					filterValue = eliminarValor(clickado);
+				}
+				else
+				{
+					clickado.addClass('is-checked');
 
-		filterValue = filterValue + clickado.data('filter');
-	}
+					filterValue = filterValue + clickado.data('filter');
+				}
 
 				// var filterValue = $(this).attr('data-filter');
 
-				grid.isotope({ filter: filterValue });
+				// grid.isotope({ filter: filterValue });
+				
+				filtrarItems($('.productos-filter-item'), filterValue);
 			});
 
-function eliminarValor(element)
-{
-	var clase_a_eliminar = element.data('filter');
-	var aux = filterValue.split(clase_a_eliminar);
+			function filtrarItems(items, filterValue)
+			{
+				$('body').append('<div id="spinner_div" style="position: fixed;width:100%;height:100%;background:url(../img/common/spinner.gif) rgba(255, 255, 255, 0.65);background-repeat:no-repeat;background-position:center center;top: 0;left: 0;"></div>');
 
-	return concatValues(aux);
-}
+				var cont = items.length;
 
-function concatValues(obj)
-{
-	var value = '';
+				var wait_spinner = setInterval(function() {
+					if ($('#spinner_div').length)
+					{
+						clearInterval(wait_spinner);
+						
+						if (filterValue != '')
+						{
+							items.each(function() {
+								var item = $(this);
 
-	for (var prop in obj)
-	{
-		value += obj[ prop ];
-	}
+								if (! item.is(filterValue))
+								{
+									item.fadeOut('fast');
+								}
+								else
+								{
+									item.fadeIn('fast');
+								}
 
-	return value;
-}
+								cont = cont - 1;
+							});
+						}
+						else
+						{
+							items.each(function() {
+								$(this).fadeIn('fast');
 
-function loadImageFresh(element)
-{
+								cont = cont - 1;
+							});
+						}
+					}
+				})
+
+				var timer = setInterval(function() {
+					if (cont <= 0)
+					{
+						clearInterval(timer);
+						$('#spinner_div').remove();
+					}
+				});
+			}
+
+			function eliminarValor(element)
+			{
+				var clase_a_eliminar = element.data('filter');
+				var aux = filterValue.split(clase_a_eliminar);
+
+				return concatValues(aux);
+			}
+
+			function concatValues(obj)
+			{
+				var value = '';
+
+				for (var prop in obj)
+				{
+					value += obj[ prop ];
+				}
+
+				return value;
+			}
+
+			function loadImageFresh(element)
+			{
 				// Generamos el contenedor básico del lightbox
 				var fresh_lightbox = '<div id="fresh-lightbox">' +
 				'<div class="fresh-lightbox-top fresh-lightbox-top-productos">' +
 				'<div class="fresh-lightbox-close">' +
 				'<a href="#" class="fresh-lightbox-close-link">' +
-				'<img src="../../img/common/close.png" alt="Krion">' +
+				'<img src="../img/common/close.png" alt="Krion">' +
 				'</a>' +
 				'</div>'+
 				'</div>'+
@@ -663,22 +711,24 @@ function loadImageFresh(element)
 			function loadFreshLightboxContent(element)
 			{
 				var info = getBasicInfo(element);
+				var src = element.find('img').attr('src');
+				src = src.replace('thumbs', 'pics');
 
 				$('.fresh-lightbox-inner-content').append('<div class="fresh-lightbox-item fresh-lightbox-item-active no-padding">' +
-					'<div class="row">' +
-					'<div class="col-xs-9 fresh-lightbox-item-img no-padding">' +
-					'<img src="' + element.find('img').attr('src') + '" alt="Krion">' +
-					'</div>' +
-					'<div class="col-xs-3 fresh-lightbox-item-info no-padding">' +
-					info + 
-					'</div>' +
-					'</div>' +
-					'<div class="col-xs-12">' +
-					'<div class="col-xs-12 fresh-lightbox-item-minilog no-padding">' +
-					'<img src="../img/2-productos/2-1/icons/plus-k-bim.png">' +
-					'</div>' +
-					'</div>' +															
-					'</div>');
+															'<div class="row">' +
+																'<div class="col-xs-9 fresh-lightbox-item-img no-padding">' +
+																	'<img src="' + src + '" alt="Krion">' +
+																'</div>' +
+																'<div class="col-xs-3 fresh-lightbox-item-info no-padding">' +
+																	info + 
+																'</div>' +
+															'</div>' +
+															'<div class="col-xs-12">' +
+																'<div class="col-xs-12 fresh-lightbox-item-minilog no-padding">' +
+																	'<img src="../img/2-productos/2-1/icons/plus-k-bim.png">' +
+																'</div>' +
+															'</div>' +
+														   '</div>');
 
 				// Damos el tamaño adecuado al contenedor. Éste depende de la ventana 
 				$('#fresh-lightbox .fresh-lightbox-content').css('height', (parseInt($(window).height())) + 'px');
@@ -686,7 +736,7 @@ function loadImageFresh(element)
 				// A las imágenes de los elementos les damos el tamaño justo
 				$('.fresh-lightbox-item').css('width', $('.fresh-lightbox-content').width());
 				$('.fresh-lightbox-item').css('height', $('.fresh-lightbox-content').height());
-				$('.fresh-lightbox-item-img img').css('height', $('.fresh-lightbox-content').height());
+				// $('.fresh-lightbox-item-img img').css('height', $('.fresh-lightbox-content').height());
 				$('.fresh-lightbox-item-info').css('height', $('.fresh-lightbox-content').height());
 
 				// Eliminamos el hidden que viene del elemento desde el que hemos obtenido los datos
@@ -713,7 +763,7 @@ function loadImageFresh(element)
 
 				if (element.parent().hasClass('fachada'))
 				{
-					info = info + '<div class="col-xs-3"><img src="../img/2-productos/2-1/icons/fachada.png" alt="Krion" class="col-xs-12"></div>';
+					info = info + '<div class="col-xs-3 no-padding"><img src="../img/2-productos/2-1/icons/fachada.png" alt="Krion" class="col-xs-12"></div>';
 				}
 
 				info = info + '</div>' +
@@ -778,7 +828,8 @@ function loadImageFresh(element)
 			function moveSlides(element, direction)
 			{
 				var active = element;
-				var target_active = $('img[src$="' + element.find('img').attr('src') + '"]').parents('.productos-filter-item');
+				var src = element.find('img').attr('src');
+				var target_active = $('img[src$="' + src.replace('pics', 'thumbs') + '"]').parents('.productos-filter-item');
 				var target_next = obtenerNextTarget(element, direction, target_active);
 
 				// Si tenemos el target del siguiente elemento en aparecer
@@ -823,11 +874,12 @@ function loadImageFresh(element)
 			function colocarNextElement(next, direction, active)
 			{
 				var info = getBasicInfo(next.find('a.producto-filter-item-link'));
+				var src = next.find('img').attr('src');
 
 				$('.fresh-lightbox-inner-content').append('<div class="fresh-lightbox-item fresh-lightbox-next no-padding">' +
 					'<div class="row">' +
 					'<div class="col-xs-9 fresh-lightbox-item-img no-padding">' +
-					'<img src="' + next.find('img').attr('src') + '" alt="Krion">' +
+					'<img src="' + src.replace('thumbs', 'pics') + '" alt="Krion">' +
 					'</div>' +
 					'<div class="col-xs-3 fresh-lightbox-item-info no-padding">' +
 					info + 
@@ -843,7 +895,7 @@ function loadImageFresh(element)
 				next = $('.fresh-lightbox-next');
 				
 				next.css('width', active.width());
-				next.css('height', active.height());
+				// next.css('height', active.height());
 				next.css('left', $(window).width());
 				next.find('.fresh-lightbox-item-info').css('height', $(window).height());
 
@@ -899,19 +951,32 @@ function loadImageFresh(element)
 
 			function showNames()
 			{
+				$('body').append('<div id="spinner_div" style="position: fixed;width:100%;height:100%;background:url(../img/common/spinner.gif) rgba(255, 255, 255, 0.65);background-repeat:no-repeat;background-position:center center;top: 0;left: 0;"></div>');
+
+				var cont = $('.productos-filter-item').length;
+
 				$('.productos-filter-item').each(function() {
 					if (! $(this).find('.fresh-lightbox-item-nombre').length)
 					{
 						var obj = $(this).find('a.producto-filter-item-link');
 						obj.append('<div class="fresh-lightbox-item-nombre text-center">' + obj.data('title') + '</div>');
+						$('.fresh-lightbox-item-nombre').css('bottom', ($(this).height() / (-2)) + 5);
 					}
 					else
 					{
 						$(this).find('.fresh-lightbox-item-nombre').remove()
 					}
+
+					cont = cont - 1;
 				});
 
-				$('.fresh-lightbox-item-nombre').css('bottom', ($('.producto-filter-item-link img').height() / (-2)) + 5)
+				var removeGif = setInterval(function() {
+					if (cont <= 0)
+					{
+						$('#spinner_div').remove();
+						clearInterval(removeGif);
+					}
+				}, 10);
 			}
 			
 			// Sistema para desactivar el scroll de todo

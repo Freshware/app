@@ -371,8 +371,7 @@
 		<script src="../js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 		<script src="../libraries/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="../libraries/TouchSwipe-Jquery-Plugin-master/jquery.touchSwipe.min.js"></script>
-		<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
-		<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="../js/video.js"></script>
 		<script src="../cordova.js"></script>
 		<script src="../js/app.js"></script>
 		<script type="text/javascript">
@@ -437,12 +436,12 @@
 				// También obtenemos los nombres de los archivos
 				// 
 				// Ruta en el dispositivo
-				window.store_path = cordova.file.documentsDirectory;
+				window.store_path = cordova.file.dataDirectory;
 				
 				window.fileName = '';
 
 				$.each(videos, function(index, val) {
-					if (index == file)
+					if (index == file && val != '')
 					{
 						fileName = val;
 					}
@@ -452,45 +451,33 @@
 
 				$('body').append('<div id="spinner_div" style="position: fixed;width:100%;height:100%;background:url(../img/common/spinner.gif) rgba(255, 255, 255, 0.65);background-repeat:no-repeat;background-position:center center;top: 0;left: 0;"></div>');
 
-				//Check for the file. 
-				// La funcón se define así: window.resolveLocalFileSystemURL(url, successCallback, errorCallback);
-				// Así qu eusaremos el success para cuando tengamos un archivo y el error para descargarlo
-				// window.resolveLocalFileSystemURL(store_path + fileName, appStart, downloadAsset);
-				window.resolveLocalFileSystemURL(store_path + fileName, existeArchivo, descargarArchivo);
+				var wait_spinner = setInterval(function() {
+					if ($('#spinner_div').length)
+					{
+						clearInterval(wait_spinner);
+
+						if (fileName != '')
+						{
+							//Check for the file. 
+							// La funcón se define así: window.resolveLocalFileSystemURL(url, successCallback, errorCallback);
+							// Así qu eusaremos el success para cuando tengamos un archivo y el error para descargarlo
+							// window.resolveLocalFileSystemURL(store_path + fileName, appStart, downloadAsset);
+							window.resolveLocalFileSystemURL(store_path + fileName, existeArchivo, descargarArchivo);
+						}
+						else
+						{
+							descargarArchivo();
+						}
+					}
+				});
 			}
 
 			function existeArchivo()
 			{
-				$('#spinner_div').remove();
-
-				alert('Existe el archivo: ');
-				alert('y es');
+				// alert('Existe el archivo: ');
+				// alert('y es');
 				console.log('Existe el archivo: ' + store_path + fileName);
-				alert(store_path + fileName);
-
-				var options = {
-							    documentView: {
-							        closeLabel: "Finished"
-							    },
-							    navigationView: {
-							        closeLabel: "Back"
-							    },
-							    email: {
-							        enabled: false
-							    },
-							    print: {
-							        enabled: true
-							    },
-							    openWith: {
-							        enabled: false
-							    },
-							    bookmarks: {
-							        enabled: false
-							    },
-							    search: {
-							        enabled: false
-							    }
-							};
+				// alert(store_path + fileName);
 
 				if (! $('body #myvideo').length)
 				{
@@ -506,25 +493,47 @@
 									  '</video>');
 				}
 
-				var elem = document.getElementById("myvideo");
+				$('#spinner_div').remove();
 
-				if (elem.requestFullscreen) {
-				  elem.requestFullscreen();
-				} else if (elem.mozRequestFullScreen) {
-				  elem.mozRequestFullScreen();
-				} else if (elem.webkitRequestFullscreen) {
-				  elem.webkitRequestFullscreen();
-				}
+				var deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
 
-				$('#myvideo').on('ended', function(e) {
-					console.log(e.type)
-			        $('#myvideo').remove()
-			    });
+				// alert(deviceType);
 
-				$('#myvideo').on('pause', function(e) {
-					console.log(e.type)
-			        $('#myvideo').remove()
-			    });
+				// if (deviceType == 'Android')
+				// {
+				// 	alert('dentro android')
+				// 	window.plugins.html5Video.play(store_path + fileName, function videoIsFinished() {
+				// 		alert("Video is finished")
+				// 	});
+				// }
+				// else
+				// {
+					// alert('dentro else')
+					var elem = document.getElementById("myvideo");
+
+					if (elem.requestFullscreen)
+					{
+						elem.requestFullscreen();
+					}
+					else if (elem.mozRequestFullScreen)
+					{
+						elem.mozRequestFullScreen();
+					}
+					else if (elem.webkitRequestFullscreen)
+					{
+						elem.webkitRequestFullscreen();
+					}
+
+					$('#myvideo').on('ended', function(e) {
+						console.log(e.type)
+				        $('#myvideo').remove()
+				    });
+
+					$('#myvideo').on('pause', function(e) {
+						console.log(e.type)
+				        $('#myvideo').remove()
+				    });
+				// }
 			}
 
 			function onError()
@@ -535,25 +544,28 @@
 
 			function descargarArchivo()
 			{
-				$('#spinner_div').remove();
-
 				var fileTransfer = new FileTransfer();
 
 				var storeComplete = store_path + fileName;
 
 				fileTransfer.download(ruta_server + fileName, storeComplete, 
 					function(entry) {
+						$('#spinner_div').remove();
+
 						$('.pdf-link[data-file="' + link_file + '"]').find('span').removeClass('glyphicon-cloud-download');
 						$('.pdf-link[data-file="' + link_file + '"]').find('span').addClass('glyphicon-facetime-video');
 						$('.pdf-link[data-file="' + link_file + '"]').find('span').addClass('text-success');
 						$('.pdf-link[data-file="' + link_file + '"]').find('span').addClass('descargado');
 					}, 
 					function(err) {
+						$('#spinner_div').remove();
+						
 						alert("Error - Not possible Download - Imposible descargar");
-						alert(ruta_server + fileName)
-						alert(err.source)
-						alert(err.target)
-						alert(err.code)
+						// alert(ruta_server + fileName)
+						// alert(storeComplete)
+						// alert(err.source)
+						// alert(err.target)
+						// alert(err.code)
 					}
 				);
 			}
@@ -577,8 +589,8 @@
 				  // cordova.file.cacheDirectory,
 				  // cordova.file.applicationDirectory,
 				  // cordova.file.applicationStorageDirectory,
-				  // cordova.file.dataDirectory,
-				  cordova.file.documentsDirectory,
+				  cordova.file.dataDirectory,
+				  // cordova.file.documentsDirectory,
 				  // cordova.file.externalApplicationStorageDirectory,
 				  // cordova.file.externalCacheDirectory,
 				  // cordova.file.externalRootDirectory,

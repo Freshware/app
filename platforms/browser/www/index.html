@@ -148,29 +148,43 @@
 
 			// Cuando la ventana está cargada
 			// colocamos todas las secciones arriba
-			// excepto la principal
+			// excepto la principal.
+			// Existe un temporizador para dar tiempo
+			// a la carga correcta del contenido.
 			$(window).on('load', function() {
-				$('.sections .info-content').each(function() {
-					var top = ($(this).parent().height() / 2) - ($(this).height() / 2);
+				var h_img = 0;
+				var loadImage = setInterval(function() {
+					aux = $('.section1').height();
 
-					$(this).css('margin-top', top);
-				});
-
-				$('.info-content').fadeIn('fast');
-				
-				var ol = $('ol');
-
-				ol.css('margin-top', (($('.sections').height() / 2) - ($(this).height() / 2) / 2));
-				console.log(($('.sections').height() / 2) - (ol.height() / 2))
-				console.log(ol.height())
-				console.log($('.sections').height())
-
-				$('.section').each(function() {
-					if (! $(this).hasClass('section-active'))
+					if ($('.section1').length && h_img == aux)
 					{
-						$(this).find('.info-content').fadeOut('fast');
+						clearInterval(loadImage);
+
+						$('.sections .info-content').each(function() {
+							var top = ($(this).parent().height() / 2) - ($(this).height() / 2);
+				// alert(top)
+							$(this).css('margin-top', top);
+						});
+
+						$('.info-content').fadeIn('fast');
+						
+						var ol = $('ol');
+
+						ol.css('margin-top', (($('.sections').height() / 2) - ($(this).height() / 2) / 2));
+						// alert(($('.sections').height() / 2) - (ol.height() / 2))
+						// alert(ol.height())
+						// alert($('.sections').height())
+
+						$('.section').each(function() {
+							if (! $(this).hasClass('section-active'))
+							{
+								$(this).find('.info-content').fadeOut('fast');
+							}
+						});
 					}
-				});
+					
+					h_img = aux;
+				}, 250)
 
 				animacionOnExit();
 			})
@@ -473,13 +487,32 @@
 										$.each(valor, function(index, val) {
 											if (index == 'menu')
 											{
+											
+												var count=0;
+												var ultima_clave;
+
 												$.each(val.links, function(key, value) {
-													$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
-												})
+													count++;
+													ultima_clave=key;
+												});
+
+
+												if(count>1){
+													$.each(val.links, function(key, value) {
+														$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="../' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
+													});
+												}else{
+
+													$('.menu_seccion'+(indice+1)+" a.menu_link_toggle").attr('href','../' + val.folder + '/' + ultima_clave + '.html');
+													$('.menu_seccion'+(indice+1)+" a.menu_link_toggle").removeClass('menu_link_toggle');
+												}
+												
 											}
 											else if (index == 'titulo_menu')
 											{
-												$('.menu_seccion' + (indice + 1)).find('.col-xs-12').prepend('<h2><a href="#" class="menu_link_toggle">' + valor.titulo_menu + '</a></h2>');
+												
+													$('.menu_seccion' + (indice + 1)).find('.col-xs-12').prepend('<h2><a href="#" class="menu_link_toggle">' + valor.titulo_menu + '</a></h2>');
+										
 											}
 										});
 									});
@@ -489,10 +522,10 @@
 							$('#menu').append('<div class="menu_footer">' +
 												'<div class="row">' +
 													'<div class="col-xs-4 text-left">' +
-														'<a href="multimedia/videos.html">HOME</a>' +
+														'<a href="index.html">HOME</a>' +
 													'</div>' +
 													'<div class="col-xs-4 text-center">' +
-														'<img src="../img/common/logo_gales.png">' +
+														'<img src="img/common/logo_gales.png">' +
 													'</div>' +
 													'<div class="col-xs-4 text-right">' +
 														'<a class="language_menu" href="#">IDIOMA: ESPAÑOL</a>' +
@@ -539,58 +572,6 @@
 					}
 				});
 			}
-
-// 			var localURLs    = [
-//     cordova.file.dataDirectory,
-//     cordova.file.documentsDirectory,
-//     cordova.file.externalApplicationStorageDirectory,
-//     cordova.file.externalCacheDirectory,
-//     cordova.file.externalRootDirectory,
-//     cordova.file.externalDataDirectory,
-//     cordova.file.sharedDirectory,
-//     cordova.file.syncedDataDirectory
-// ];
-// var index = 0;
-// var i;
-// var statusStr = "";
-// var addFileEntry = function (entry) {
-//     var dirReader = entry.createReader();
-//     dirReader.readEntries(
-//         function (entries) {
-//             var fileStr = "";
-//             var i;
-//             for (i = 0; i < entries.length; i++) {
-//                 if (entries[i].isDirectory === true) {
-//                     // Recursive -- call back into this subdirectory
-//                     addFileEntry(entries[i]);
-//                 } else {
-//                    fileStr += (entries[i].fullPath + "<br>"); // << replace with something useful
-//                    index++;
-//                 }
-//             }
-//             // add this directory's contents to the status
-//             statusStr += fileStr;
-//             // display the file list in #results
-//             if (statusStr.length > 0) {
-//                 $("#results").html(statusStr);
-//             } 
-//         },
-//         function (error) {
-//             console.log("readEntries error: " + error.code);
-//             statusStr += "<p>readEntries error: " + error.code + "</p>";
-//         }
-//     );
-// };
-// var addError = function (error) {
-//     console.log("getDirectory error: " + error.code);
-//     statusStr += "<p>getDirectory error: " + error.code + ", " + error.message + "</p>";
-// };
-// for (i = 0; i < localURLs.length; i++) {
-//     if (localURLs[i] === null || localURLs[i].length === 0) {
-//         continue; // skip blank / non-existent paths for this platform
-//     }
-//     window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
-// }
 		</script>
 	</body>
 </html>

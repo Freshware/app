@@ -52,7 +52,7 @@
 						"menu": {
 							"folder": "proyectos",
 							"links": {
-								"galerias": "Galería de Proyectos"
+								"galerias": "galería de proyectos"
 							}
 						}
 					},
@@ -62,9 +62,9 @@
 						"menu": {
 							"folder": "multimedia",
 							"links": {
-								"catalogo": "Catálogo",
-								"videos": "Vídeos",
-								"videos_transformador": "Vídeos Transformador"
+								"catalogo": "catálogo",
+								"videos": "vídeos",
+								"videos_transformador": "vídeos transformador"
 							}
 						}
 					},
@@ -74,7 +74,7 @@
 						"menu": {
 							"folder": "empresa",
 							"links": {
-								"empresa": "Empresa"
+								"empresa": "empresa"
 							}
 						}
 					}
@@ -661,7 +661,7 @@
 				"categoria_consumibles": "Consumibles",
 				"categoria_abrasivos": "Abrasivos",
 				"categoria_banera":"Base de Bañera",
-				"categoria_krion": "KRION®"
+				"categoria_cocina": "KRION®"
 				
 			},
 			"proyectos": {

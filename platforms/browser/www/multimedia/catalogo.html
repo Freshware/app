@@ -425,8 +425,6 @@
 		<script src="../js/jquery-ui-1.12.1/jquery-ui.min.js"></script>
 		<script src="../libraries/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 		<script src="../libraries/TouchSwipe-Jquery-Plugin-master/jquery.touchSwipe.min.js"></script>
-		<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
-		<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 		<script src="../cordova.js"></script>
 		<script src="../js/app.js"></script>
 		<script type="text/javascript">
@@ -490,15 +488,31 @@
 
 				$('body').append('<div id="spinner_div" style="position: fixed;width:100%;height:100%;background:url(../img/common/spinner.gif) rgba(255, 255, 255, 0.65);background-repeat:no-repeat;background-position:center center;top: 0;left: 0;"></div>');
 
-				//Check for the file. 
-				// La funcón se define así: window.resolveLocalFileSystemURL(url, successCallback, errorCallback);
-				// Así qu eusaremos el success para cuando tengamos un archivo y el error para descargarlo
-				// window.resolveLocalFileSystemURL(store_path + fileName, appStart, downloadAsset);
-				window.resolveLocalFileSystemURL(cordova.file.dataDirectory + fileName, existeArchivo, descargarArchivo);
+				var wait_spinner = setInterval(function() {
+					if ($('#spinner_div').length)
+					{
+						clearInterval(wait_spinner);
+
+						if (fileName != '')
+						{
+							//Check for the file. 
+							// La funcón se define así: window.resolveLocalFileSystemURL(url, successCallback, errorCallback);
+							// Así qu eusaremos el success para cuando tengamos un archivo y el error para descargarlo
+							// window.resolveLocalFileSystemURL(store_path + fileName, appStart, downloadAsset);
+							window.resolveLocalFileSystemURL(cordova.file.dataDirectory + fileName, existeArchivo, descargarArchivo);
+						}
+						else
+						{
+							descargarArchivo();
+						}
+					}
+				});
 			}
 
 			function existeArchivo()
 			{
+				// alert('existe archivo')
+
 				var options = {
 							    documentView: {
 							        closeLabel: "Finished"
@@ -534,6 +548,7 @@
 
 			function onError()
 			{
+				$('#spinner_div').remove();
 				window.console.log(error);
 				alert("Sorry! Cannot view document.");
 			}
@@ -562,55 +577,81 @@
 
 			function listDir()
 			{
-				window.resolveLocalFileSystemURL(cordova.file.dataDirectory,
-    											function (fileSystem)
-    											{
-				alert('linea 574')
-				console.log('linea 575')
-													var reader = fileSystem.createReader();
+				/**
+				 * Starter vars.
+				 */
+				var index = 0;
+				var i;
 
-													reader.readEntries(function (entries) {
-				alert('linea 578')
-				console.log('linea 579')
-																			var i;
-																			alert('hola reader')
-																		    for (i = 0; i < entries.length; i++)
-																		    {
-																				if (entries[i].isFile)
-																				{
-				alert('linea 587')
-				console.log('linea 588')
-																					$('.pdf-link').each(function() {
-																						var elem = $(this);
-																						var file = $(this).data('file');
+				/**
+				 * Need cordova.file plugin.
+				 * $ cordova plugin add org.apache.cordova.file
+				 * 
+				 * To get all urls see https://github.com/apache/cordova-plugin-file/blob/master/README.md#where-to-store-files
+				 * 
+				 */
+				var localURLs    = [
+				  // cordova.file.cacheDirectory,
+				  // cordova.file.applicationDirectory,
+				  // cordova.file.applicationStorageDirectory,
+				  cordova.file.dataDirectory,
+				  // cordova.file.documentsDirectory,
+				  // cordova.file.externalApplicationStorageDirectory,
+				  // cordova.file.externalCacheDirectory,
+				  // cordova.file.externalRootDirectory,
+				  // cordova.file.externalDataDirectory,
+				  // cordova.file.sharedDirectory,
+				  // cordova.file.syncedDataDirectory
+				];
 
-																						$.each(pdfs, function(index, val) {
-				alert('linea 594')
-				console.log('linea 595')
-																							if (index == file)
-																							{
-				alert('Éxito')
-				console.log('Éxito')
-																								elem.find('span').removeClass('glyphicon-cloud-download');
-																								elem.find('span').addClass('glyphicon-file');
-																								elem.find('span').addClass('text-success');
-																							}
-																						})
-																					})
-																				}
-																		    }
-																		},
-																		function (err) {
-																			console.log(err);
-																		});
-    											},
-    											function (err)
-    											{
-    												alert('error:')
-    												alert(err)
-													console.log('Éxito')
-													console.log(err);
-												});
+				/**
+				 * Recursive function for file entry.
+				 */
+				var addFileEntry = function (entry) {
+					var dirReader = entry.createReader();
+					dirReader.readEntries(
+				    	function (entries) {
+				    		var fileStr = "";
+				    		var i;
+				    
+				    		for (i = 0; i < entries.length; i++) {
+				    			if (entries[i].isDirectory === true)
+				    		    {
+				        			// Recursive -- call back into this subdirectory
+				        			addFileEntry(entries[i]);
+				        		}
+				        		else
+				        		{
+							        index++;
+				        		}
+				      		}
+				    	},
+				    	function (error) {
+				      		alert("readEntries error: " + error.code);
+				    	}
+					);
+				};
+
+				/**
+				 * Directory error.
+				 */
+				var addError = function (error) {
+					alert("getDirectory error: " + error.code);
+				};
+
+				/**
+				 * Loop through the array.
+				 */
+				for (i = 0; i < localURLs.length; i++)
+				{
+					if (localURLs[i] === null || localURLs[i].length === 0)
+					{
+				    	continue; // skip blank / non-existent paths for this platform
+				  	}
+					
+					window.resolveLocalFileSystemURL(localURLs[i], addFileEntry, addError);
+
+				}
 			}
 
 
