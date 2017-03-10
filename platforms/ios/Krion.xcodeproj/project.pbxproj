@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		000F65E1799D4495872A459B /* ReaderMainToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 522E8AE3C63843D3BC39ACBB /* ReaderMainToolbar.m */; };
 		01CB4D79A695411088EB4D73 /* ReaderMainToolbar+SDVReaderMainToolbarPassThrough.m in Sources */ = {isa = PBXBuildFile; fileRef = 029FB9D6C1484D67BE4C5F99 /* ReaderMainToolbar+SDVReaderMainToolbarPassThrough.m */; };

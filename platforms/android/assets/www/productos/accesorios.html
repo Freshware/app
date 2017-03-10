@@ -78,28 +78,13 @@
 								
 							</div>
 						</div>
-						<div class="row productos-filter-opciones-advanced">
-							<div class="col-xs-4 col-xs-offset-4 colum-colecciones">
-								<div class="row text-center">
-									<div class="col-xs-12">
-										<h5 class="colecciones_title"></h5>
-									</div>
-									
-									<div class="col-xs-10 col-xs-offset-1">
-										<div class="col-xs-12">
-											<div class="row">
-												<div class="col-xs-12">
-													<a href="#" class="opciones-visualizacion-nombre">
-														
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						
+					</div>
+					<div class="col-xs-12 text-center">
+						<a href="#productos_filter" id="arrowUp"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+
+						<a href="#" class="opciones-visualizacion-nombre">
+							
+						</a>
 					</div>
 				</div>
 			</div>
@@ -913,6 +898,44 @@
 
 			$(window).on('load', function() {
 				animacionOnExit();
+
+				$("#arrowUp").click(function(event) {
+					event.preventDefault();
+
+					//calculate destination place
+					var dest = 0;
+
+					if ($(this.hash).offset().top > $(document).height() - $(window).height())
+					{
+						dest = $(document).height() - $(window).height();
+					}
+					else
+					{
+						dest = $(this.hash).offset().top;
+					}
+
+					//go to destination
+					$('html,body').animate({scrollTop:dest}, 1000,'swing');
+				});
+
+				$(".opciones-visualizacion-link").click(function(event) {
+					event.preventDefault();
+
+					//calculate destination place
+					var dest = 0;
+
+					if ($('#arrowUp').offset().top > $(document).height() - $(window).height())
+					{
+						dest = $(document).height() - $(window).height();
+					}
+					else
+					{
+						dest = $('#arrowUp').offset().top - 20;
+					}
+
+					//go to destination
+					$('html,body').animate({scrollTop:dest}, 1000,'swing');
+				});
 			});
 
 			/**
@@ -1507,20 +1530,20 @@
 				var src = next.find('img').attr('src');
 
 				$('.fresh-lightbox-inner-content').append('<div class="fresh-lightbox-item fresh-lightbox-next no-padding">' +
-					'<div class="row">' +
-					'<div class="col-xs-9 fresh-lightbox-item-img no-padding">' +
-					'<img src="' + src.replace('thumbs', 'pics') + '" alt="Krion">' +
-					'</div>' +
-					'<div class="col-xs-3 fresh-lightbox-item-info no-padding">' +
-					info + 
-					'</div>' +
-					'</div>' +
-					'<div class="col-xs-12">' +
-					'<div class="col-xs-12 fresh-lightbox-item-minilog no-padding">' +
-					'<img src="../img/2-productos/2-1/icons/plus-k-bim.png">' +
-					'</div>' +
-					'</div>' +	
-					'</div>');
+															'<div class="row">' +
+																'<div class="col-xs-9 fresh-lightbox-item-img no-padding">' +
+																	'<img src="' + src.replace('thumbs', 'pics') + '" alt="Krion">' +
+																'</div>' +
+																'<div class="col-xs-3 fresh-lightbox-item-info no-padding">' +
+																	info + 
+																'</div>' +
+															'</div>' +
+															'<div class="col-xs-12">' +
+																'<div class="col-xs-12 fresh-lightbox-item-minilog no-padding">' +
+																	'<img src="../img/2-productos/2-1/icons/plus-k-bim.png">' +
+																'</div>' +
+															'</div>' +	
+														  '</div>');
 
 				next = $('.fresh-lightbox-next');
 				

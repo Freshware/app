@@ -51,6 +51,9 @@
 								<a href="#" class="opciones-visualizacion-link" data-filter=".basic">BASIC</a>
 							</div>
 							<div class="col-xs-3">
+								<a href="#" class="opciones-visualizacion-link" data-filter=".3way">3WAY</a>
+							</div>
+							<div class="col-xs-3">
 								<a href="#" class="opciones-visualizacion-link" data-filter=""></a>
 							</div>
 						</div>
@@ -66,28 +69,13 @@
 								
 							</div>
 						</div>
-						<div class="row productos-filter-opciones-advanced">
-							<div class="col-xs-4 col-xs-offset-4 colum-colecciones">
-								<div class="row text-center">
-									<div class="col-xs-12">
-										<h5 class="colecciones_title"></h5>
-									</div>
-									
-									<div class="col-xs-10 col-xs-offset-1">
-										<div class="col-xs-12">
-											<div class="row">
-												<div class="col-xs-12">
-													<a href="#" class="opciones-visualizacion-nombre">
-												
-													</a>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						
+					</div>
+					<div class="col-xs-12 text-center">
+						<a href="#productos_filter" id="arrowUp"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span></a>
+
+						<a href="#" class="opciones-visualizacion-nombre">
+							
+						</a>
 					</div>
 				</div>
 			</div>
@@ -97,7 +85,7 @@
 				<div class="">
 					<div class="productos-filter-content">
 						<div class="col-xs-3 productos-filter-item no-padding unique">
-							<a href="#" class="producto-filter-item-link" data-title="Unique T801 155x65 E" data-serie="unique">
+							<a href="#" class="producto-filter-item-link" data-title="T801 155X65 E BL" data-serie="unique">
 								<img src="../img/2-productos/2-4/thumbs/unique-t801-155x65-1100-e.jpg" alt="Krion">
 								
 								<div class="medidas hidden">
@@ -125,7 +113,7 @@
 						</div>
 
 						<div class="col-xs-3 productos-filter-item no-padding basic">
-							<a href="#" class="producto-filter-item-link" data-title="Babybath 70x42 cm E" data-serie="basic">
+							<a href="#" class="producto-filter-item-link" data-title="T802 70x42 E BL (babybath)" data-serie="basic">
 								<img src="../img/2-productos/2-4/thumbs/neonatos-blanco.jpg" alt="Krion">
 								
 								
@@ -144,6 +132,59 @@
 										<span class="etiqueta-altura-total"></span> : 192 mm / 8"
 									</div>
 								</div>
+								
+								
+
+							</a>
+						</div>
+
+						<div class="col-xs-3 productos-filter-item no-padding basic">
+							<a href="#" class="producto-filter-item-link" data-title="T803 150x60 E BL" data-serie="basic">
+								<img src="../img/2-productos/2-4/thumbs/t803.jpg" alt="Krion">
+								
+								
+								 <div class="medidas hidden">
+									<div class="col-md-12 product-atributo">
+										<span class="etiqueta-ancho"></span> : 600 mm / 23"
+									</div>
+								</div>
+								<div class="medidas hidden">
+									<div class="col-md-12 product-atributo">
+										<span class="etiqueta-largo"></span> : 1500 mm / 59"
+									</div>
+								</div>
+								<!--<div class="medidas hidden">
+									<div class="col-md-12 product-atributo">
+										<span class="etiqueta-altura-total"></span> : 192 mm / 8"
+									</div>
+								</div> -->
+								
+								
+
+							</a>
+						</div>
+
+						<div class="col-xs-3 productos-filter-item no-padding 3way">
+							<a href="#" class="producto-filter-item-link" data-title="T804 165x70 E BL" data-serie="3WAY">
+								<img src="../img/2-productos/2-4/thumbs/t804.jpg" alt="Krion">
+								
+								
+								 <div class="medidas hidden">
+									<div class="col-md-12 product-atributo">
+										<span class="etiqueta-ancho"></span> : 700 mm / 27"
+									</div>
+								</div>
+								<div class="medidas hidden">
+									<div class="col-md-12 product-atributo">
+										<span class="etiqueta-largo"></span> : 1650 mm /64"
+									</div>
+								</div>
+								<!--
+								<div class="medidas hidden">
+									<div class="col-md-12 product-atributo">
+										<span class="etiqueta-altura-total"></span> : 192 mm / 8"
+									</div>
+								</div> -->
 								
 								
 
@@ -345,6 +386,44 @@
 
 			$(window).on('load', function() {
 				animacionOnExit();
+
+				$("#arrowUp").click(function(event) {
+					event.preventDefault();
+
+					//calculate destination place
+					var dest = 0;
+
+					if ($(this.hash).offset().top > $(document).height() - $(window).height())
+					{
+						dest = $(document).height() - $(window).height();
+					}
+					else
+					{
+						dest = $(this.hash).offset().top;
+					}
+
+					//go to destination
+					$('html,body').animate({scrollTop:dest}, 1000,'swing');
+				});
+
+				$(".opciones-visualizacion-link").click(function(event) {
+					event.preventDefault();
+
+					//calculate destination place
+					var dest = 0;
+
+					if ($('#arrowUp').offset().top > $(document).height() - $(window).height())
+					{
+						dest = $(document).height() - $(window).height();
+					}
+					else
+					{
+						dest = $('#arrowUp').offset().top - 20;
+					}
+
+					//go to destination
+					$('html,body').animate({scrollTop:dest}, 1000,'swing');
+				});
 			});
 
 			/**

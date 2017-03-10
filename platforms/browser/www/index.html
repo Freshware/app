@@ -119,8 +119,6 @@
 			$(function() {
 				$('.info-content').hide();
 
-			    FastClick.attach(document.body);
-
 				if (localStorage.getItem("lang") == null)
 				{
 					cargarSeleccionDeIdioma();
@@ -144,6 +142,24 @@
 				$('.section').swipe({
 					fingers:1
 				});
+
+				// Esto lo añadimos para saber qué dispositivo se está usando
+				var deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
+
+				// En caso de que el dispositivo sea android, añadimos 
+				// este estilo para acelerar las imágenes de la home
+				if (deviceType == 'Android')
+				{
+					$('head').append('<style>' +
+							        	'.section' +
+							        	'{' +
+										    '-webkit-transform: translate3d(0,0,0);' +
+										    '-moz-transform: translate3d(0,0,0);' +
+										    '-ms-transform: translate3d(0,0,0);' +
+										    '-o-transform: translate3d(0,0,0);' +
+							        	'}' +
+							        '</style>');
+				}
 			});
 
 			// Cuando la ventana está cargada
@@ -153,38 +169,43 @@
 			// a la carga correcta del contenido.
 			$(window).on('load', function() {
 				var h_img = 0;
-				var loadImage = setInterval(function() {
-					aux = $('.section1').height();
+				
+				// Cargamos la primera imagen, y hasta que no está cargada no la mostramos
+				$("<img/>").attr("src", 'img/0-home/1.jpg').on('load', function() {
+			    	$(this).remove();
+					$('.section1').css('background-image', 'url(img/0-home/1.jpg)');
 
-					if ($('.section1').length && h_img == aux)
-					{
-						clearInterval(loadImage);
+					var loadImage = setInterval(function() {
+						aux = $('.section1').height();
 
-						$('.sections .info-content').each(function() {
-							var top = ($(this).parent().height() / 2) - ($(this).height() / 2);
-				// alert(top)
-							$(this).css('margin-top', top);
-						});
+						if ($('.section1').length && h_img == aux)
+						{
+							clearInterval(loadImage);
 
-						$('.info-content').fadeIn('fast');
+							$('.sections .info-content').each(function() {
+								var top = ($(this).parent().height() / 2) - ($(this).height() / 2);
+
+								$(this).css('margin-top', top);
+							});
+
+							$('.info-content').fadeIn('fast');
+							
+							var ol = $('ol');
+
+							ol.css('margin-top', (($('.sections').height() / 2) - ($(this).height() / 2) / 2));
+
+							$('.section').each(function() {
+								if (! $(this).hasClass('section-active'))
+								{
+									$(this).find('.info-content').fadeOut('fast');
+								}
+							});
+						}
 						
-						var ol = $('ol');
-
-						ol.css('margin-top', (($('.sections').height() / 2) - ($(this).height() / 2) / 2));
-						// alert(($('.sections').height() / 2) - (ol.height() / 2))
-						// alert(ol.height())
-						// alert($('.sections').height())
-
-						$('.section').each(function() {
-							if (! $(this).hasClass('section-active'))
-							{
-								$(this).find('.info-content').fadeOut('fast');
-							}
-						});
-					}
-					
-					h_img = aux;
-				}, 250)
+						h_img = aux;
+					}, 250)
+				})
+			    .on('error', function() { console.log("error loading image"); });
 
 				animacionOnExit();
 			})
@@ -447,7 +468,6 @@
 			// 	})
 			// }
 
-
 			function cargarMenu()
 			{
 				$('body').append('<div id="menu">' +
@@ -499,11 +519,11 @@
 
 												if(count>1){
 													$.each(val.links, function(key, value) {
-														$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="../' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
+														$('.menu_seccion' + (indice + 1)).find('ul').append('<li><a href="' + val.folder + '/' + key + '.html" class="animsition-link">' + value + '</a></li>');
 													});
 												}else{
 
-													$('.menu_seccion'+(indice+1)+" a.menu_link_toggle").attr('href','../' + val.folder + '/' + ultima_clave + '.html');
+													$('.menu_seccion'+(indice+1)+" a.menu_link_toggle").attr('href', val.folder + '/' + ultima_clave + '.html');
 													$('.menu_seccion'+(indice+1)+" a.menu_link_toggle").removeClass('menu_link_toggle');
 												}
 												
