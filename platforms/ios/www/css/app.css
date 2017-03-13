@@ -708,7 +708,7 @@ a, a:focus, a:hover, a:visited
 {
     list-style: none;
     display: inline;
-    margin: 0 20px;
+    margin: 0 15px;
     color: #AAA;
     font-size: 30px;
     text-shadow: 0px 0px 4px #666;
@@ -1069,7 +1069,6 @@ ol li{
 /**
  * Fin Pep
  */
-
 .menu-link > div > ul > li > a
 {
 	color: #000;
@@ -1082,118 +1081,119 @@ ol li{
 
 .c-hamburger
 {
-    display: block;
-    position: relative;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    /*width: 96px;*/
-    width: 40px;
+	display: block;
+	position: relative;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	/*width: 96px;*/
+	width: 40px;
     height: 36px;
-    /*height: 96px;*/
-    font-size: 0;
-    text-indent: -9999px;
-    appearance: none;
-    box-shadow: none;
-    border-radius: none;
-    border: none;
-    cursor: pointer;
-    transition: background 0.3s;
+	/*height: 96px;*/
+	font-size: 0;
+	text-indent: -9999px;
+	appearance: none;
+	box-shadow: none;
+	border-radius: none;
+	border: none;
+	cursor: pointer;
+	transition: background 0.3s;
 }
 
 .c-hamburger:focus
 {
-    outline: none;
+	outline: none;
 }
 
 .c-hamburger span
 {
-    display: block;
+	display: block;
     position: absolute;
-    top: 10px;
-    left: 8px;
+    top: 26px;
+    left: 14px;
     right: 8px;
     height: 3px;
     background: #AAA;
+    width: 31px;
 }
 
 .c-hamburger span::before,
 .c-hamburger span::after
 {
-    position: absolute;
-    display: block;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #AAA;
-    content: "";
+	position: absolute;
+	display: block;
+	left: 0;
+	width: 100%;
+	height: 3px;
+	background-color: #AAA;
+	content: "";
 }
 
 .c-hamburger span::before
 {
-    top: -8px;
+	top: -8px;
 }
 
 .c-hamburger span::after
 {
-    bottom: -8px;
+	bottom: -8px;
 }
 
 .c-hamburger--htx
 {
-    /*background-color: #ff3264;*/
+	/*background-color: #ff3264;*/
     background-color: transparent;
 }
 
 .c-hamburger--htx span
 {
-    transition: background 0s 0.3s;
+	transition: background 0s 0.3s;
 }
 
 .c-hamburger--htx span::before,
 .c-hamburger--htx span::after
 {
-    transition-duration: 0.3s, 0.3s;
-    transition-delay: 0.3s, 0s;
+	transition-duration: 0.3s, 0.3s;
+	transition-delay: 0.3s, 0s;
 }
 
 .c-hamburger--htx span::before
 {
-    transition-property: top, transform;
+	transition-property: top, transform;
 }
 
 .c-hamburger--htx span::after
 {
-    transition-property: bottom, transform;
+	transition-property: bottom, transform;
 }
 
 /* active state, i.e. menu open */
 .c-hamburger--htx.is-active
 {
-    /*background-color: #cb0032;*/
+	/*background-color: #cb0032;*/
 }
 
 .c-hamburger--htx.is-active span
 {
-    background: none;
+	background: none;
 }
 
 .c-hamburger--htx.is-active span::before
 {
-    top: 0;
-    transform: rotate(45deg);
+	top: 0;
+	transform: rotate(45deg);
 }
 
 .c-hamburger--htx.is-active span::after
 {
-    bottom: 0;
-    transform: rotate(-45deg);
+	bottom: 0;
+	transform: rotate(-45deg);
 }
 
 .c-hamburger--htx.is-active span::before,
 .c-hamburger--htx.is-active span::after
 {
-    transition-delay: 0s, 0.3s;
+	transition-delay: 0s, 0.3s;
 }
 
 /**
@@ -1202,12 +1202,15 @@ ol li{
 #BURGER{
     position: fixed;
     z-index: 999;
-    right: 15px;
-    top: 20px;
+    right: 3px;
+    top: 2px;
+    padding: 30px;
+    width: 50px;
 }
 /**
  * Fin Pep
  */
+
 
 .language_menu
 {
@@ -1503,11 +1506,11 @@ ol li{
 .item-sector
 {
 	height: 435px;
-   /* background: url(../img/common/sector-row-background.jpg) repeat-y;*/
+   background: url(../img/common/sector-row-background.jpg) repeat-y;
     background-size: 100% auto;
     padding: 50px 0;
     margin: 0px auto 75px;
-    border-bottom: 4px solid;
+    /*border-bottom: 4px solid;*/
 }
 #body .item-sector .img-circle{
     border-radius: none !important;
@@ -2180,7 +2183,10 @@ video
     to { transform: scale(1) rotate(360deg);}
 }
 
-
+.glyphicon.glyphicon-one-fine-dot:before {
+    content: "\25cf";
+    font-size: 1.5em;
+}
 
 
 

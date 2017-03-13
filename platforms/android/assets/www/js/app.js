@@ -2,6 +2,7 @@ document.addEventListener("deviceready", init, false);
 
 function init()
 {
+	StatusBar.hide();
 	navigator.splashscreen.hide();
 
 	FastClick.attach(document.body);
