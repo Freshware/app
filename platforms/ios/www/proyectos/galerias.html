@@ -1352,6 +1352,25 @@
 
 			$(window).on('load', function() {
 				animacionOnExit();
+
+				$(".opciones-visualizacion-link").click(function(event) {
+					event.preventDefault();
+
+					//calculate destination place
+					var dest = 0;
+
+					if ($('#productos_imgs').offset().top > $(document).height() - $(window).height())
+					{
+						dest = $(document).height() - $(window).height();
+					}
+					else
+					{
+						dest = $('#productos_imgs').offset().top;
+					}
+
+					//go to destination
+					$('html,body').animate({scrollTop:dest}, 1000,'swing');
+				});
 			});
 
 			/**

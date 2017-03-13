@@ -381,11 +381,22 @@
 									var seccion = language.index.seccion;
 
 									$.each(seccion, function(indice, valor) {
-										$('#menu .container').append('<div class="row menu_seccion' + (indice + 1) + '">' +
-																		'<div class="col-xs-12">' +
-																			'<ul></ul>' +
-																		'</div>' +
-																	 '</div>');
+										if (indice == 0)
+										{
+											$('#menu .container').append('<div class="row menu_seccion' + (indice + 1) + '">' +
+																			'<div class="col-xs-12">' +
+																				'<ul style="display:block;" class="slideToggle"></ul>' +
+																			'</div>' +
+																		 '</div>');
+										}
+										else
+										{
+											$('#menu .container').append('<div class="row menu_seccion' + (indice + 1) + '">' +
+																			'<div class="col-xs-12">' +
+																				'<ul></ul>' +
+																			'</div>' +
+																		 '</div>');
+										}
 
 										$.each(valor, function(index, val) {
 											if (index == 'menu')

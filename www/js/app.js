@@ -48,87 +48,28 @@ function animacionOnLoad()
 	// 	marginTop: 0,
 	// 	opacity: 1
 	// }, 1500);
-
-	// // Esto lo añadimos para saber qué dispositivo se está usando
-	// var deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
-
-	// // En caso de que el dispositivo sea android, añadimos 
-	// // este estilo para acelerar las imágenes de la home
-	// if (deviceType == 'iPad')
-	// {
-	// 	$('body').append('<div id="spinner_div" style="position: fixed;width:100%;height:100%;background: #FFF; top: 0;left: 0; z-index: 1000;"></div>');
-
-	// 	var esperar = setInterval(function() {
-	// 		if ($('#spinner_div').length)
-	// 		{
-	// 			clearInterval(esperar);
-
-	// 			$('#BURGER').show();
-	// 			$('body').find('div').first().show({
-	// 				duration: 0,
-	// 				complete: function() {
-	// 					$('#spinner_div').fadeOut(600, function() {
-	// 						$(this).remove();
-	// 					});
-	// 				}
-	// 			});
-	// 		}
-	// 	}, 10);
-	// }
-	// else
-	// {
-	// 	$('#BURGER').show();
-	// 	$('body').find('div').first().show({
-	// }
 }
-
-$(window).on('load', function() {
-
 animacionOnLoad();
-})
 
 function animacionOnExit()
 {
 	$('a').click(function(event){
-		// Esto lo añadimos para saber qué dispositivo se está usando
-		var deviceType = (navigator.userAgent.match(/iPad/i))  == "iPad" ? "iPad" : (navigator.userAgent.match(/iPhone/i))  == "iPhone" ? "iPhone" : (navigator.userAgent.match(/Android/i)) == "Android" ? "Android" : (navigator.userAgent.match(/BlackBerry/i)) == "BlackBerry" ? "BlackBerry" : "null";
+	    event.preventDefault();
 
-		// En caso de que el dispositivo sea android, añadimos 
-		// este estilo para acelerar las imágenes de la home
-		if (deviceType == 'iPad')
-		{
-		    event.preventDefault();
-
-		    var href = $(this).attr('href');
-		    //do whatever
-		    if (href != '#' && href != '' && href != '#productos_filter')
-		    {
-		    	// $('body').animate({
-		    	// 	opacity: 0
-		    	// }, {
-		    	// 	duration: 800,
-		    	// 	easing: 'easeInCirc',
-		    	// 	complete: function() {
-		    	// 		window.location.href = href;
-		    	// 	}
-		    	// })
-		    	$('body').append('<div id="spinner_div" style="display:none;position: fixed;width:100%;height:100%;background: #FFF; top: 0;left: 0;"></div>');
-
-				var esperar = setInterval(function() {
-					if ($('#spinner_div').length)
-					{
-						clearInterval(esperar);
-						
-						$('#spinner_div').fadeIn(800, function() {
-							$('body').find('div').first().hide();
-							$('#BURGER').hide();
-
-							window.location.href = href;
-						});
-					}
-				}, 10);
-		    }
-		}
+	    var href = $(this).attr('href');
+	    //do whatever
+	    if (href != '#' && href != '' && href != '#productos_filter')
+	    {
+	    	$('body').animate({
+	    		opacity: 0
+	    	}, {
+	    		duration: 400,
+	    		easing: 'easeInCirc',
+	    		complete: function() {
+	    			window.location.href = href;
+	    		}
+	    	})
+	    }
 	}); 
 }
 
