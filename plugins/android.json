@@ -67,10 +67,10 @@
         "cordova-plugin-vibration": {
             "PACKAGE_NAME": "es.freshware.krion"
         },
-        "jaeger.Html5Video": {
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "es.freshware.krion"
         },
-        "cordova-plugin-whitelist": {
+        "jaeger.Html5Video": {
             "PACKAGE_NAME": "es.freshware.krion"
         }
     },

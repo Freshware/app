@@ -236,7 +236,7 @@ a, a:focus, a:hover, a:visited
 .whiteSpace
 {
 	background: #FFF;
-    padding: 20px;
+    padding: 20px 20px 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -485,24 +485,33 @@ a, a:focus, a:hover, a:visited
 .fresh-remodal-info
 {
 	padding-top: 75px;
-    text-align: left
+    text-align: left;
+    overflow-y: scroll;
+    padding-bottom: 20px;
 }
 .remodal-content h3{
     text-transform: uppercase;
     display: inline-block;
     position: relative;
-    padding: 0 30px 0 30px;
+    padding: 0 0px 10px 30px;
     text-align: left;
     font-size: 30px;
     font-weight: 600;
-    line-height: 120%;
-
+    line-height: 100%;
+    margin-top: -10px;
+    font-size: 20px;
+    margin-right: 30px;
 }
 
 .fresh-remodal-info p{
      /*padding: 0 30px 0 30px;*/
-    padding: 0 20px 0 0px !important;
+    padding: 0 30px 0 0px !important;
     margin-left: 30px;
+    font-family: 'Gotham Book';
+    line-height: 120%;
+    font-size: 13px;
+    display: inline-block;
+    position: relative;
 }
 .remodal-content .col-xs-offset-1 {
     PADDING: 0;
@@ -523,7 +532,7 @@ a, a:focus, a:hover, a:visited
 .senaletica p{
    background-image: url(../img/1-krion/1-4/iconos/productos.png);
     background-size: 36px;
-    padding: 15px 0px 10px 48px;
+    padding: 20px 0px 10px 48px;
     background-repeat: no-repeat;
     background-position: 0px 8px;
     text-align: left;
@@ -538,25 +547,25 @@ a, a:focus, a:hover, a:visited
     
 }
 .exterior p{
-   background-image: url(../img/1-krion/1-4/iconos/Revestimiento%20esterior.png);
+   background-image: url(../img/1-krion/1-4/iconos/revestimiento_exterior.png);
 }
 .interior p{
-   background-image: url(../img/1-krion/1-4/iconos/Revestimiento%20interior.png);
+   background-image: url(../img/1-krion/1-4/iconos/revestimiento_interior.png);
 }
 .mobiliario p{
    background-image: url(../img/1-krion/1-4/iconos/mobiliario.png);
 }
 .comercial p{
-   background-image: url(../img/1-krion/1-4/iconos/mobiliario%20comercial.png);
+   background-image: url(../img/1-krion/1-4/iconos/mobiliario_comercial.png);
 }
 .encimeras p{
    background-image: url(../img/1-krion/1-4/iconos/encimeras.png);
 }
 .equipamiento p{
-   background-image: url(../img/1-krion/1-4/iconos/Equipamiento%20de%20ba%C3%B1o.png);
+   background-image: url(../img/1-krion/1-4/iconos/equipamiento_de_bano.png);
 }
 .senaletica p{
-   background-image: url(../img/1-krion/1-4/iconos/se%C3%B1aletica.png);
+   background-image: url(../img/1-krion/1-4/iconos/senaletica.png);
 }
 
 
@@ -791,6 +800,19 @@ a, a:focus, a:hover, a:visited
     border: 2px solid #dadada;
     margin-top: 20px;
 }
+
+.row_nombres
+{
+    background: black;
+    padding: 15px;
+    margin-bottom: -20px;
+}
+
+.row_nombres a
+{
+    color: #FFF !important;
+}
+
 .productos-filter-opciones-advanced .col-xs-8{
     border-right: 1px solid #dadada;
 }
@@ -1398,15 +1420,18 @@ ol li{
     
 }
 .item-sector .no-padding a img{
-    margin-top: -30px;
+    /*margin-top: -30px;*/
 }
 .item-sector .row .col-xs-4{
     width: 105px;
     height: 105px;
     overflow: hidden;
     border-radius: 90px;
+    -webkit-border-radius: 90px;
+    -moz-border-radius: 90px;
     display: block;
     margin-right: 14px;
+    border: 2px solid white;
 }
 .item-sector .row .col-xs-4 img {
     width: 150px;
@@ -1450,6 +1475,9 @@ ol li{
     padding-bottom: 0px; 
     margin-top: 20px;
 }
+#krion.main-container {
+    padding: 60px 20px 0px 20px !important;
+}
 
 .krion.items-circle
 {
@@ -1466,9 +1494,12 @@ ol li{
 }
 .krion p{
     margin: 0 0 10px;
-    line-height: 160%;
+    line-height: 140%;
     /*text-align: justify;*/
     color: #4b4b4b;
+    font-family: 'Gotham Book';
+	font-weight: normal;
+	font-style: normal;
 }
 .krion h3{
     margin: 29px 0px;
@@ -1478,7 +1509,14 @@ ol li{
     font-weight: normal;
     font-size: 21px;
 }
-
+#aplicacion .krion .sector-title h2 {
+   margin-left: -30px;
+    margin-bottom: 0px;
+}
+    
+#aplicacion .krion img {
+    margin-top: 70px;
+}
 .krion.sector
 {
 	padding-top: 0px;
@@ -1505,12 +1543,17 @@ ol li{
 
 .item-sector
 {
-	height: 435px;
+	/*height: 435px;*/
    background: url(../img/common/sector-row-background.jpg) repeat-y;
     background-size: 100% auto;
-    padding: 50px 0;
+    /*padding: 50px 0;*/
     margin: 0px auto 75px;
     /*border-bottom: 4px solid;*/
+    /*min-height: 455px;*/
+}
+
+.item-sector .col-xs-6 .col-xs-10 {
+    padding: 40px 0;
 }
 #body .item-sector .img-circle{
     border-radius: none !important;
@@ -1533,6 +1576,7 @@ ol li{
 .item-sector p
 {
 	margin-bottom: 30px;
+    font-family: 'Gotham Book';
 }
 
 .krion.datostecnicos
@@ -1544,6 +1588,11 @@ ol li{
 {
 	margin-top: 30px;
 	max-height: inherit;
+}
+
+#propiedades > .whiteSpace > a
+{
+    color: white;
 }
 
 
@@ -1919,6 +1968,10 @@ a.is-checked
         font-weight: 600;
 }
 
+.multimedia-video-content
+{
+    margin-top: 50px;
+}
 
 .multimedia-video-content img
 {

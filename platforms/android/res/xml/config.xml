@@ -64,12 +64,12 @@
     <feature name="Vibration">
         <param name="android-package" value="org.apache.cordova.vibration.Vibration" />
     </feature>
-    <feature name="Html5Video">
-        <param name="android-package" value="org.apache.cordova.plugin.Html5Video" />
-    </feature>
     <feature name="Whitelist">
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
+    </feature>
+    <feature name="Html5Video">
+        <param name="android-package" value="org.apache.cordova.plugin.Html5Video" />
     </feature>
     <name>Krion</name>
     <description>
